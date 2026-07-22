@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Carrito de Compras | Water Tech</title>
+    <meta
+      name="description"
+      content="Carrito de compras de Water Tech para cotizar equipos, sistemas y consumibles."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Outfit:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="inner-page">
+    <div class="site-shell">
+      <header class="topbar">
+        <a class="brand" href="index.html" aria-label="Water Tech inicio">
+          <img src="logo-watertech.png" alt="Water Tech" class="brand-logo" />
+        </a>
+        <nav class="nav">
+          <div class="nav-item">
+            <a href="soluciones.html">Soluciones</a>
+            <div class="dropdown-menu">
+              <a href="industrial.html">Industrial</a>
+              <a href="comercial.html">Comercial</a>
+              <a href="residencial.html">Residencial</a>
+            </div>
+          </div>
+          <div class="nav-item">
+            <a href="categorias.html">Categorías</a>
+            <div class="dropdown-menu dropdown-menu-wide">
+              <a href="equipos-industriales.html">Equipos industriales</a>
+              <a href="equipos-comerciales.html">Equipos comerciales</a>
+              <a href="repuestos-soporte.html">Repuestos y soporte</a>
+              <a href="membranas-ro-uf.html">Membranas RO y UF</a>
+              <a href="uv-ozono.html">UV y ozono</a>
+              <a href="cargas-filtrantes.html">Cargas filtrantes</a>
+            </div>
+          </div>
+          <div class="nav-item">
+            <a href="ventajas.html">Ventajas</a>
+            <div class="dropdown-menu">
+              <a href="ventajas.html">Por qué elegirnos</a>
+              <a href="contacto.html">Solicitar asesoría</a>
+            </div>
+          </div>
+          <div class="nav-item">
+            <a href="contacto.html">Contacto</a>
+            <div class="dropdown-menu">
+              <a href="contacto.html">Sucursales</a>
+              <a href="mailto:info@watertech.com.ec">Correo</a>
+              <a href="tel:+593968467023">Llamar ahora</a>
+            </div>
+          </div>
+        </nav>
+        <a class="button button-ghost" href="contacto.html">Cotizar</a>
+      </header>
+
+      <main class="page-main">
+        <section class="page-hero cart-hero">
+          <div class="page-panel">
+            <div class="breadcrumbs">
+              <a href="index.html">Inicio</a><span>/</span><span>Carrito</span>
+            </div>
+            <p class="eyebrow">Carrito de compras</p>
+            <h1 class="page-title">Organiza tus productos antes de solicitar la cotización.</h1>
+            <p class="page-intro">
+              Este carrito funciona como base de ecommerce y de solicitud comercial.
+              Podemos llevarlo luego a checkout, cálculo de envío o integración con WhatsApp.
+            </p>
+          </div>
+          <aside class="page-side-card">
+            <img src="logo-watertech.png" alt="Water Tech" class="side-logo" />
+            <h2 class="side-title">Qué hace esta versión</h2>
+            <ul class="side-list">
+              <li>Guarda productos agregados aunque cambies de página.</li>
+              <li>Permite ajustar cantidades y eliminar artículos.</li>
+              <li>Resume subtotal y deja listo el siguiente paso comercial.</li>
+            </ul>
+          </aside>
+        </section>
+
+        <section class="cart-layout">
+          <div class="cart-panel">
+            <div id="cart-items" class="cart-items"></div>
+          </div>
+          <aside class="cart-summary" id="cart-summary">
+            <h2>Resumen</h2>
+            <div class="summary-row">
+              <span>Productos</span>
+              <strong id="cart-total-items">0</strong>
+            </div>
+            <div class="summary-row">
+              <span>Subtotal</span>
+              <strong id="cart-subtotal">$0</strong>
+            </div>
+            <p class="summary-note">
+              Valor referencial para esta demo. Podemos convertirlo en cotización formal o checkout real.
+            </p>
+            <div class="summary-actions">
+              <a class="button button-primary" href="contacto.html">Solicitar cotización</a>
+              <button class="button button-secondary" type="button" id="clear-cart-btn">
+                Vaciar carrito
+              </button>
+            </div>
+          </aside>
+        </section>
+      </main>
+    </div>
+    <script src="site.js"></script>
+  </body>
+</html>
