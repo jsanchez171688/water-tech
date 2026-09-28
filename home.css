@@ -3,17 +3,19 @@
 .home-redesign::before, .home-redesign::after { display: none; }
 .home-redesign .site-shell { width: 100%; max-width: none; padding: 0; }
 .home-redesign .utility-bar { margin: 0; border-radius: 0; box-shadow: none; background: #0b3148; }
-.home-redesign .utility-bar-inner { max-width: 1440px; margin: auto; padding: 10px 40px; }
+.home-redesign .utility-bar-inner { max-width: 1440px; margin: auto; padding: 10px 40px; flex-wrap: wrap; gap: 8px 24px; }
+.home-redesign .utility-phones { display: flex; flex-wrap: wrap; gap: 6px 16px; }
+.home-redesign .utility-phones a { color: #fff; text-decoration: none; font-size: 11px; white-space: nowrap; }
 .home-redesign .utility-item { font-size: 11px; }
 .home-redesign .utility-label { display: none; }
 .home-redesign .topbar { border: 0; border-radius: 0; background: #fff; box-shadow: none; }
-.home-redesign .topbar-main { max-width: 1440px; width: 100%; margin: auto; padding: 16px 40px; }
-.home-redesign .brand-logo { width: 185px; }
+.home-redesign .topbar-main { max-width: 1440px; width: 100%; margin: auto; padding: 20px 40px; grid-template-columns: auto minmax(0, 1fr) auto; gap: 32px; }
+.home-redesign .brand-logo { width: 160px; }
 .home-redesign .header-phone-card { background: none; border: 0; padding: 0 14px; border-radius: 0; }
 .home-redesign .header-phone-label { font-size: 10px; }
 .home-redesign .header-phone-card strong { font-size: 13px; }
-.home-redesign .topbar-nav { padding: 24px 32px; }
-.home-redesign .nav { width: 100%; justify-content: space-between; gap: 24px; padding-inline: clamp(8px, 3vw, 60px); font-size: 14px; }
+.home-redesign .topbar-nav { padding: 0; border: 0; min-width: 0; }
+.home-redesign .nav { width: auto; justify-content: center; gap: 26px; padding-inline: 0; font-size: 14px; }
 .home-redesign .nav-item:last-child .dropdown-menu { left: auto; right: 0; }
 .home-redesign .nav-item:last-child .dropdown-menu::before { left: auto; right: 24px; }
 .home-redesign .button { min-height: 48px; padding: 14px 24px; border-radius: 5px; font-size: 14px; gap: 18px; }
@@ -82,6 +84,8 @@
 @media (max-width: 1000px) {
   .home-redesign .header-phone-row { display: none; }
   .home-redesign .topbar-main { grid-template-columns: 1fr auto; }
+  .home-redesign .topbar-nav { grid-column: 1 / -1; grid-row: 2; padding-top: 16px; border-top: 1px solid #dce6e8; }
+  .home-redesign .topbar-main-actions { grid-column: 2; grid-row: 1; }
   .wt-container { width: calc(100% - 48px); }
   .wt-support-grid { gap: 35px; }
   .wt-solution-photo { height: 210px; }
@@ -98,7 +102,7 @@
   .home-redesign .topbar-main-actions { gap: 8px; }
   .home-redesign .topbar .button-ghost { padding: 10px; min-height: 40px; font-size: 11px; }
   .home-redesign .nav { gap: 12px; padding-inline: 0; font-size: 12px; }
-  .home-redesign .topbar-nav { padding: 20px 16px; }
+  .home-redesign .topbar-nav { padding: 16px 0 4px; }
   .home-redesign .dropdown-menu { min-width: 190px; max-width: calc(100vw - 24px); }
   .wt-container { width: calc(100% - 40px); }
   .wt-hero { min-height: 680px; }

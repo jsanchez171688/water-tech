@@ -85,8 +85,19 @@ const enhanceHeader = () => {
 
   topbar.innerHTML = "";
   topbar.classList.add("is-enhanced");
-  topbarMain.append(brand, phoneRow, actionGroup);
-  topbar.append(topbarMain, navWrap);
+  if (document.body.classList.contains("home-redesign")) {
+    const utilityPhones = document.createElement("div");
+    utilityPhones.className = "utility-phones";
+    utilityPhones.innerHTML = [...MOBILE_PHONES, LANDLINE_PHONE]
+      .map((phone) => `<a href="tel:+593${phone.slice(1)}">${phone}</a>`)
+      .join("");
+    utilityBar.querySelector(".utility-bar-inner").append(utilityPhones);
+    topbarMain.append(brand, navWrap, actionGroup);
+    topbar.append(topbarMain);
+  } else {
+    topbarMain.append(brand, phoneRow, actionGroup);
+    topbar.append(topbarMain, navWrap);
+  }
   topbar.before(utilityBar);
 };
 
