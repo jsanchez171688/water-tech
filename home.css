@@ -12,8 +12,8 @@
 .home-redesign .header-phone-card { background: none; border: 0; padding: 0 14px; border-radius: 0; }
 .home-redesign .header-phone-label { font-size: 10px; }
 .home-redesign .header-phone-card strong { font-size: 13px; }
-.home-redesign .topbar-nav { padding: 12px 24px; }
-.home-redesign .nav { gap: 32px; font-size: 14px; }
+.home-redesign .topbar-nav { padding: 24px 32px; }
+.home-redesign .nav { gap: 40px; font-size: 14px; }
 .home-redesign .button { min-height: 48px; padding: 14px 24px; border-radius: 5px; font-size: 14px; gap: 18px; }
 .home-redesign .button-primary { background: #1479ca; box-shadow: none; }
 .home-redesign .button-primary:hover { background: #095eaa; }
@@ -96,7 +96,7 @@
   .home-redesign .topbar-main-actions { gap: 8px; }
   .home-redesign .topbar .button-ghost { padding: 10px; min-height: 40px; font-size: 11px; }
   .home-redesign .nav { gap: 12px; font-size: 12px; }
-  .home-redesign .topbar-nav { padding: 12px; }
+  .home-redesign .topbar-nav { padding: 20px 16px; }
   .home-redesign .dropdown-menu { min-width: 190px; max-width: calc(100vw - 24px); }
   .wt-container { width: calc(100% - 40px); }
   .wt-hero { min-height: 680px; }
