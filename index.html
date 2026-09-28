@@ -15,8 +15,9 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="home.css" />
   </head>
-  <body>
+  <body class="home-redesign">
     <div class="site-shell">
       <header class="topbar">
         <a class="brand" href="#inicio" aria-label="Water Tech inicio">
@@ -62,356 +63,64 @@
       </header>
 
       <main id="inicio">
-        <section class="hero">
-          <div class="hero-media" aria-hidden="true">
-            <div class="hero-media-slide hero-media-slide-1"></div>
-            <div class="hero-media-slide hero-media-slide-2"></div>
-            <div class="hero-media-slide hero-media-slide-3"></div>
-            <div class="hero-media-overlay"></div>
+        <section class="wt-hero" aria-labelledby="hero-title">
+          <img class="wt-hero-photo" src="assets/categories/category-industrial.jpg" alt="Instalación de tratamiento de agua Water Tech" fetchpriority="high" />
+          <div class="wt-container wt-hero-content">
+            <p class="wt-kicker">Water Tech / Ingeniería en tratamiento de agua</p>
+            <h1 id="hero-title">El agua que<br />tu industria<br /><em>necesita.</em></h1>
+            <p class="wt-hero-description">Soluciones de tratamiento de agua.<br />Respaldo técnico de principio a fin.</p>
+            <div class="wt-actions">
+              <a class="button button-primary" href="#contacto">Solicitar cotización <span aria-hidden="true">↗</span></a>
+              <a class="wt-text-link" href="categorias.html">Explorar catálogo <span aria-hidden="true">→</span></a>
+            </div>
           </div>
-          <div class="hero-copy">
-            <p class="eyebrow">Cuidamos tu vida con ingeniería de agua</p>
-            <h1>Ingeniería de agua para industria y hogar.</h1>
-            <p class="hero-text">
-              Sistemas, equipos y soporte técnico para tratamiento de agua con enfoque industrial y soluciones confiables para el hogar.
-            </p>
-            <div class="hero-actions">
-              <a class="button button-primary" href="contacto.html">Solicitar cotización</a>
-              <a class="button button-secondary" href="soluciones.html">Ver soluciones</a>
-            </div>
-            <ul class="hero-metrics" aria-label="Indicadores principales">
-              <li>
-                <span class="hero-metric-icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" role="presentation" focusable="false"><path d="M4 19h16v2H4v-2Zm1-3.5h3V8H5v7.5Zm5 0h4V3h-4v12.5Zm6 0h3V11h-3v4.5Z"/></svg>
-                </span>
-                <div>
-                  <strong>Industrial</strong>
-                  <span>plantas, procesos y continuidad operativa</span>
-                </div>
-              </li>
-              <li>
-                <span class="hero-metric-icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" role="presentation" focusable="false"><path d="M12 2c3.1 4 6 7.3 6 11a6 6 0 1 1-12 0c0-3.7 2.9-7 6-11Zm0 14.2a3.2 3.2 0 0 0 3.2-3.2c0-.5-.1-.9-.3-1.3-.7 1-1.8 1.7-3 1.7-1.2 0-2.3-.7-3-1.7-.2.4-.3.8-.3 1.3a3.2 3.2 0 0 0 3.2 3.2Z"/></svg>
-                </span>
-                <div>
-                  <strong>Residencial</strong>
-                  <span>purificación confiable para el hogar</span>
-                </div>
-              </li>
-              <li>
-                <span class="hero-metric-icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" role="presentation" focusable="false"><path d="M12 2 4 6v6c0 5 3.4 9.7 8 11 4.6-1.3 8-6 8-11V6l-8-4Zm-1 14-3-3 1.4-1.4 1.6 1.6 4.6-4.6L17 10l-6 6Z"/></svg>
-                </span>
-                <div>
-                  <strong>Soporte</strong>
-                  <span>instalación, mantenimiento y postventa</span>
-                </div>
-              </li>
-            </ul>
+          <div class="wt-hero-bottom wt-container"><span>Industria. Comercio. Hogar.</span><a href="#soluciones">Conoce nuestras soluciones ↓</a></div>
+        </section>
+        <section class="wt-proof" aria-label="Respaldo Water Tech">
+          <div class="wt-container wt-proof-grid">
+            <div><span>01 / Ingeniería</span><strong>Selección técnica</strong></div>
+            <div><span>02 / Equipamiento</span><strong>Soluciones integradas</strong></div>
+            <div><span>03 / Acompañamiento</span><strong>Soporte y repuestos</strong></div>
+            <a href="ventajas.html">Conoce Water Tech <span aria-hidden="true">↗</span></a>
           </div>
-
-          <div class="hero-card">
-            <div class="hero-card-logo-wrap">
-              <img src="logo-watertech.png" alt="Water Tech" class="hero-card-logo" />
-            </div>
-            <div class="hero-card-visual">
-              <img src="assets/home/home-hero-general.png" alt="Sistemas de tratamiento de agua y procesos Water Tech" />
-            </div>
-            <div class="hero-card-top">
-              <span class="status-dot"></span>
-              <p>Capacidad técnica y presencia comercial</p>
-            </div>
-            <div class="hero-grid">
-              <article>
-                <span class="hero-grid-label"><i class="hero-grid-icon" aria-hidden="true"><svg viewBox="0 0 24 24" role="presentation" focusable="false"><path d="M3 20h18v1.8H3V20Zm2-2.6h3.4V9.5H5v7.9Zm5.3 0h3.4V4h-3.4v13.4Zm5.3 0H19v-5.2h-3.4v5.2Z"/></svg></i>Industrial</span>
-                <strong>Plantas y sistemas para operaciones exigentes</strong>
-              </article>
-              <article>
-                <span class="hero-grid-label"><i class="hero-grid-icon" aria-hidden="true"><svg viewBox="0 0 24 24" role="presentation" focusable="false"><path d="M5 4h10a2 2 0 0 1 2 2v2h2a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Zm0 2v12h2v-8h8v8h3v-8h-1v2h-2V6H5Zm4 4v8h4v-8H9Z"/></svg></i>Comercial</span>
-                <strong>Equipos listos para negocios, servicios y operación continua</strong>
-              </article>
-              <article>
-                <span class="hero-grid-label"><i class="hero-grid-icon" aria-hidden="true"><svg viewBox="0 0 24 24" role="presentation" focusable="false"><path d="M4 11.5 12 5l8 6.5V20a1 1 0 0 1-1 1h-4.5v-5h-5v5H5a1 1 0 0 1-1-1v-8.5Z"/></svg></i>Hogar</span>
-                <strong>Purificación segura con asesoría confiable</strong>
-              </article>
-              <article>
-                <span class="hero-grid-label"><i class="hero-grid-icon" aria-hidden="true"><svg viewBox="0 0 24 24" role="presentation" focusable="false"><path d="m21 7.5-4.2-.6L14.9 3 11 6.9l-4.8 4.8 3.3 3.3-4.2 4.2 1.4 1.4 4.2-4.2 3.3 3.3 4.8-4.8L23 11.1l-3.9-3.6Zm-7.1 9.3-6.2-6.2 4.8-4.8 6.2 6.2-4.8 4.8Z"/></svg></i>Soporte</span>
-                <strong>Mantenimiento, repuestos y acompañamiento técnico</strong>
-              </article>
-            </div>
-            <div class="signal-panel">
-              <p>Lo que representa Water Tech</p>
-              <div class="signal-tags">
-                <span><i class="signal-tag-icon" aria-hidden="true"><svg viewBox="0 0 24 24" role="presentation" focusable="false"><path d="M12 4 4 8v5c0 4.5 3 8.7 8 10 5-1.3 8-5.5 8-10V8l-8-4Zm-1 12-3-3 1.4-1.4 1.6 1.6 4.6-4.6L17 10l-6 6Z"/></svg></i>Soluciones a medida</span>
-                <span><i class="signal-tag-icon" aria-hidden="true"><svg viewBox="0 0 24 24" role="presentation" focusable="false"><path d="M13 3a8 8 0 0 0-8 8c0 2 .7 3.8 1.9 5.2L5 21l4.8-1.9A8 8 0 1 0 13 3Zm4.2 11.4c-.2.6-1.1 1.1-1.6 1.1-.4 0-.8.2-2.8-.6-2.4-1-3.9-3.5-4-3.7-.1-.2-1-1.3-1-2.4 0-1.1.6-1.7.8-1.9.2-.2.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .7l-.4.6c-.1.2-.3.3-.1.6.2.3.8 1.3 1.8 2.1 1.2.9 2.1 1.2 2.4 1.4.3.1.5.1.6-.1l.9-1.1c.2-.2.4-.3.7-.2l2 .9c.3.1.5.2.6.4.1.2.1 1 0 1.3Z"/></svg></i>Soporte especializado</span>
-                <span><i class="signal-tag-icon" aria-hidden="true"><svg viewBox="0 0 24 24" role="presentation" focusable="false"><path d="M12 2c3.1 4 6 7.3 6 11a6 6 0 1 1-12 0c0-3.7 2.9-7 6-11Zm0 14.2a3.2 3.2 0 0 0 3.2-3.2c0-.5-.1-.9-.3-1.3-.7 1-1.8 1.7-3 1.7-1.2 0-2.3-.7-3-1.7-.2.4-.3.8-.3 1.3a3.2 3.2 0 0 0 3.2 3.2Z"/></svg></i>Calidad y confianza</span>
-                <span><i class="signal-tag-icon" aria-hidden="true"><svg viewBox="0 0 24 24" role="presentation" focusable="false"><path d="M12 3a8 8 0 1 1 0 16 8 8 0 0 1 0-16Zm0 3.2a1 1 0 0 0-1 1V12c0 .3.1.5.3.7l3 3a1 1 0 1 0 1.4-1.4L13 11.6V7.2a1 1 0 0 0-1-1Z"/></svg></i>Atención oportuna</span>
-              </div>
+        </section>
+        <section class="wt-band" id="soluciones">
+          <div class="wt-container">
+            <div class="wt-heading"><div><p class="wt-kicker">Soluciones por sector</p><h2>Una solución para<br />cada exigencia.</h2></div><p>Desde tu operación industrial<br />hasta el agua de tu hogar.</p></div>
+            <div class="wt-solutions">
+              <a class="wt-solution" href="industrial.html">
+                <div class="wt-solution-photo"><img src="assets/solutions/solution-industrial.png" alt="Solución industrial Water Tech" loading="lazy" /><span class="wt-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21V9l6 3V7l6 3V3h5v18H3Z"/><path d="M7 16v2m5-2v2m5-2v2"/></svg></span></div>
+                <div class="wt-solution-copy"><span class="wt-kicker">01 / Industrial</span><h3>Agua a la altura de tu operación.</h3><p>Plantas, procesos y tratamiento a medida.</p><span class="wt-card-link">Ver soluciones <span aria-hidden="true">↗</span></span></div>
+              </a>
+              <a class="wt-solution" href="comercial.html">
+                <div class="wt-solution-photo"><img src="assets/solutions/solution-comercial.png" alt="Solución comercial Water Tech" loading="lazy" /><span class="wt-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10h16v11H4zM3 10l2-7h14l2 7M9 21v-7h6v7"/></svg></span></div>
+                <div class="wt-solution-copy"><span class="wt-kicker">02 / Comercial</span><h3>Confianza para tu negocio.</h3><p>Equipos para servicios y consumo continuo.</p><span class="wt-card-link">Ver soluciones <span aria-hidden="true">↗</span></span></div>
+              </a>
+              <a class="wt-solution" href="residencial.html">
+                <div class="wt-solution-photo"><img src="assets/solutions/solution-residencial.png" alt="Solución residencial Water Tech" loading="lazy" /><span class="wt-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 10 9-7 9 7M5 9v12h14V9M9 21v-7h6v7"/></svg></span></div>
+                <div class="wt-solution-copy"><span class="wt-kicker">03 / Residencial</span><h3>Bienestar que empieza en casa.</h3><p>Purificación práctica para todos los días.</p><span class="wt-card-link">Ver soluciones <span aria-hidden="true">↗</span></span></div>
+              </a></div>
+          </div>
+        </section>
+        <section class="wt-band wt-catalog" id="categorias">
+          <div class="wt-container">
+            <div class="wt-heading"><div><p class="wt-kicker">Nuestro portafolio</p><h2>Tecnología para<br />cada etapa del agua.</h2></div><a class="wt-text-link" href="categorias.html">Ver todas las categorías ↗</a></div>
+            <div class="wt-products"><a class="wt-product" href="equipos-industriales.html"><img src="assets/categories/category-industrial.jpg" alt="Equipos industriales Water Tech" loading="lazy" /><div><span class="wt-product-number">01</span><h3>Equipos industriales</h3><span aria-hidden="true">↗</span></div></a><a class="wt-product" href="equipos-comerciales.html"><img src="assets/categories/category-comercial.png" alt="Equipos comerciales Water Tech" loading="lazy" /><div><span class="wt-product-number">02</span><h3>Equipos comerciales</h3><span aria-hidden="true">↗</span></div></a><a class="wt-product" href="repuestos-soporte.html"><img src="assets/categories/category-soporte.png" alt="Repuestos y soporte Water Tech" loading="lazy" /><div><span class="wt-product-number">03</span><h3>Repuestos y soporte</h3><span aria-hidden="true">↗</span></div></a><a class="wt-product" href="membranas-ro-uf.html"><img src="assets/categories/category-membranas.jpeg" alt="Membranas RO y UF Water Tech" loading="lazy" /><div><span class="wt-product-number">04</span><h3>Membranas RO y UF</h3><span aria-hidden="true">↗</span></div></a><a class="wt-product" href="uv-ozono.html"><img src="assets/categories/category-uv.png" alt="UV y ozono Water Tech" loading="lazy" /><div><span class="wt-product-number">05</span><h3>UV y ozono</h3><span aria-hidden="true">↗</span></div></a><a class="wt-product" href="cargas-filtrantes.html"><img src="assets/categories/category-cargas.jpg" alt="Cargas filtrantes Water Tech" loading="lazy" /><div><span class="wt-product-number">06</span><h3>Cargas filtrantes</h3><span aria-hidden="true">↗</span></div></a></div>
+          </div>
+        </section>
+        <section class="wt-band wt-support" id="ventajas">
+          <div class="wt-container wt-support-grid">
+            <div class="wt-support-photo"><img src="assets/categories/category-soporte.png" alt="Asistencia técnica para sistemas de purificación" loading="lazy" /></div>
+            <div><p class="wt-kicker">El respaldo hace la diferencia</p><h2>No solo equipos.<br />Un equipo contigo.</h2><p>Te acompañamos en la selección, instalación y mantenimiento de tu sistema.</p>
+              <ul class="wt-support-list"><li><span>01</span> Asesoría para tu aplicación</li><li><span>02</span> Equipos y componentes</li><li><span>03</span> Mantenimiento y postventa</li></ul>
+              <a class="button button-primary" href="contacto.html">Hablar con un asesor ↗</a>
             </div>
           </div>
         </section>
-
-        <section class="trust-strip" aria-label="Resumen de confianza">
-          <p>Water Tech integra soluciones para tratamiento, purificación y control de agua en proyectos industriales, comerciales y residenciales.</p>
-          <p>Nuestro enfoque combina ingeniería, selección adecuada de equipos y acompañamiento técnico en cada etapa del servicio.</p>
-          <p>Trabajamos para ofrecer continuidad operativa, mejor calidad de agua y respaldo confiable para cada cliente.</p>
-        </section>
-
-        <section class="section" id="soluciones">
-          <div class="section-heading">
-            <p class="eyebrow">Soluciones</p>
-            <h2>Una misma marca, tres niveles de necesidad.</h2>
-          </div>
-          <div class="solution-cards">
-            <a class="solution-card card-link" href="industrial.html">
-              <div class="solution-card-media">
-                <img src="assets/solutions/solution-industrial.png" alt="Planta industrial Water Tech para tratamiento de agua" />
-              </div>
-              <span class="card-index">01</span>
-              <h3>Industrial</h3>
-              <p>Ingeniería, plantas, automatización y soporte para procesos de mayor demanda y control técnico.</p>
-              <span class="card-cta">Ver línea industrial</span>
-            </a>
-            <a class="solution-card card-link" href="comercial.html">
-              <div class="solution-card-media">
-                <img src="assets/solutions/solution-comercial.png" alt="Sistema Water Tech para uso comercial en restaurantes" />
-              </div>
-              <span class="card-index">02</span>
-              <h3>Comercial</h3>
-              <p>Soluciones para oficinas, restaurantes, clínicas y negocios que necesitan continuidad y confianza.</p>
-              <span class="card-cta">Ver línea comercial</span>
-            </a>
-            <a class="solution-card card-link" href="residencial.html">
-              <div class="solution-card-media">
-                <img src="assets/solutions/solution-residencial.png" alt="Purificador residencial Water Tech instalado en cocina" />
-              </div>
-              <span class="card-index">03</span>
-              <h3>Residencial</h3>
-              <p>Purificadores, accesorios y sistemas compactos para mejorar la calidad del agua en el hogar.</p>
-              <span class="card-cta">Ver línea residencial</span>
-            </a>
-          </div>
-        </section>
-
-        <section class="section section-contrast" id="categorias">
-          <div class="section-heading">
-            <p class="eyebrow">Categorías destacadas</p>
-            <h2>Lo que un cliente debe entender en segundos.</h2>
-          </div>
-          <div class="category-grid">
-            <a class="category-card card-link" href="equipos-industriales.html">
-              <div class="category-card-media">
-                <img src="assets/categories/category-industrial.jpg" alt="Instalación industrial Water Tech" />
-              </div>
-              <h3>Equipos industriales</h3>
-              <p>Plantas y configuraciones escalables para operaciones complejas.</p>
-              <span class="card-cta">Ver detalles</span>
-            </a>
-            <a class="category-card card-link" href="equipos-comerciales.html">
-              <div class="category-card-media">
-                <img src="assets/categories/category-comercial.png" alt="Sistema Water Tech para uso comercial en alimentos" />
-              </div>
-              <h3>Equipos comerciales</h3>
-              <p>Soluciones listas para operar en negocios y establecimientos.</p>
-              <span class="card-cta">Ver detalles</span>
-            </a>
-            <a class="category-card card-link" href="repuestos-soporte.html">
-              <div class="category-card-media">
-                <img src="assets/categories/category-soporte.png" alt="Mantenimiento y soporte técnico Water Tech" />
-              </div>
-              <h3>Repuestos y soporte</h3>
-              <p>Consumibles, mantenimiento y acompañamiento técnico continuo.</p>
-              <span class="card-cta">Ver detalles</span>
-            </a>
-            <a class="category-card card-link" href="membranas-ro-uf.html">
-              <div class="category-card-media">
-                <img src="assets/categories/category-membranas.jpeg" alt="Membranas RO y UF para sistemas Water Tech" />
-              </div>
-              <h3>Membranas RO y UF</h3>
-              <p>Componentes para procesos de alta exigencia y eficiencia.</p>
-              <span class="card-cta">Ver detalles</span>
-            </a>
-            <a class="category-card card-link" href="uv-ozono.html">
-              <div class="category-card-media">
-                <img src="assets/categories/category-uv.png" alt="Visual de desinfección y tratamiento de agua Water Tech" />
-              </div>
-              <h3>Sistemas UV y ozono</h3>
-              <p>Desinfección para elevar seguridad microbiológica.</p>
-              <span class="card-cta">Ver detalles</span>
-            </a>
-            <a class="category-card card-link" href="cargas-filtrantes.html">
-              <div class="category-card-media">
-                <img src="assets/categories/category-cargas.jpg" alt="Cargas filtrantes en tanques de fibra de vidrio Water Tech" />
-              </div>
-              <h3>Cargas filtrantes</h3>
-              <p>Medios para filtración, ablandamiento y remoción de impurezas.</p>
-              <span class="card-cta">Ver detalles</span>
-            </a>
-          </div>
-        </section>
-
-        <section class="section" id="catalogo">
-          <div class="section-heading">
-            <p class="eyebrow">Catálogo rápido</p>
-            <h2>Productos listos para agregar al carrito.</h2>
-          </div>
-          <div class="shop-grid">
-            <article class="product-card">
-              <div class="product-media">
-                <img src="assets/solutions/solution-residencial.png" alt="Purificador residencial bajo mesón Water Tech" />
-              </div>
-              <div class="product-body">
-                <p class="product-category">Residencial</p>
-                <h3>Purificador residencial bajo mesón</h3>
-                <p>Solución compacta para hogares que buscan agua más limpia y mejor sabor.</p>
-                <div class="product-footer">
-                  <strong>$289</strong>
-                  <button
-                    class="button button-primary button-compact"
-                    type="button"
-                    data-add-to-cart
-                    data-product-id="purificador-residencial"
-                    data-product-name="Purificador residencial bajo mesón"
-                    data-product-price="289"
-                    data-product-category="Residencial"
-                  >
-                    Agregar
-                  </button>
-                </div>
-              </div>
-            </article>
-            <article class="product-card">
-              <div class="product-media">
-                <img src="assets/categories/category-uv.png" alt="Sistema UV para negocio Water Tech" />
-              </div>
-              <div class="product-body">
-                <p class="product-category">Comercial</p>
-                <h3>Sistema UV para negocio</h3>
-                <p>Desinfección confiable para oficinas, cafeterías y puntos de consumo continuo.</p>
-                <div class="product-footer">
-                  <strong>$430</strong>
-                  <button
-                    class="button button-primary button-compact"
-                    type="button"
-                    data-add-to-cart
-                    data-product-id="sistema-uv-negocio"
-                    data-product-name="Sistema UV para negocio"
-                    data-product-price="430"
-                    data-product-category="Comercial"
-                  >
-                    Agregar
-                  </button>
-                </div>
-              </div>
-            </article>
-            <article class="product-card">
-              <div class="product-media">
-                <img src="assets/solutions/solution-industrial.png" alt="Planta RO modular industrial Water Tech" />
-              </div>
-              <div class="product-body">
-                <p class="product-category">Industrial</p>
-                <h3>Planta RO modular industrial</h3>
-                <p>Equipo escalable para procesos de alta exigencia técnica y continuidad operativa.</p>
-                <div class="product-footer">
-                  <strong>$3,950</strong>
-                  <button
-                    class="button button-primary button-compact"
-                    type="button"
-                    data-add-to-cart
-                    data-product-id="planta-ro-industrial"
-                    data-product-name="Planta RO modular industrial"
-                    data-product-price="3950"
-                    data-product-category="Industrial"
-                  >
-                    Agregar
-                  </button>
-                </div>
-              </div>
-            </article>
-            <article class="product-card">
-              <div class="product-media">
-                <img src="assets/categories/category-cargas.jpg" alt="Carga filtrante multimedia Water Tech" />
-              </div>
-              <div class="product-body">
-                <p class="product-category">Consumibles</p>
-                <h3>Carga filtrante multimedia</h3>
-                <p>Medio filtrante para remoción de sólidos, turbidez y mejora del rendimiento.</p>
-                <div class="product-footer">
-                  <strong>$78</strong>
-                  <button
-                    class="button button-primary button-compact"
-                    type="button"
-                    data-add-to-cart
-                    data-product-id="carga-filtrante-multimedia"
-                    data-product-name="Carga filtrante multimedia"
-                    data-product-price="78"
-                    data-product-category="Consumibles"
-                  >
-                    Agregar
-                  </button>
-                </div>
-              </div>
-            </article>
-          </div>
-          <div class="section-actions">
-            <a class="button button-secondary" href="carrito.html">Ir al carrito de compras</a>
-          </div>
-        </section>
-
-        <section class="section" id="ventajas">
-          <div class="section-heading">
-            <p class="eyebrow">Por qué Water Tech</p>
-            <h2>La confianza no se dice: se demuestra.</h2>
-          </div>
-          <div class="advantage-layout">
-            <div class="advantage-copy">
-              <p>
-                En Water Tech desarrollamos soluciones de tratamiento de agua con criterio técnico, atención responsable y seguimiento real para cada necesidad.
-              </p>
-            </div>
-            <ul class="advantage-list">
-              <li>
-                <img src="assets/advantages/asesoria-responsable.png" alt="Ícono de asesoría responsable Water Tech" />
-                <div>
-                  <strong>Asesoría responsable</strong>
-                  <span>Diagnóstico técnico antes de recomendar un equipo.</span>
-                </div>
-              </li>
-              <li>
-                <img src="assets/advantages/importadores-directos.png" alt="Ícono de importadores directos Water Tech" />
-                <div>
-                  <strong>Importadores directos</strong>
-                  <span>Mejor control del portafolio, respaldo y continuidad.</span>
-                </div>
-              </li>
-              <li>
-                <img src="assets/advantages/experiencia-mas10.png" alt="Ícono de más de 10 años de experiencia Water Tech" />
-                <div>
-                  <strong>Más de 10 años de experiencia</strong>
-                  <span>Trayectoria real en hogar, comercio e industria.</span>
-                </div>
-              </li>
-              <li>
-                <img src="assets/advantages/cobertura-nacional.png" alt="Ícono de cobertura nacional Water Tech" />
-                <div>
-                  <strong>Cobertura nacional</strong>
-                  <span>Atención cercana, envíos seguros y soporte postventa.</span>
-                </div>
-              </li>
-            </ul>
-          </div>
-          <div class="section-actions">
-            <a class="button button-secondary" href="ventajas.html">Conocer por qué elegirnos</a>
-          </div>
-        </section>
-
-        <section class="section" id="contacto">
-          <div class="section-heading">
-            <p class="eyebrow">Contacto</p>
-            <h2>Déjanos tus datos y tu requerimiento.</h2>
-          </div>
-          <div class="form-card">
-            <form
+        <section class="wt-band wt-contact" id="contacto">
+          <div class="wt-container">
+            <div class="wt-heading"><div><p class="wt-kicker">Hablemos de tu proyecto</p><h2>Tu próxima solución<br />empieza aquí.</h2></div><a class="wt-text-link" href="https://wa.me/593968467023" target="_blank" rel="noopener noreferrer">Escríbenos por WhatsApp ↗</a></div>
+            <div class="wt-form">            <form
               id="contact-form"
               class="contact-form"
               data-contact-form
@@ -442,9 +151,9 @@
                   <span>Interés principal</span>
                   <select name="interes" required>
                     <option value="">Selecciona una opción</option>
-                    <option value="Residencial">Residencial</option>
-                    <option value="Comercial">Comercial</option>
                     <option value="Industrial">Industrial</option>
+                    <option value="Comercial">Comercial</option>
+                    <option value="Residencial">Residencial</option>
                     <option value="Repuestos y soporte">Repuestos y soporte</option>
                   </select>
                 </label>
@@ -452,7 +161,7 @@
                   <span>Mensaje</span>
                   <textarea
                     name="mensaje"
-                    rows="6"
+                    rows="3"
                     placeholder="Cuéntanos qué equipo o solución necesitas."
                     required
                   ></textarea>
@@ -463,11 +172,11 @@
                   Enviar solicitud
                 </button>
                 <p class="form-helper">
-                  Este formulario está conectado con Google Apps Script para registrar automáticamente los datos en Google Sheets.
+                  Usaremos tus datos para atender tu solicitud y contactarte sobre tu proyecto.
                 </p>
               </div>
               <p class="form-status" id="contact-form-status" aria-live="polite"></p>
-            </form>
+            </form></div>
           </div>
         </section>
       </main>
