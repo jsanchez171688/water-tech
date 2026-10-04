@@ -3,7 +3,7 @@
    Segunda capa visual, cargada después de styles.css. Reemplaza el
    lenguaje antiguo (degradado azul, tarjetas redondeadas, sombras
    difusas) por el de la home: papel blanco, esquinas rectas, reglas
-   finas y Outfit + Manrope.
+   finas y tipografía Outfit.
 
    Todo va con scope body.inner-page para no tocar la home. La única
    excepción es el pie: site.js lo inyecta idéntico en todas las
