@@ -1,0 +1,1716 @@
+/* ============================================================
+   WATER TECH — PÁGINAS INTERNAS
+   Segunda capa visual, cargada después de styles.css. Reemplaza el
+   lenguaje antiguo (degradado azul, tarjetas redondeadas, sombras
+   difusas) por el de la home: papel blanco, esquinas rectas, reglas
+   finas y Outfit + Manrope.
+
+   Todo va con scope body.inner-page para no tocar la home. La única
+   excepción es el pie: site.js lo inyecta idéntico en todas las
+   páginas, así que se unifica aquí y la home también lo hereda.
+   ============================================================ */
+
+/* ---------- 1. TOKENS ----------
+   Los tokens --wt-* viven ahora en :root (styles.css), una sola vez.
+   Las páginas internas solo declaran su ritmo vertical propio. */
+body.inner-page {
+  --wt-gap-m: clamp(72px, 10vh, 140px);
+  --wt-gap-l: clamp(96px, 13vh, 180px);
+
+  background: var(--wt-paper);
+  color: var(--wt-ink);
+  font-synthesis-weight: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ---------- 2. FONDO Y CAJA ---------- */
+/* El degradado azul, la grilla y la marca de agua del fondo antiguo. */
+body.inner-page {
+  background: var(--wt-paper);
+}
+body.inner-page::before,
+body.inner-page::after {
+  display: none !important;
+}
+body.inner-page .site-shell {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* ---------- 3. HEADER ---------- */
+/* La barra de utilidades repite los teléfonos que ya viven en el pie:
+   fuera, igual que en la home. */
+body.inner-page .utility-bar {
+  display: none;
+}
+body.inner-page .topbar {
+  position: sticky;
+  top: 0;
+  z-index: 90;
+  display: block;
+  grid-template-rows: none !important;
+  grid-template-columns: none !important;
+  padding: 0;
+  border: 0;
+  border-bottom: 1px solid var(--wt-line-soft);
+  border-radius: 0;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: saturate(1.4) blur(18px);
+  -webkit-backdrop-filter: saturate(1.4) blur(18px);
+  box-shadow: none;
+  overflow: visible;
+}
+body.inner-page .topbar-main {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: clamp(20px, 3vw, 48px);
+  width: min(100% - (var(--wt-pad-x) * 2), var(--wt-max));
+  max-width: none;
+  margin-inline: auto;
+  padding: 14px 0;
+}
+body.inner-page .topbar-nav {
+  display: block;
+  padding: 0;
+  border: 0;
+  min-width: 0;
+}
+body.inner-page .topbar-main-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  justify-self: end;
+}
+body.inner-page .brand-logo {
+  width: auto;
+  height: var(--wt-logo-header-h);
+  filter: drop-shadow(0 1px 3px rgba(2, 10, 20, 0.1));
+}
+
+/* --- navegación --- */
+body.inner-page .nav {
+  /* display:flex (y no inline-flex) para que la nav ocupe su columna y
+     quede centrada, igual que en la home. */
+  display: flex;
+  justify-content: center;
+  gap: clamp(18px, 2.4vw, 38px);
+}
+body.inner-page .nav > .nav-item > a,
+body.inner-page .nav > a {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: -0.005em;
+  color: var(--wt-ink-soft);
+}
+body.inner-page .nav a:hover,
+body.inner-page .nav a:focus-visible {
+  color: var(--wt-ink);
+}
+body.inner-page .nav > .nav-item > a::after {
+  width: 6px;
+  height: 6px;
+  border-width: 1.5px;
+}
+body.inner-page .dropdown-menu {
+  gap: 2px;
+  min-width: 240px;
+  padding: 8px;
+  border: 1px solid var(--wt-line);
+  border-radius: 0;
+  background: #ffffff;
+  box-shadow: 0 28px 60px rgba(10, 10, 10, 0.12);
+}
+/* La flechita del globo del menú pertenece al lenguaje anterior. */
+body.inner-page .dropdown-menu::before {
+  display: none;
+}
+body.inner-page .dropdown-menu a {
+  padding: 11px 14px;
+  border-radius: 0;
+  color: var(--wt-ink-soft);
+  font-size: 14px;
+}
+body.inner-page .dropdown-menu a:hover,
+body.inner-page .dropdown-menu a:focus-visible {
+  background: var(--wt-paper-warm);
+  color: var(--wt-ink);
+  transform: none;
+}
+
+/* --- carrito --- */
+body.inner-page .cart-entry {
+  width: 42px;
+  height: 42px;
+  min-height: 0;
+  padding: 0;
+  border: 0;
+  background: var(--wt-paper-warm);
+  color: var(--wt-ink);
+  transition: background-color 0.42s var(--wt-ease);
+}
+body.inner-page .cart-entry:hover {
+  background: var(--wt-paper-deep);
+}
+body.inner-page .cart-entry-badge {
+  min-width: 20px;
+  height: 20px;
+  padding: 0 5px;
+  background: var(--wt-accent);
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 700;
+}
+body.inner-page .cart-entry-badge.is-empty {
+  background: var(--wt-paper-deep);
+  color: var(--wt-ink-faint);
+}
+
+/* ---------- 4. BOTONES ---------- */
+body.inner-page .button {
+  min-height: 0;
+  padding: 18px 32px;
+  border: 1px solid transparent;
+  border-radius: 0;
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  transition:
+    background-color 0.42s var(--wt-ease),
+    color 0.42s var(--wt-ease),
+    border-color 0.42s var(--wt-ease);
+}
+body.inner-page .button:hover,
+body.inner-page .button:focus-visible {
+  transform: none;
+}
+body.inner-page .button-primary {
+  background: var(--wt-accent);
+  color: #ffffff;
+  box-shadow: none;
+}
+body.inner-page .button-primary:hover,
+body.inner-page .button-primary:focus-visible {
+  background: var(--wt-ink);
+}
+body.inner-page .button-secondary,
+body.inner-page .button-ghost {
+  background: transparent;
+  color: var(--wt-ink);
+  border-color: var(--wt-line);
+}
+body.inner-page .button-secondary:hover,
+body.inner-page .button-secondary:focus-visible,
+body.inner-page .button-ghost:hover,
+body.inner-page .button-ghost:focus-visible {
+  background: var(--wt-ink);
+  color: #ffffff;
+  border-color: var(--wt-ink);
+}
+/* El CTA del header no compite con el del hero. */
+body.inner-page .topbar .button-ghost {
+  min-height: 0;
+  padding: 12px 22px;
+  background: transparent;
+  color: var(--wt-ink);
+  border-color: var(--wt-line);
+  box-shadow: none;
+}
+body.inner-page .topbar .button-ghost:hover,
+body.inner-page .topbar .button-ghost:focus-visible {
+  background: var(--wt-ink);
+  color: #ffffff;
+  border-color: var(--wt-ink);
+}
+
+/* ---------- 5. ENCABEZADO DE PÁGINA ---------- */
+body.inner-page .page-main {
+  display: block;
+  gap: 0;
+  padding-top: 0;
+}
+body.inner-page .page-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  gap: clamp(36px, 5vw, 104px);
+  align-items: start;
+  width: min(100% - (var(--wt-pad-x) * 2), var(--wt-max));
+  margin-inline: auto;
+  padding: clamp(56px, 8vh, 104px) 0 clamp(48px, 6vh, 84px);
+}
+
+/* Las tarjetas del encabezado dejan de ser tarjetas: quedan el texto y
+   la imagen separados por aire. */
+body.inner-page .page-panel,
+body.inner-page .page-side-card,
+body.inner-page .info-card {
+  border: 0;
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+}
+body.inner-page .page-panel {
+  padding: 0;
+}
+
+body.inner-page .breadcrumbs {
+  margin-bottom: clamp(20px, 3vh, 32px);
+  color: var(--wt-ink-faint);
+  font-size: 12px;
+  letter-spacing: 0.02em;
+}
+body.inner-page .breadcrumbs a {
+  color: var(--wt-ink-faint);
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.42s var(--wt-ease), color 0.42s var(--wt-ease);
+}
+body.inner-page .breadcrumbs a:hover {
+  color: var(--wt-ink);
+  border-bottom-color: var(--wt-line);
+}
+
+/* El eyebrow pasa a ser el kicker de la home: versalitas con guion. */
+body.inner-page .eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 0 0 clamp(20px, 3vh, 32px);
+  color: var(--wt-ink-faint);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+}
+body.inner-page .eyebrow::before {
+  content: "";
+  width: 40px;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.55;
+  flex: none;
+}
+
+body.inner-page .page-title {
+  font-weight: 300;
+  font-size: clamp(38px, 5vw, 76px);
+  line-height: 1.03;
+  letter-spacing: -0.034em;
+  max-width: 17ch;
+  text-wrap: balance;
+}
+body.inner-page .page-intro {
+  margin: clamp(22px, 3vh, 34px) 0 0;
+  max-width: 58ch;
+  color: var(--wt-ink-soft);
+  font-size: clamp(16px, 1.25vw, 19px);
+  line-height: 1.7;
+}
+body.inner-page .page-actions {
+  gap: clamp(18px, 2.4vw, 34px);
+  margin-top: clamp(30px, 4.4vh, 50px);
+}
+
+/* ---------- 6. BANDA DE APOYOS ---------- */
+body.inner-page .page-panel-band {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(20px, 2.6vw, 46px);
+  margin-top: clamp(40px, 6vh, 68px);
+  padding: clamp(26px, 3.4vh, 40px) 0 0;
+  border: 0;
+  border-top: 1px solid var(--wt-line-soft);
+  border-radius: 0;
+  background: none;
+}
+body.inner-page .page-panel-band article {
+  gap: 8px;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: none;
+}
+body.inner-page .page-panel-band strong {
+  color: var(--wt-ink);
+  font-family: var(--wt-font-display);
+  font-weight: 500;
+  font-size: clamp(17px, 1.4vw, 21px);
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+body.inner-page .page-panel-band span {
+  color: var(--wt-ink-soft);
+  font-size: 14.5px;
+  line-height: 1.68;
+}
+
+/* ---------- 7. COLUMNA LATERAL ---------- */
+body.inner-page .page-side-card {
+  padding: 0;
+}
+body.inner-page .side-visual {
+  aspect-ratio: 4 / 3;
+  width: 100%;
+  height: auto;
+  margin-bottom: clamp(20px, 2.6vh, 30px);
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  object-fit: cover;
+  background: var(--wt-paper-deep);
+}
+body.inner-page .side-logo {
+  width: min(220px, 70%);
+  margin-bottom: clamp(20px, 2.6vh, 30px);
+}
+body.inner-page .side-title {
+  margin: 0 0 6px;
+  font-family: var(--wt-font-display);
+  font-weight: 500;
+  font-size: clamp(20px, 1.8vw, 28px);
+  letter-spacing: -0.024em;
+  line-height: 1.15;
+}
+body.inner-page .side-list {
+  gap: 0;
+  margin: clamp(16px, 2vh, 24px) 0 0;
+  border-top: 1px solid var(--wt-line-soft);
+}
+body.inner-page .side-list li {
+  padding: 16px 0;
+  border: 0;
+  border-bottom: 1px solid var(--wt-line-soft);
+  border-radius: 0;
+  background: none;
+}
+body.inner-page .side-list-rich li {
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 16px;
+  align-items: start;
+  padding: 18px 0;
+}
+/* Los chips con degradado y sombra del lenguaje anterior. */
+body.inner-page .side-list-icon,
+body.inner-page .info-card-icon {
+  width: 24px;
+  height: 24px;
+  border: 0;
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+  color: var(--wt-accent);
+  overflow: visible;
+}
+body.inner-page .side-list-icon::after,
+body.inner-page .info-card-icon::after {
+  display: none;
+}
+body.inner-page .side-list-icon svg,
+body.inner-page .info-card-icon svg {
+  width: 20px;
+  height: 20px;
+  filter: none;
+}
+body.inner-page .side-list-rich strong {
+  color: var(--wt-ink);
+  font-family: var(--wt-font-display);
+  font-weight: 500;
+  font-size: clamp(16px, 1.3vw, 19px);
+  letter-spacing: -0.02em;
+}
+body.inner-page .side-list-rich span {
+  color: var(--wt-ink-soft);
+  font-size: 14.5px;
+  line-height: 1.66;
+}
+
+/* ---------- 8. TRES APOYOS DE CONTENIDO ---------- */
+body.inner-page .content-grid {
+  gap: clamp(24px, 3vw, 52px);
+  width: min(100% - (var(--wt-pad-x) * 2), var(--wt-max));
+  margin-inline: auto;
+  padding: 0 0 clamp(56px, 7vh, 96px);
+}
+body.inner-page .info-card {
+  padding: clamp(24px, 3vh, 36px) 0 0;
+  border-top: 1px solid var(--wt-line-soft);
+}
+body.inner-page .info-card-feature {
+  gap: 16px;
+}
+body.inner-page .info-card h3,
+body.inner-page .info-card-feature h3 {
+  margin: 0 0 10px;
+  color: var(--wt-ink);
+  font-family: var(--wt-font-display);
+  font-weight: 500;
+  font-size: clamp(18px, 1.6vw, 24px);
+  letter-spacing: -0.022em;
+  line-height: 1.2;
+}
+body.inner-page .info-card p {
+  color: var(--wt-ink-soft);
+  font-size: 14.5px;
+  line-height: 1.68;
+}
+
+/* ---------- 9. REJA DE CATEGORÍAS ---------- */
+body.inner-page .category-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(28px, 3.4vw, 56px) clamp(20px, 2.4vw, 40px);
+  width: min(100% - (var(--wt-pad-x) * 2), var(--wt-max));
+  margin-inline: auto;
+  padding: 0;
+}
+body.inner-page .category-card {
+  overflow: visible;
+  padding: 0;
+  border: 0;
+  background: none;
+}
+body.inner-page .card-link:hover,
+body.inner-page .card-link:focus-visible {
+  transform: none;
+  border-color: transparent;
+  box-shadow: none;
+}
+body.inner-page .category-card-media,
+body.inner-page .solution-card-media {
+  background: var(--wt-paper-deep);
+}
+body.inner-page .category-card-media::after,
+body.inner-page .solution-card-media::after {
+  display: none;
+}
+body.inner-page .category-card-media img,
+body.inner-page .solution-card-media img {
+  height: auto;
+  aspect-ratio: 4 / 3;
+}
+body.inner-page .category-card > h3,
+body.inner-page .category-card > p,
+body.inner-page .category-card > .card-cta,
+body.inner-page .category-card > .card-index,
+body.inner-page .solution-card > h3,
+body.inner-page .solution-card > p,
+body.inner-page .solution-card > .card-cta,
+body.inner-page .solution-card > .card-index {
+  padding-left: 0;
+  padding-right: 0;
+}
+body.inner-page .category-card > h3,
+body.inner-page .solution-card > h3 {
+  margin: clamp(16px, 2vh, 24px) 0 10px;
+  color: var(--wt-ink);
+  font-family: var(--wt-font-display);
+  font-weight: 500;
+  font-size: clamp(19px, 1.7vw, 26px);
+  letter-spacing: -0.024em;
+  line-height: 1.14;
+}
+body.inner-page .category-card p,
+body.inner-page .solution-card p {
+  color: var(--wt-ink-soft);
+  font-size: 14.5px;
+  line-height: 1.68;
+}
+/* "Abrir página" con el mismo tratamiento de enlace de la home. */
+body.inner-page .card-cta,
+body.inner-page .card-index {
+  color: var(--wt-ink);
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+body.inner-page .category-card > .card-cta,
+body.inner-page .solution-card > .card-cta {
+  align-self: flex-start;
+  /* margin-top:auto mantiene los enlaces alineados entre tarjetas de la
+     misma fila, aunque los textos midan distinto. */
+  margin-top: auto;
+  padding: clamp(16px, 2vh, 24px) 0 5px;
+  border-bottom: 1px solid var(--wt-line);
+  transition: border-color 0.42s var(--wt-ease);
+}
+body.inner-page .card-link:hover .card-cta {
+  border-bottom-color: var(--wt-ink);
+}
+
+/* ---------- 10. SECCIONES SUELTAS (ventajas, contacto) ---------- */
+body.inner-page .section {
+  width: min(100% - (var(--wt-pad-x) * 2), var(--wt-max));
+  margin-inline: auto;
+  padding: var(--wt-gap-m) 0 0;
+}
+/* styles.css pinta un velo con degradado detrás de cada sección de la
+   página. Con el fondo blanco ese velo se lee como una caja fantasma. */
+body.inner-page .section::before,
+body.inner-page .page-main > section::before {
+  display: none;
+}
+body.inner-page .section,
+body.inner-page .page-main > section {
+  overflow: visible;
+}
+body.inner-page .section-contrast {
+  padding: 0;
+  margin-top: var(--wt-gap-m);
+  border: 0;
+  border-radius: 0;
+  background: none;
+}
+body.inner-page .section-heading h2 {
+  margin: 0;
+  color: var(--wt-ink);
+  font-family: var(--wt-font-display);
+  font-weight: 400;
+  font-size: clamp(28px, 3.4vw, 52px);
+  line-height: 1.06;
+  letter-spacing: -0.03em;
+}
+body.inner-page .advantage-layout {
+  gap: clamp(32px, 4vw, 80px);
+}
+body.inner-page .advantage-copy {
+  padding: clamp(26px, 3.4vh, 40px) 0 0;
+  border: 0;
+  border-top: 1px solid var(--wt-line-soft);
+  border-radius: 0;
+  background: none;
+}
+body.inner-page .advantage-copy p {
+  color: var(--wt-ink-soft);
+  font-size: clamp(17px, 1.4vw, 21px);
+  line-height: 1.7;
+}
+body.inner-page .advantage-list {
+  gap: 0;
+  border-top: 1px solid var(--wt-line-soft);
+}
+body.inner-page .advantage-list li {
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: clamp(16px, 2vw, 30px);
+  padding: 20px 0;
+  border: 0;
+  border-bottom: 1px solid var(--wt-line-soft);
+  border-radius: 0;
+  background: none;
+}
+/* Los íconos circulares azules del lenguaje anterior se reemplazan por el
+   índice editorial que ya usan las listas de la home. */
+body.inner-page .advantage-num {
+  padding-top: 4px;
+  font-family: var(--wt-font-display);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  color: var(--wt-ink-faint);
+}
+body.inner-page .advantage-list strong {
+  color: var(--wt-ink);
+  font-family: var(--wt-font-display);
+  font-weight: 500;
+  font-size: clamp(16px, 1.3vw, 19px);
+  letter-spacing: -0.02em;
+}
+body.inner-page .advantage-list span {
+  color: var(--wt-ink-soft);
+  font-size: 14.5px;
+  line-height: 1.66;
+}
+
+/* ---------- 11. FORMULARIOS ---------- */
+body.inner-page .form-layout {
+  gap: clamp(32px, 4vw, 72px);
+}
+body.inner-page .form-card {
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+}
+body.inner-page .form-field span {
+  color: var(--wt-ink-faint);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+body.inner-page .form-field input,
+body.inner-page .form-field select,
+body.inner-page .form-field textarea {
+  padding: 15px 16px;
+  border: 1px solid var(--wt-line);
+  border-radius: 0;
+  background: #ffffff;
+  color: var(--wt-ink);
+  font-size: 15px;
+  transition: border-color 0.32s var(--wt-ease);
+}
+body.inner-page .form-field input:focus,
+body.inner-page .form-field select:focus,
+body.inner-page .form-field textarea:focus {
+  border-color: var(--wt-accent);
+  box-shadow: none;
+  background: #ffffff;
+}
+body.inner-page .form-helper {
+  color: var(--wt-ink-faint);
+  font-size: 13px;
+  line-height: 1.68;
+}
+body.inner-page .form-status {
+  font-size: 13.5px;
+  font-weight: 600;
+}
+body.inner-page .form-status.is-success {
+  color: var(--wt-accent);
+}
+
+/* ---------- 12. CARRITO ---------- */
+body.inner-page .cart-layout {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: clamp(32px, 4vw, 72px);
+  width: min(100% - (var(--wt-pad-x) * 2), var(--wt-max));
+  margin: var(--wt-gap-m) auto 0;
+}
+body.inner-page .cart-panel,
+body.inner-page .cart-summary {
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+}
+body.inner-page .cart-summary h2 {
+  margin: 0 0 18px;
+  color: var(--wt-ink);
+  font-family: var(--wt-font-display);
+  font-weight: 500;
+  font-size: clamp(22px, 2vw, 30px);
+  letter-spacing: -0.024em;
+}
+body.inner-page .summary-row {
+  padding: 16px 0;
+  border-bottom: 1px solid var(--wt-line-soft);
+}
+body.inner-page .summary-row strong {
+  font-family: var(--wt-font-display);
+  font-weight: 500;
+  font-size: 20px;
+}
+body.inner-page .summary-note {
+  color: var(--wt-ink-faint);
+  font-size: 13px;
+  line-height: 1.68;
+}
+body.inner-page .cart-items {
+  gap: 0;
+  border-top: 1px solid var(--wt-line-soft);
+}
+body.inner-page .cart-item {
+  padding: 22px 0;
+  border: 0;
+  border-bottom: 1px solid var(--wt-line-soft);
+  border-radius: 0;
+  background: none;
+}
+body.inner-page .cart-item h3 {
+  color: var(--wt-ink);
+  font-family: var(--wt-font-display);
+  font-weight: 500;
+  font-size: clamp(18px, 1.5vw, 22px);
+  letter-spacing: -0.02em;
+}
+body.inner-page .cart-item p {
+  color: var(--wt-ink-soft);
+  font-size: 14.5px;
+}
+body.inner-page .qty-control {
+  gap: 10px;
+  padding: 4px;
+  border: 1px solid var(--wt-line);
+  border-radius: 0;
+  background: #ffffff;
+}
+body.inner-page .qty-control button {
+  width: 30px;
+  height: 30px;
+  border-radius: 0;
+  background: var(--wt-paper-warm);
+  color: var(--wt-ink);
+  font-weight: 600;
+}
+body.inner-page .qty-control button:hover {
+  background: var(--wt-paper-deep);
+}
+body.inner-page .cart-remove {
+  color: #a3423f;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+body.inner-page .cart-empty {
+  gap: 16px;
+  padding: clamp(40px, 6vh, 72px) 0;
+  border-top: 1px solid var(--wt-line-soft);
+}
+body.inner-page .cart-empty h2 {
+  color: var(--wt-ink);
+  font-family: var(--wt-font-display);
+  font-weight: 500;
+  font-size: clamp(22px, 2vw, 30px);
+  letter-spacing: -0.024em;
+}
+body.inner-page .cart-empty p {
+  color: var(--wt-ink-soft);
+}
+
+/* ---------- 13. MODAL DE WHATSAPP ---------- */
+body.inner-page .whatsapp-dialog {
+  border: 1px solid var(--wt-line);
+  border-radius: 0;
+  background: #ffffff;
+  box-shadow: 0 40px 90px rgba(10, 10, 10, 0.22);
+}
+body.inner-page .whatsapp-dialog-head h2 {
+  font-family: var(--wt-font-display);
+  font-weight: 500;
+  letter-spacing: -0.024em;
+}
+
+/* ---------- 14. PIE (global: también lo hereda la home) ---------- */
+/* site.js lo inyecta igual en todas las páginas, así que se unifica aquí
+   y deja de ser la tarjeta flotante del lenguaje anterior. */
+.site-footer {
+  margin-top: clamp(72px, 10vh, 140px);
+  border: 0;
+  border-top: 1px solid var(--wt-line-soft, rgba(10, 10, 10, 0.07));
+  border-radius: 0;
+  overflow: visible;
+  background: var(--wt-paper-warm, #f5f5f3);
+  box-shadow: none;
+}
+.footer-main {
+  grid-template-columns: 1.2fr 1fr 0.9fr;
+  gap: clamp(28px, 3.4vw, 72px);
+  width: min(100% - (var(--wt-pad-x, 5vw) * 2), var(--wt-max, 1600px));
+  margin-inline: auto;
+  padding: clamp(48px, 6vh, 84px) 0;
+}
+.footer-logo {
+  width: min(200px, 100%);
+}
+.footer-main h3 {
+  color: var(--wt-ink-faint, #8b8c90);
+  font-family: var(--wt-font-body);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+.footer-main p {
+  color: var(--wt-ink-soft, #55565a);
+  font-size: 14.5px;
+  line-height: 1.72;
+}
+.footer-main a {
+  color: var(--wt-ink, #0a0a0a);
+  border-bottom: 1px solid var(--wt-line-soft, rgba(10, 10, 10, 0.07));
+  transition: border-color 0.42s var(--wt-ease, cubic-bezier(0.22, 0.61, 0.36, 1));
+}
+.footer-main a:hover {
+  border-bottom-color: var(--wt-ink, #0a0a0a);
+}
+.footer-social-links {
+  gap: 10px;
+}
+.footer-social-button {
+  min-height: 0;
+  gap: 9px;
+  padding: 11px 18px;
+  border: 1px solid var(--wt-line, rgba(10, 10, 10, 0.13));
+  border-radius: 0;
+  background: transparent;
+  color: var(--wt-ink, #0a0a0a) !important;
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  box-shadow: none;
+  transition:
+    background-color 0.42s var(--wt-ease, ease),
+    color 0.42s var(--wt-ease, ease),
+    border-color 0.42s var(--wt-ease, ease);
+}
+.footer-social-button:hover {
+  background: var(--wt-ink, #0a0a0a);
+  color: #ffffff !important;
+  border-color: var(--wt-ink, #0a0a0a);
+}
+.footer-social-icon,
+.footer-social-icon svg {
+  width: 17px;
+  height: 17px;
+}
+.footer-bottom-bar {
+  padding: 18px var(--wt-pad-x, 5vw);
+  border-top: 0;
+  background: var(--wt-accent, #0b3148);
+  color: rgba(255, 255, 255, 0.86);
+  font-size: 13px;
+}
+.footer-bottom-bar > * {
+  max-width: none;
+}
+
+/* ---------- 15. RESPONSIVE ---------- */
+@media (max-width: 1180px) {
+  body.inner-page .page-title {
+    font-size: clamp(34px, 4.6vw, 60px);
+  }
+}
+
+@media (max-width: 1080px) {
+  body.inner-page .topbar-main {
+    grid-template-columns: auto 1fr auto;
+    gap: 16px;
+  }
+  /* Igual que la home: sin nav, el logo y las acciones se sostienen solos. */
+  body.inner-page .topbar-nav {
+    display: none;
+  }
+  body.inner-page .page-hero {
+    grid-template-columns: 1fr;
+    gap: clamp(32px, 6vw, 56px);
+  }
+  body.inner-page .page-title {
+    max-width: 22ch;
+  }
+  body.inner-page .content-grid,
+  body.inner-page .category-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  body.inner-page .cart-layout,
+  body.inner-page .form-layout,
+  body.inner-page .advantage-layout {
+    grid-template-columns: 1fr;
+  }
+  body.inner-page .cart-summary {
+    position: static;
+  }
+  .footer-main {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 860px) {
+  body.inner-page .page-panel-band {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+  body.inner-page .page-panel-band article {
+    padding-bottom: 22px;
+    border-bottom: 1px solid var(--wt-line-soft);
+  }
+  body.inner-page .page-panel-band article:last-child {
+    padding-bottom: 0;
+    border-bottom: 0;
+  }
+  body.inner-page .content-grid {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  body.inner-page .info-card {
+    padding: 22px 0;
+    border-top: 1px solid var(--wt-line-soft);
+  }
+  .footer-main {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  body.inner-page .topbar-main {
+    gap: 10px;
+  }
+  body.inner-page .brand-logo {
+    height: 32px;
+  }
+  body.inner-page .cart-entry {
+    width: 38px;
+    height: 38px;
+    padding: 0;
+    justify-content: center;
+  }
+  body.inner-page .topbar .button-ghost {
+    padding: 11px 16px;
+    font-size: 10.5px;
+    letter-spacing: 0.1em;
+    white-space: nowrap;
+  }
+  body.inner-page .page-title {
+    font-size: clamp(30px, 9.4vw, 44px);
+    max-width: none;
+  }
+  body.inner-page .category-grid {
+    grid-template-columns: 1fr;
+  }
+  body.inner-page .category-card > .card-cta,
+  body.inner-page .solution-card > .card-cta {
+    padding-top: 0;
+  }
+  body.inner-page .cart-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  body.inner-page .cart-item-controls {
+    justify-items: start;
+  }
+}
+
+/* ---------- 16. ACCESIBILIDAD ---------- */
+body.inner-page a:focus-visible,
+body.inner-page button:focus-visible {
+  outline: 2px solid var(--wt-accent);
+  outline-offset: 4px;
+}
+
+/* ============================================================
+   17. PRIMITIVAS COMPARTIDAS DE PÁGINAS INTERNAS (ui-*)
+   Vocabulario visual reutilizable por cualquier interna. No define
+   la estructura de ninguna página: cada página compone con estas
+   piezas el orden y el ritmo que le correspondan.
+   Solo tokens del design system (styles.css).
+   ============================================================ */
+body.inner-page {
+  /* Ritmo vertical por defecto entre bloques de una interna. */
+  --ui-gap: clamp(72px, 11vh, 148px);
+}
+
+body.inner-page .ui-kicker {
+  display: block;
+  margin: 0;
+  color: var(--wt-ink-faint);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+/* Acento de marca dentro de un titular, como en la Home. */
+body.inner-page .ui-accent {
+  color: var(--wt-accent-soft);
+}
+
+body.inner-page .ui-display,
+body.inner-page .ui-h2,
+body.inner-page .ui-statement,
+body.inner-page .ui-cta-title {
+  margin: 0;
+  color: var(--wt-ink);
+  font-family: var(--wt-font-display);
+  font-weight: 400;
+  letter-spacing: -0.032em;
+}
+
+body.inner-page .ui-h2 {
+  font-size: clamp(30px, 3.6vw, 54px);
+  line-height: 1.06;
+  max-width: 22ch;
+}
+body.inner-page .ui-h2--sm {
+  font-size: clamp(26px, 2.6vw, 40px);
+  max-width: 24ch;
+}
+
+body.inner-page .ui-lead {
+  margin: 20px 0 0;
+  max-width: 54ch;
+  color: var(--wt-ink-soft);
+  font-size: clamp(16px, 1.2vw, 19px);
+  line-height: 1.7;
+}
+body.inner-page .ui-lead--sm {
+  font-size: clamp(15px, 1vw, 17px);
+  line-height: 1.68;
+}
+
+body.inner-page .ui-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 24px;
+  color: var(--wt-ink);
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-bottom: 1px solid var(--wt-line);
+  padding-bottom: 5px;
+  transition:
+    color var(--wt-dur-base) var(--wt-ease),
+    border-color var(--wt-dur-base) var(--wt-ease);
+}
+body.inner-page .ui-link:hover,
+body.inner-page .ui-link:focus-visible {
+  color: var(--wt-accent);
+  border-bottom-color: var(--wt-accent);
+}
+
+/* ---------- 17.1 Hero ---------- */
+body.inner-page .ui-hero {
+  width: min(100% - (var(--wt-pad-x) * 2), var(--wt-max));
+  margin-inline: auto;
+  padding: clamp(24px, 5vh, 60px) 0 0;
+}
+/* Variante centrada: cabecera sola y media a todo el ancho debajo. */
+body.inner-page .ui-hero-center {
+  display: grid;
+  justify-items: center;
+  gap: 0;
+  max-width: 74ch;
+  margin-inline: auto;
+  text-align: center;
+}
+body.inner-page .ui-hero-center .eyebrow {
+  justify-content: center;
+}
+body.inner-page .ui-hero-center .ui-display {
+  max-width: 20ch;
+}
+body.inner-page .ui-hero-center .ui-lead {
+  max-width: 58ch;
+}
+body.inner-page .ui-hero-center .ui-actions {
+  justify-content: center;
+}
+body.inner-page .ui-hero .ui-hero-media {
+  margin-top: clamp(38px, 6vh, 76px);
+}
+body.inner-page .ui-split {
+  display: grid;
+  grid-template-columns: minmax(0, 1.02fr) minmax(0, 0.98fr);
+  align-items: center;
+  gap: clamp(36px, 4.6vw, 84px);
+}
+body.inner-page .ui-display {
+  margin-top: 16px;
+  max-width: 16ch;
+  font-size: clamp(38px, 5vw, 74px);
+  line-height: 1.02;
+}
+body.inner-page .ui-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 34px;
+}
+body.inner-page .ui-media {
+  margin: 0;
+  overflow: hidden;
+  background: var(--wt-paper-deep);
+}
+body.inner-page .ui-media img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+/* Proporciones de media reutilizables. */
+body.inner-page .ui-media--5x4 img {
+  aspect-ratio: 5 / 4;
+}
+body.inner-page .ui-media--4x3 img {
+  aspect-ratio: 4 / 3;
+}
+body.inner-page .ui-media--3x2 img {
+  aspect-ratio: 3 / 2;
+}
+body.inner-page .ui-media--4x5 img {
+  aspect-ratio: 4 / 5;
+}
+body.inner-page .ui-media--16x9 img {
+  aspect-ratio: 16 / 9;
+}
+
+body.inner-page .ui-facts {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(20px, 3vw, 56px);
+  margin: clamp(48px, 6vh, 92px) 0 0;
+  padding: 0;
+  list-style: none;
+}
+body.inner-page .ui-fact {
+  display: grid;
+  gap: 8px;
+  align-content: start;
+  padding-top: 22px;
+  border-top: 1px solid var(--wt-line);
+}
+body.inner-page .ui-fact-num,
+body.inner-page .ui-list-num {
+  color: var(--wt-ink-faint);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+}
+body.inner-page .ui-fact-title {
+  color: var(--wt-ink);
+  font-family: var(--wt-font-display);
+  font-size: clamp(17px, 1.5vw, 21px);
+  font-weight: 500;
+  letter-spacing: -0.022em;
+}
+body.inner-page .ui-fact-text {
+  max-width: 34ch;
+  color: var(--wt-ink-soft);
+  font-size: 14.5px;
+  line-height: 1.62;
+}
+
+/* ---------- 17.2 Bandas ---------- */
+body.inner-page .ui-band-inner {
+  display: grid;
+  gap: 20px;
+  width: min(100% - (var(--wt-pad-x) * 2), var(--wt-max));
+  margin-inline: auto;
+}
+body.inner-page .ui-statement {
+  max-width: 34ch;
+  font-size: clamp(26px, 3.2vw, 48px);
+  line-height: 1.12;
+}
+
+/* ---------- 17.3 Secciones y bandas ---------- */
+body.inner-page .ui-section {
+  width: min(100% - (var(--wt-pad-x) * 2), var(--wt-max));
+  margin-inline: auto;
+  padding-top: var(--ui-gap);
+}
+/* Banda cálida a sangre: rompe la sucesión de secciones blancas. */
+body.inner-page .ui-band {
+  width: 100%;
+  margin-top: var(--ui-gap);
+  padding: clamp(56px, 8vh, 112px) 0;
+  border-top: 1px solid var(--wt-line-soft);
+  border-bottom: 1px solid var(--wt-line-soft);
+  background: var(--wt-paper-warm);
+}
+/* Variante con más aire, para una declaración de una sola frase. */
+body.inner-page .ui-band--airy {
+  padding: clamp(56px, 9vh, 120px) 0;
+}
+/* Variante compacta, para una tira de datos. */
+body.inner-page .ui-band--tight {
+  padding: clamp(40px, 6vh, 84px) 0;
+}
+body.inner-page .ui-band > .ui-split {
+  width: min(100% - (var(--wt-pad-x) * 2), var(--wt-max));
+  margin-inline: auto;
+}
+/* Dentro de una banda, la fila de datos no necesita el aire de la cabecera. */
+body.inner-page .ui-band .ui-band-inner .ui-facts,
+body.inner-page .ui-band .ui-facts {
+  margin-top: 0;
+}
+/* Superficie del formulario: mismo lenguaje recto que el resto del sistema. */
+body.inner-page .form-card {
+  border-color: var(--wt-line-soft);
+  border-radius: 0;
+  box-shadow: none;
+}
+body.inner-page .ui-head .eyebrow {
+  margin-bottom: 16px;
+}
+body.inner-page .ui-split {
+  display: grid;
+  grid-template-columns: minmax(0, 1.04fr) minmax(0, 0.96fr);
+  gap: clamp(32px, 4vw, 76px);
+  align-items: start;
+}
+body.inner-page .ui-list {
+  margin: clamp(30px, 4.4vh, 58px) 0 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--wt-line);
+}
+/* Lista sin numeración: una sola columna de texto. */
+body.inner-page .ui-list--plain .ui-list-item {
+  grid-template-columns: minmax(0, 1fr);
+}
+body.inner-page .ui-list-item {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: clamp(16px, 2vw, 32px);
+  padding: 26px 0;
+  border-bottom: 1px solid var(--wt-line-soft);
+}
+body.inner-page .ui-list-title {
+  margin: 0 0 8px;
+  color: var(--wt-ink);
+  font-family: var(--wt-font-display);
+  font-size: clamp(18px, 1.6vw, 23px);
+  font-weight: 500;
+  letter-spacing: -0.024em;
+  line-height: 1.18;
+}
+body.inner-page .ui-list-text {
+  margin: 0;
+  max-width: 46ch;
+  color: var(--wt-ink-soft);
+  font-size: 14.5px;
+  line-height: 1.68;
+}
+/* Bloque partido: copy + media. Variantes según el peso de cada lado. */
+body.inner-page .ui-split {
+  display: grid;
+  grid-template-columns: minmax(0, 1.02fr) minmax(0, 0.98fr);
+  gap: clamp(36px, 4.6vw, 84px);
+  align-items: center;
+}
+/* Lista + media, alineados arriba. */
+body.inner-page .ui-split--top {
+  grid-template-columns: minmax(0, 1.04fr) minmax(0, 0.96fr);
+  gap: clamp(32px, 4vw, 76px);
+  align-items: start;
+}
+/* Media con algo más de peso (bloque invertido). */
+body.inner-page .ui-split--media {
+  grid-template-columns: minmax(0, 0.94fr) minmax(0, 1.06fr);
+  gap: clamp(32px, 4vw, 76px);
+  align-items: center;
+}
+/* En el bloque invertido, la copy se ajusta al media. */
+body.inner-page .ui-split--media .ui-split-copy .ui-h2 {
+  margin-top: 14px;
+}
+body.inner-page .ui-split--media .ui-split-copy .ui-lead {
+  margin-top: 16px;
+  max-width: 46ch;
+}
+
+/* ---------- 17.4 Respaldo ---------- */
+body.inner-page .ui-facts--4 {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(20px, 3vw, 48px);
+  margin: 20px 0 0;
+  padding: 0;
+  list-style: none;
+}
+/* En cuatro columnas el ritmo interno es algo más compacto. */
+body.inner-page .ui-facts--4 .ui-fact {
+  display: grid;
+  gap: 6px;
+  align-content: start;
+  padding-top: 20px;
+  border-top: 1px solid var(--wt-line);
+}
+body.inner-page .ui-facts--4 .ui-fact-title {
+  color: var(--wt-ink);
+  font-family: var(--wt-font-display);
+  font-size: clamp(16px, 1.3vw, 19px);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+body.inner-page .ui-facts--4 .ui-fact-text {
+  color: var(--wt-ink-soft);
+  font-size: 14px;
+  line-height: 1.6;
+  max-width: 40ch;
+}
+
+/* ---------- 17.5 Equipos ---------- */
+/* Mosaico asimétrico: una pieza de imagen + piezas de texto. */
+body.inner-page .ui-bento {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: clamp(18px, 2.2vw, 32px);
+}
+body.inner-page .ui-bento-media {
+  grid-column: span 7;
+  grid-row: span 2;
+}
+body.inner-page .ui-bento-copy {
+  display: grid;
+  grid-column: span 5;
+  align-content: center;
+  gap: 10px;
+  padding-top: 22px;
+  border-top: 1px solid var(--wt-line);
+}
+body.inner-page .ui-bento-copy .ui-list-text {
+  max-width: 42ch;
+}
+/* Las piezas de texto del mosaico funcionan como declaraciones, no como ítems. */
+body.inner-page .ui-bento-copy .ui-list-title {
+  font-size: clamp(22px, 2vw, 30px);
+  letter-spacing: -0.026em;
+}
+
+body.inner-page .ui-catalog {
+  margin-top: var(--ui-gap);
+  padding: clamp(56px, 8vh, 112px) 0;
+  border-top: 1px solid var(--wt-line-soft);
+  background: var(--wt-paper-warm);
+}
+body.inner-page .ui-catalog-inner {
+  width: min(100% - (var(--wt-pad-x) * 2), var(--wt-max));
+  margin-inline: auto;
+}
+/* Variante sin fondo: evita encadenar dos bandas cálidas seguidas. */
+body.inner-page .ui-catalog--plain {
+  border-top: 0;
+  background: var(--wt-paper);
+}
+body.inner-page .ui-catalog-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+body.inner-page .ui-catalog-head .ui-h2 {
+  margin-top: 12px;
+}
+body.inner-page .ui-catalog-head .ui-link {
+  margin-top: 0;
+}
+body.inner-page .ui-card-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(18px, 2.2vw, 32px);
+  margin-top: clamp(28px, 4vh, 52px);
+}
+/* Rejilla de tres piezas: menos tarjetas, algo más de aire entre ellas. */
+body.inner-page .ui-card-grid--3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+/* Rejilla de dos piezas: cada tarjeta respira más. */
+body.inner-page .ui-card-grid--2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+body.inner-page .ui-card {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+  background: var(--wt-paper);
+  border: 1px solid var(--wt-line-soft);
+  transition:
+    border-color var(--wt-dur-base) var(--wt-ease),
+    box-shadow var(--wt-dur-base) var(--wt-ease),
+    transform var(--wt-dur-base) var(--wt-ease);
+}
+body.inner-page .ui-card:hover,
+body.inner-page .ui-card:focus-visible {
+  border-color: var(--wt-line);
+  box-shadow: var(--wt-shadow-sm);
+  transform: translateY(-3px);
+}
+/* Variante editorial: sin caja, para columnas apoyadas sobre una banda. */
+body.inner-page .ui-card--bare {
+  border: 0;
+  background: transparent;
+}
+body.inner-page .ui-card--bare:hover,
+body.inner-page .ui-card--bare:focus-visible {
+  border-color: transparent;
+  box-shadow: none;
+  transform: translateY(-2px);
+}
+body.inner-page .ui-card-media {
+  display: block;
+  overflow: hidden;
+  background: var(--wt-paper-deep);
+}
+body.inner-page .ui-card-media img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  transition: transform var(--wt-dur-slow) var(--wt-ease);
+}
+/* Variante ancha para catálogos con menos piezas. */
+body.inner-page .ui-card-media--16x9 img {
+  aspect-ratio: 16 / 9;
+}
+body.inner-page .ui-card:hover .ui-card-media img,
+body.inner-page .ui-card:focus-visible .ui-card-media img {
+  transform: scale(1.035);
+}
+body.inner-page .ui-card-body {
+  display: block;
+  padding: 18px 18px 20px;
+}
+body.inner-page .ui-card-title {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--wt-ink);
+  font-family: var(--wt-font-display);
+  font-size: clamp(17px, 1.3vw, 19px);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+body.inner-page .ui-card-text {
+  display: block;
+  margin-bottom: 14px;
+  color: var(--wt-ink-soft);
+  font-size: 14px;
+  line-height: 1.62;
+}
+body.inner-page .ui-card-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--wt-ink);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+/* ---------- 17.6 CTA ---------- */
+body.inner-page .ui-cta {
+  margin-top: var(--ui-gap);
+  padding: clamp(64px, 10vh, 132px) 0;
+  background: var(--wt-accent);
+  color: #ffffff;
+}
+body.inner-page .ui-cta-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) auto;
+  gap: clamp(28px, 4vw, 64px);
+  align-items: end;
+  width: min(100% - (var(--wt-pad-x) * 2), var(--wt-max));
+  margin-inline: auto;
+}
+body.inner-page .ui-cta .ui-kicker {
+  color: rgba(255, 255, 255, 0.6);
+}
+body.inner-page .ui-cta-title {
+  margin-top: 14px;
+  max-width: 26ch;
+  color: #ffffff;
+  font-size: clamp(24px, 2.8vw, 40px);
+  line-height: 1.14;
+}
+body.inner-page .ui-cta-actions {
+  display: grid;
+  gap: 12px;
+  justify-items: stretch;
+}
+body.inner-page .ui-cta .button-primary {
+  gap: 12px;
+  min-height: 58px;
+  padding: 0 34px;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  background: #ffffff;
+  color: var(--wt-ink);
+}
+body.inner-page .ui-cta .button-primary:hover,
+body.inner-page .ui-cta .button-primary:focus-visible {
+  background: var(--wt-paper-warm);
+  color: var(--wt-ink);
+}
+body.inner-page .ui-cta .button-secondary {
+  /* Acción secundaria discreta: deja al CTA principal toda la presencia. */
+  min-height: 0;
+  padding: 4px 0;
+  border: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 0;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.92);
+  justify-self: start;
+}
+body.inner-page .ui-cta .button-secondary:hover,
+body.inner-page .ui-cta .button-secondary:focus-visible {
+  background: transparent;
+  border-color: transparent;
+  border-bottom-color: #ffffff;
+  color: #ffffff;
+}
+body.inner-page .ui-cta a:focus-visible {
+  outline-color: #ffffff;
+}
+
+/* ---------- 17.7 Motion ---------- */
+body.inner-page [data-reveal] {
+  transition:
+    opacity 460ms var(--wt-ease-out),
+    transform 460ms var(--wt-ease-out);
+}
+html.reveal-anim body.inner-page [data-reveal] {
+  opacity: 0;
+  transform: translateY(22px);
+}
+html.reveal-anim body.inner-page [data-reveal].is-in {
+  opacity: 1;
+  transform: none;
+}
+/* Escalonado corto dentro de rejillas. */
+html.reveal-anim body.inner-page .ui-facts .ui-fact:nth-child(2),
+html.reveal-anim body.inner-page .ui-facts--4 .ui-fact:nth-child(2),
+html.reveal-anim body.inner-page .ui-card-grid .ui-card:nth-child(2) {
+  transition-delay: 60ms;
+}
+html.reveal-anim body.inner-page .ui-facts .ui-fact:nth-child(3),
+html.reveal-anim body.inner-page .ui-facts--4 .ui-fact:nth-child(3),
+html.reveal-anim body.inner-page .ui-card-grid .ui-card:nth-child(3) {
+  transition-delay: 120ms;
+}
+html.reveal-anim body.inner-page .ui-facts--4 .ui-fact:nth-child(4),
+html.reveal-anim body.inner-page .ui-card-grid .ui-card:nth-child(4) {
+  transition-delay: 180ms;
+}
+
+/* ---------- 17.8 Responsive ---------- */
+@media (max-width: 1080px) {
+  body.inner-page .ui-split {
+    grid-template-columns: 1fr;
+  }
+  /* En un hero con la media a la izquierda, en móvil manda el texto. */
+  body.inner-page .ui-hero .ui-split--media > .ui-media {
+    order: 2;
+  }
+  body.inner-page .ui-bento {
+    grid-template-columns: 1fr;
+  }
+  body.inner-page .ui-bento-media,
+  body.inner-page .ui-bento-copy {
+    grid-column: auto;
+    grid-row: auto;
+  }
+  /* Apilado, un retrato a sangre completa resulta desproporcionado. */
+  body.inner-page .ui-media--4x5 img {
+    aspect-ratio: 3 / 2;
+  }
+  body.inner-page .ui-display {
+    max-width: 18ch;
+  }
+  body.inner-page .ui-card-grid,
+  body.inner-page .ui-facts--4 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 860px) {
+  body.inner-page .ui-facts:not(.ui-facts--4) {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  body.inner-page .ui-facts:not(.ui-facts--4) .ui-fact + .ui-fact {
+    margin-top: 20px;
+  }
+  body.inner-page .ui-cta-inner {
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+  body.inner-page .ui-cta-actions {
+    justify-items: start;
+    min-width: min(100%, 320px);
+  }
+}
+
+@media (max-width: 640px) {
+  /* Bloque superior más compacto: imagen, atributos y salto a la banda. */
+  body.inner-page .ui-hero {
+    padding-top: 18px;
+  }
+  body.inner-page .ui-facts:not(.ui-facts--4) {
+    margin-top: 30px;
+  }
+  body.inner-page .ui-facts:not(.ui-facts--4) .ui-fact {
+    padding-top: 15px;
+  }
+  body.inner-page .ui-facts:not(.ui-facts--4) .ui-fact + .ui-fact {
+    margin-top: 14px;
+  }
+  body.inner-page .ui-band--airy {
+    margin-top: 52px;
+    padding: 42px 0;
+  }
+
+  /* Respaldo: jerarquía por tipografía y reglas finas, sin cards. */
+  body.inner-page .ui-section .ui-kicker {
+    color: var(--wt-ink-soft);
+    font-size: 12px;
+    letter-spacing: 0.16em;
+  }
+  body.inner-page .ui-facts--4 {
+    gap: 0;
+    margin-top: 16px;
+  }
+  body.inner-page .ui-facts--4 .ui-fact {
+    gap: 5px;
+    padding-top: 14px;
+  }
+  body.inner-page .ui-facts--4 .ui-fact + .ui-fact {
+    margin-top: 16px;
+  }
+  body.inner-page .ui-facts--4 .ui-fact-title {
+    font-size: 17px;
+    letter-spacing: -0.024em;
+  }
+  body.inner-page .ui-facts--4 .ui-fact-text {
+    font-size: 13.5px;
+    line-height: 1.55;
+  }
+
+  body.inner-page .ui-display {
+    font-size: clamp(32px, 9.6vw, 46px);
+    max-width: none;
+  }
+  body.inner-page .ui-h2 {
+    max-width: none;
+  }
+  body.inner-page .ui-media--5x4 img,
+  body.inner-page .ui-media--4x3 img,
+  body.inner-page .ui-hero .ui-hero-media img {
+    aspect-ratio: 3 / 2;
+  }
+  body.inner-page .ui-card-grid,
+  body.inner-page .ui-facts--4 {
+    grid-template-columns: 1fr;
+  }
+  body.inner-page .ui-actions {
+    gap: 12px;
+  }
+  body.inner-page .ui-actions .button,
+  body.inner-page .ui-cta-actions .button-primary {
+    width: 100%;
+  }
+}
+
+/* ---------- 17.9 Movimiento reducido ---------- */
+@media (prefers-reduced-motion: reduce) {
+  body.inner-page [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  body.inner-page .ui-card,
+  body.inner-page .ui-card-media img {
+    transition: none !important;
+  }
+  body.inner-page .ui-card:hover,
+  body.inner-page .ui-card:focus-visible {
+    transform: none;
+  }
+  body.inner-page .ui-card:hover .ui-card-media img,
+  body.inner-page .ui-card:focus-visible .ui-card-media img {
+    transform: none;
+  }
+}

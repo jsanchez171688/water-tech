@@ -57,22 +57,6 @@ const enhanceHeader = () => {
   const topbarMain = document.createElement("div");
   topbarMain.className = "topbar-main";
 
-  const phoneRow = document.createElement("div");
-  phoneRow.className = "header-phone-row";
-  phoneRow.innerHTML = `
-    <div class="header-phone-card">
-      <span class="header-phone-label">Celulares</span>
-      <strong class="header-phone-lines">
-        <span>${MOBILE_PHONES.slice(0, 2).join(" - ")}</span>
-        <span>${MOBILE_PHONES.slice(2).join(" - ")}</span>
-      </strong>
-    </div>
-    <div class="header-phone-card">
-      <span class="header-phone-label">Convencional</span>
-      <strong>${LANDLINE_PHONE}</strong>
-    </div>
-  `;
-
   const actionGroup = document.createElement("div");
   actionGroup.className = "topbar-main-actions";
   ghostButton.textContent = "Contáctanos";
@@ -85,6 +69,9 @@ const enhanceHeader = () => {
 
   topbar.innerHTML = "";
   topbar.classList.add("is-enhanced");
+  /* Una sola cabecera para todo el sitio: logo | navegación | acciones.
+     Antes las internas sumaban una fila de teléfonos que duplicaba el pie
+     y obligaba a una segunda línea de navegación. */
   if (document.body.classList.contains("home-redesign")) {
     const utilityPhones = document.createElement("div");
     utilityPhones.className = "utility-phones";
@@ -92,12 +79,9 @@ const enhanceHeader = () => {
       .map((phone) => `<a href="tel:+593${phone.slice(1)}">${phone}</a>`)
       .join("");
     utilityBar.querySelector(".utility-bar-inner").append(utilityPhones);
-    topbarMain.append(brand, navWrap, actionGroup);
-    topbar.append(topbarMain);
-  } else {
-    topbarMain.append(brand, phoneRow, actionGroup);
-    topbar.append(topbarMain, navWrap);
   }
+  topbarMain.append(brand, navWrap, actionGroup);
+  topbar.append(topbarMain);
   topbar.before(utilityBar);
 };
 
@@ -378,7 +362,7 @@ const renderCartPage = () => {
     itemsContainer.innerHTML = `
       <div class="cart-empty">
         <h2>Tu carrito está vacío</h2>
-        <p>Agrega productos desde la home para empezar tu selección o tu cotización.</p>
+        <p>Agrega productos para empezar tu selección y solicitar una cotización.</p>
         <a class="button button-primary" href="index.html#catalogo">Explorar productos</a>
       </div>
     `;
@@ -447,6 +431,329 @@ if (clearCartButton) {
   clearCartButton.addEventListener("click", clearCart);
 }
 
+/* ============================================================
+   NAVEGACIÓN MÓVIL / TABLET (hamburguesa + drawer)
+   Una sola implementación para la Home y las páginas internas.
+   El drawer se construye a partir de la navegación de escritorio,
+   así ambas se mantienen sincronizadas.
+   ============================================================ */
+const MOBILE_NAV_BREAKPOINT = 1080;
+
+const initMobileNav = () => {
+  const topbar = document.querySelector(".topbar");
+  if (!topbar || document.querySelector(".wt-nav-toggle")) {
+    return;
+  }
+
+  const nav = topbar.querySelector(".nav");
+  const actions = topbar.querySelector(".topbar-main-actions");
+  if (!nav || !actions) {
+    return;
+  }
+
+  const isHome = document.body.classList.contains("home-redesign");
+  const brandLogo = topbar.querySelector(".brand-logo");
+  const brandSrc =
+    (brandLogo && brandLogo.getAttribute("src")) ||
+    "assets/home-v2/logo-watertech.png";
+
+  /* --- Botón hamburguesa --- */
+  const toggle = document.createElement("button");
+  toggle.type = "button";
+  toggle.className = "wt-nav-toggle";
+  toggle.setAttribute("aria-label", "Abrir menú de navegación");
+  toggle.setAttribute("aria-expanded", "false");
+  toggle.setAttribute("aria-controls", "wt-drawer");
+  toggle.innerHTML = `
+    <span class="wt-nav-toggle-icon" aria-hidden="true">
+      <span></span><span></span>
+    </span>
+  `;
+  actions.append(toggle);
+
+  /* --- Secciones del drawer, derivadas de la nav de escritorio --- */
+  const groups = [];
+  nav.querySelectorAll(":scope > a, :scope > .nav-item").forEach((node) => {
+    if (node.tagName === "A") {
+      if (isHome && node.classList.contains("nav-home-link")) {
+        return;
+      }
+      groups.push({
+        href: node.getAttribute("href"),
+        label: (node.textContent || "").trim(),
+        children: [],
+      });
+      return;
+    }
+
+    const parentLink = node.querySelector(":scope > a");
+    if (!parentLink) {
+      return;
+    }
+    const children = Array.from(
+      node.querySelectorAll(":scope > .dropdown-menu a")
+    ).map((link) => ({
+      href: link.getAttribute("href"),
+      label: (link.textContent || "").trim(),
+    }));
+    groups.push({
+      href: parentLink.getAttribute("href"),
+      label: (parentLink.textContent || "").trim(),
+      children,
+    });
+  });
+
+  const groupsMarkup = groups
+    .map(
+      (group) => `
+        <div class="wt-drawer-group">
+          <a class="wt-drawer-parent" href="${group.href}">${group.label}</a>
+          ${
+            group.children.length
+              ? `<div class="wt-drawer-links">${group.children
+                  .map(
+                    (child) =>
+                      `<a href="${child.href}">${child.label}</a>`
+                  )
+                  .join("")}</div>`
+              : ""
+          }
+        </div>
+      `
+    )
+    .join("");
+
+  /* --- Overlay + panel --- */
+  const overlay = document.createElement("div");
+  overlay.className = "wt-drawer-overlay";
+  overlay.setAttribute("data-wt-drawer-close", "");
+  overlay.setAttribute("aria-hidden", "true");
+
+  const drawer = document.createElement("aside");
+  drawer.className = "wt-drawer";
+  drawer.id = "wt-drawer";
+  drawer.setAttribute("role", "dialog");
+  drawer.setAttribute("aria-modal", "true");
+  drawer.setAttribute("aria-label", "Menú de navegación");
+  drawer.setAttribute("aria-hidden", "true");
+  drawer.innerHTML = `
+    <div class="wt-drawer-head">
+      <img src="${brandSrc}" alt="Water Tech" />
+      <button type="button" class="wt-drawer-close" data-wt-drawer-close aria-label="Cerrar menú">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <nav class="wt-drawer-nav" aria-label="Navegación principal">
+      ${groupsMarkup}
+    </nav>
+    <div class="wt-drawer-foot">
+      <a class="button button-primary" href="contacto.html">Solicitar cotización</a>
+      <a class="wt-drawer-contact" href="tel:${PRIMARY_PHONE}">${MOBILE_PHONES[0]}</a>
+      <a class="wt-drawer-contact" href="mailto:${HEADER_EMAIL}">${HEADER_EMAIL}</a>
+    </div>
+  `;
+
+  document.body.append(overlay, drawer);
+
+  let lastFocused = null;
+  const isOpen = () => document.body.classList.contains("wt-nav-open");
+
+  const getFocusable = () =>
+    Array.from(
+      drawer.querySelectorAll(
+        'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
+      )
+    );
+
+  /* Lenis (scroll suave de la Home) no se detiene con overflow:hidden. */
+  const lockScroll = (locked) => {
+    if (window.__wtLenis) {
+      if (locked) {
+        window.__wtLenis.stop();
+      } else {
+        window.__wtLenis.start();
+      }
+    }
+  };
+
+  const open = () => {
+    if (isOpen()) {
+      return;
+    }
+    lastFocused = document.activeElement;
+    document.body.classList.add("wt-nav-open");
+    document.documentElement.classList.add("wt-nav-open");
+    lockScroll(true);
+    drawer.setAttribute("aria-hidden", "false");
+    toggle.setAttribute("aria-expanded", "true");
+    toggle.setAttribute("aria-label", "Cerrar menú de navegación");
+    window.setTimeout(() => {
+      const first = getFocusable()[0];
+      if (first) {
+        first.focus();
+      }
+    }, 80);
+  };
+
+  const close = (restoreFocus = true) => {
+    if (!isOpen()) {
+      return;
+    }
+    document.body.classList.remove("wt-nav-open");
+    document.documentElement.classList.remove("wt-nav-open");
+    lockScroll(false);
+    drawer.setAttribute("aria-hidden", "true");
+    toggle.setAttribute("aria-expanded", "false");
+    toggle.setAttribute("aria-label", "Abrir menú de navegación");
+    if (restoreFocus && lastFocused instanceof HTMLElement) {
+      lastFocused.focus();
+    }
+  };
+
+  toggle.addEventListener("click", () => {
+    if (isOpen()) {
+      close();
+    } else {
+      open();
+    }
+  });
+
+  drawer.querySelectorAll("[data-wt-drawer-close]").forEach((trigger) => {
+    trigger.addEventListener("click", () => close());
+  });
+  overlay.addEventListener("click", () => close());
+
+  /* Cerrar al elegir una opción (incluye tel: y mailto:). */
+  drawer.addEventListener("click", (event) => {
+    const link =
+      event.target instanceof Element ? event.target.closest("a") : null;
+    if (link) {
+      close(false);
+    }
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (!isOpen()) {
+      return;
+    }
+    if (event.key === "Escape") {
+      event.preventDefault();
+      close();
+      return;
+    }
+    if (event.key !== "Tab") {
+      return;
+    }
+    const items = getFocusable();
+    if (!items.length) {
+      return;
+    }
+    const first = items[0];
+    const last = items[items.length - 1];
+    const active = document.activeElement;
+    if (event.shiftKey && (active === first || !drawer.contains(active))) {
+      event.preventDefault();
+      last.focus();
+    } else if (!event.shiftKey && active === last) {
+      event.preventDefault();
+      first.focus();
+    }
+  });
+
+  /* Al volver a escritorio, el drawer deja de tener sentido. */
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > MOBILE_NAV_BREAKPOINT && isOpen()) {
+      close(false);
+    }
+  });
+};
+
+initMobileNav();
+
+/* ============================================================
+   REVEALS DE PÁGINAS INTERNAS (primitiva compartida)
+   Cualquier interna que marque bloques con data-reveal entra aquí.
+   Usa IntersectionObserver para no depender de GSAP, que solo se
+   carga en la Home.
+   ============================================================ */
+const initReveals = () => {
+  if (!document.body.classList.contains("inner-page")) {
+    return;
+  }
+
+  const items = Array.from(document.querySelectorAll("[data-reveal]"));
+  if (!items.length) {
+    return;
+  }
+
+  const revealAll = () => {
+    items.forEach((item) => item.classList.add("is-in"));
+    document.documentElement.classList.remove("reveal-anim");
+    window.__revealMotionReady = true;
+  };
+
+  const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (reduced || !("IntersectionObserver" in window)) {
+    revealAll();
+    return;
+  }
+
+  const pending = new Set(items);
+
+  const reveal = (element) => {
+    element.classList.add("is-in");
+    observer.unobserve(element);
+    pending.delete(element);
+    if (!pending.size) {
+      /* Ya se vieron todos: el estado de "oculto" deja de ser necesario. */
+      document.documentElement.classList.remove("reveal-anim");
+    }
+  };
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          reveal(entry.target);
+        }
+      });
+    },
+    { rootMargin: "0px 0px -10% 0px", threshold: 0.12 }
+  );
+
+  items.forEach((item) => observer.observe(item));
+
+  /* Red de seguridad: si el usuario salta con la barra de scroll (o con Inicio/Fin),
+     algunos bloques pueden quedar por encima del viewport sin haberse revelado.
+     Cualquier bloque ya alcanzado se muestra de inmediato. */
+  let ticking = false;
+  const revealReached = () => {
+    ticking = false;
+    pending.forEach((element) => {
+      if (element.getBoundingClientRect().top < window.innerHeight) {
+        reveal(element);
+      }
+    });
+  };
+  window.addEventListener(
+    "scroll",
+    () => {
+      if (ticking || !pending.size) {
+        return;
+      }
+      ticking = true;
+      window.requestAnimationFrame(revealReached);
+    },
+    { passive: true }
+  );
+
+  /* Los observers ya están activos: a partir de aquí el fallback de 2s del
+     <head> deja de retirar el estado oculto, así que el reveal se aprecia. */
+  window.__revealMotionReady = true;
+};
+
+initReveals();
+
 const bindContactForm = () => {
   const form = document.querySelector("[data-contact-form]");
   if (!form) {
@@ -474,7 +781,7 @@ const bindContactForm = () => {
 
     if (!endpoint) {
       status.textContent =
-        "Formulario listo. Falta colocar la URL del Google Apps Script en data-endpoint para enviarlo a Google Sheets.";
+        "No pudimos enviar el formulario en este momento. Escríbenos por WhatsApp o correo y lo resolvemos enseguida.";
       status.classList.add("is-error");
       return;
     }
@@ -489,7 +796,7 @@ const bindContactForm = () => {
       status.classList.add("is-success");
     } catch (error) {
       status.textContent =
-        "No pudimos enviar el formulario en este momento. Revisa la URL del Apps Script o intenta otra vez.";
+        "No pudimos enviar el formulario en este momento. Intenta otra vez o escríbenos por WhatsApp o correo.";
       status.classList.add("is-error");
     } finally {
       submitButton.disabled = false;
@@ -517,7 +824,7 @@ const ensureWhatsAppModal = () => {
         <p class="eyebrow">WhatsApp directo</p>
         <h2 id="whatsapp-modal-title">Déjanos tus datos y te llevamos a WhatsApp.</h2>
         <p>
-          Guardaremos este contacto en Google Sheets y luego abriremos WhatsApp con tu mensaje listo para enviar.
+          Déjanos tus datos y abriremos WhatsApp con tu mensaje listo para enviar.
         </p>
       </div>
       <form class="contact-form whatsapp-form" data-whatsapp-form>
@@ -568,7 +875,7 @@ const ensureWhatsAppModal = () => {
             Guardar y abrir WhatsApp
           </button>
           <p class="form-helper">
-            Esta acción registrará el lead en Google Sheets antes de abrir la conversación por WhatsApp.
+            Te llevaremos a WhatsApp con tu consulta lista para enviar a nuestro equipo.
           </p>
         </div>
         <p class="form-status" data-whatsapp-status aria-live="polite"></p>
@@ -692,7 +999,7 @@ const bindWhatsAppFlow = () => {
       }, 400);
     } catch (error) {
       status.textContent =
-        "No pudimos guardar este lead en Google Sheets. Revisa el Apps Script e intenta otra vez.";
+        "No pudimos completar la solicitud. Intenta otra vez o escríbenos por correo.";
       status.classList.add("is-error");
     } finally {
       submitButton.disabled = false;

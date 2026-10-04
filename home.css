@@ -1,127 +1,1428 @@
-/* The revised home is scoped so internal pages retain their current layout. */
-.home-redesign { background: #f7faf9; }
-.home-redesign::before, .home-redesign::after { display: none; }
-.home-redesign .site-shell { width: 100%; max-width: none; padding: 0; }
-.home-redesign .utility-bar { margin: 0; border-radius: 0; box-shadow: none; background: #0b3148; }
-.home-redesign .utility-bar-inner { max-width: 1440px; margin: auto; padding: 10px 40px; flex-wrap: wrap; gap: 8px 24px; }
-.home-redesign .utility-phones { display: flex; flex-wrap: wrap; gap: 6px 16px; }
-.home-redesign .utility-phones a { color: #fff; text-decoration: none; font-size: 11px; white-space: nowrap; }
-.home-redesign .utility-item { font-size: 11px; }
-.home-redesign .utility-label { display: none; }
-.home-redesign .topbar { border: 0; border-radius: 0; background: #fff; box-shadow: none; }
-.home-redesign .topbar-main { max-width: 1440px; width: 100%; margin: auto; padding: 20px 40px; grid-template-columns: auto minmax(0, 1fr) auto; gap: 32px; }
-.home-redesign .brand-logo { width: 160px; }
-.home-redesign .header-phone-card { background: none; border: 0; padding: 0 14px; border-radius: 0; }
-.home-redesign .header-phone-label { font-size: 10px; }
-.home-redesign .header-phone-card strong { font-size: 13px; }
-.home-redesign .topbar-nav { padding: 0; border: 0; min-width: 0; }
-.home-redesign .nav { width: auto; justify-content: center; gap: 26px; padding-inline: 0; font-size: 14px; }
-.home-redesign .nav-item:last-child .dropdown-menu { left: auto; right: 0; }
-.home-redesign .nav-item:last-child .dropdown-menu::before { left: auto; right: 24px; }
-.home-redesign .button { min-height: 48px; padding: 14px 24px; border-radius: 5px; font-size: 14px; gap: 18px; }
-.home-redesign .button-primary { background: #1479ca; box-shadow: none; }
-.home-redesign .button-primary:hover { background: #095eaa; }
-.home-redesign a:focus-visible { outline: 3px solid #45b663; outline-offset: 5px; }
-.wt-container { width: min(100% - 96px, 1320px); margin-inline: auto; }
-.wt-hero { position: relative; isolation: isolate; min-height: min(850px, 100svh); display: flex; flex-direction: column; justify-content: center; background: #082b3e; color: white; overflow: hidden; }
-.wt-hero::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg, rgba(3,24,38,.94), rgba(3,24,38,.72) 36%, rgba(3,24,38,.12) 80%), linear-gradient(0deg, rgba(3,24,38,.6), transparent 35%); }
-.wt-hero-photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 55%; z-index: -2; }
-.wt-hero-content { padding-block: 90px 120px; animation: wt-enter .65s ease-out both; }
-.wt-kicker { margin: 0 0 22px; font-size: 11px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; color: #258645; }
-.wt-hero .wt-kicker { color: #b8dec9; }
-.wt-hero h1 { color: #fff; font-size: clamp(50px, 6.6vw, 100px); max-width: 800px; line-height: .99; letter-spacing: -.045em; margin: 0; }
-.wt-hero h1 em { color: #8bd57c; font-style: normal; }
-.wt-hero-description { font-size: 18px; line-height: 1.65; color: #e1e9ed; margin: 30px 0; }
-.wt-actions { display: flex; align-items: center; gap: 30px; flex-wrap: wrap; }
-.wt-text-link { font-weight: 700; font-size: 14px; color: inherit; text-decoration: none; padding-block: 12px; border-bottom: 1px solid currentColor; }
-.wt-hero-bottom { position: absolute; bottom: 28px; left: 0; right: 0; display: flex; justify-content: space-between; border-top: 1px solid #ffffff40; padding-top: 22px; font-size: 12px; }
-.wt-hero-bottom a { color: white; text-decoration: none; }
-.wt-proof { background: #0b3148; color: white; padding: 30px 0; }
-.wt-proof-grid { display: grid; grid-template-columns: repeat(3, 1fr) auto; align-items: center; gap: 30px; }
-.wt-proof-grid div { border-right: 1px solid #ffffff30; }
-.wt-proof-grid div span { display: block; color: #b5ced9; font-size: 10px; letter-spacing: .1em; text-transform: uppercase; margin-bottom: 8px; }
-.wt-proof-grid strong { font-family: Outfit, sans-serif; font-size: 20px; font-weight: 600; }
-.wt-proof-grid a { color: #b8e6a9; font-size: 13px; text-decoration: none; }
-.wt-band { padding-block: 100px; }
-.wt-heading { display: flex; justify-content: space-between; align-items: end; gap: 35px; margin-bottom: 42px; }
-.wt-heading h2, .wt-support h2 { font-size: clamp(34px, 3.7vw, 54px); line-height: 1.08; letter-spacing: -.035em; margin: 0; max-width: none; }
-.wt-heading > p { font-size: 16px; color: #546c7b; line-height: 1.65; margin: 0; }
-.wt-solutions { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 26px; }
-.wt-solution { background: white; border: 1px solid #dce6e8; color: #0b2740; text-decoration: none; border-radius: 8px; overflow: hidden; transition: box-shadow .2s; }
-.wt-solution:hover { box-shadow: 0 12px 30px #0b314814; }
-.wt-solution-photo { position: relative; height: 270px; }
-.wt-solution-photo > img { width: 100%; height: 100%; object-fit: cover; }
-.wt-icon { position: absolute; left: 24px; bottom: -24px; display: grid; place-items: center; width: 56px; height: 56px; background: #0b3148; color: #9edb87; border-radius: 5px; }
-.wt-icon svg { width: 32px; height: 32px; }
-.wt-solution-copy { padding: 48px 26px 26px; }
-.wt-solution-copy .wt-kicker { font-size: 10px; margin-bottom: 14px; }
-.wt-solution h3 { font-size: 27px; line-height: 1.16; margin: 0 0 14px; min-height: 63px; }
-.wt-solution p:not(.wt-kicker) { font-size: 14px; line-height: 1.65; margin: 0 0 28px; color: #546c7b; }
-.wt-card-link { display: flex; justify-content: space-between; border-top: 1px solid #dce6e8; padding-top: 20px; font-size: 13px; font-weight: 800; }
-.wt-catalog { background: #eaf0f1; }
-.wt-products { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 26px; }
-.wt-product { background: white; border-radius: 6px; overflow: hidden; color: #0b2740; text-decoration: none; }
-.wt-product > img { display: block; width: 100%; aspect-ratio: 1.65; object-fit: cover; }
-.wt-product > div { display: flex; align-items: center; padding: 24px; gap: 14px; }
-.wt-product-number { font-size: 11px; color: #23814b; }
-.wt-product h3 { font-size: 18px; margin: 0; flex: 1; }
-.wt-support { background: #0a2b40; color: white; }
-.wt-support-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
-.wt-support-photo img { display: block; width: 100%; aspect-ratio: 1.05; object-fit: cover; border-radius: 6px; }
-.wt-support .wt-kicker { color: #9edb87; }
-.wt-support h2 { color: white; }
-.wt-support p:not(.wt-kicker) { color: #c1d2dd; font-size: 16px; line-height: 1.7; max-width: 420px; }
-.wt-support-list { padding: 0; margin: 28px 0 34px; list-style: none; }
-.wt-support-list li { padding: 15px 0; border-bottom: 1px solid #ffffff25; font-size: 15px; }
-.wt-support-list span { color: #9edb87; margin-right: 20px; font-size: 11px; }
-.wt-contact { background: #f6f9f7; scroll-margin-top: 20px; }
-.wt-form { max-width: 960px; margin: auto; background: white; border: 1px solid #dce6e8; padding: 36px; border-radius: 8px; }
-.wt-form .form-field > span { font-size: 13px; }
-.wt-form input, .wt-form select, .wt-form textarea { border-radius: 4px; padding: 13px; font-size: 15px; }
-.wt-form .form-helper { font-size: 12px; }
-.home-redesign .site-footer { margin: 0; border-radius: 0; border: 0; padding: 48px; background: #eaf0f1; }
-@keyframes wt-enter { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: none; } }
-@media (max-width: 1000px) {
-  .home-redesign .header-phone-row { display: none; }
-  .home-redesign .topbar-main { grid-template-columns: 1fr auto; }
-  .home-redesign .topbar-nav { grid-column: 1 / -1; grid-row: 2; padding-top: 16px; border-top: 1px solid #dce6e8; }
-  .home-redesign .topbar-main-actions { grid-column: 2; grid-row: 1; }
-  .wt-container { width: calc(100% - 48px); }
-  .wt-support-grid { gap: 35px; }
-  .wt-solution-photo { height: 210px; }
-  .wt-solution-copy { padding-inline: 20px; }
-  .wt-solution h3 { font-size: 23px; }
-  .wt-proof-grid { grid-template-columns: repeat(3, 1fr); }
-  .wt-proof-grid > a { grid-column: 1 / -1; }
+/* ============================================================
+   WATER TECH — HOME
+   Sistema visual con prefijo .wt- y scope .home-redesign.
+   Las páginas internas no usan ninguna de estas clases.
+   Fase 1: header, hero, introducción editorial, sectores.
+   ============================================================ */
+
+/* ---------- 1. TOKENS ----------
+   Todos los tokens --wt-* viven ahora en :root (styles.css).
+   La home solo declara los valores que son propios de su layout. */
+.home-redesign {
+  background: var(--wt-paper);
+  color: var(--wt-ink);
+  font-family: var(--wt-font-body);
+  font-synthesis-weight: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
+
+/* Neutraliza el lienzo decorativo global SOLO en la Home.
+   (styles.css pinta gradientes + rejilla + watermark en body::before/::after) */
+body.home-redesign::before,
+body.home-redesign::after {
+  display: none !important;
+}
+.home-redesign .site-shell {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+/* El scroll suave lo controla Lenis, no el navegador. */
+.home-redesign {
+  scroll-behavior: auto;
+}
+
+/* ---------- 2. LAYOUT ---------- */
+.wt-container {
+  width: min(100% - (var(--wt-pad-x) * 2), var(--wt-max));
+  margin-inline: auto;
+}
+.wt-container--narrow {
+  width: min(100% - (var(--wt-pad-x) * 2), 1120px);
+  margin-inline: auto;
+}
+.wt-section {
+  padding-block: var(--wt-gap-l);
+}
+.wt-section--tight {
+  padding-block: var(--wt-gap-m);
+}
+
+/* ---------- 3. TIPOGRAFÍA PROTAGONISTA ---------- */
+.wt-kicker {
+  margin: 0 0 clamp(20px, 3vh, 34px);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--wt-ink-faint);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.wt-kicker::before {
+  content: "";
+  width: 40px;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.55;
+  flex: none;
+}
+
+.wt-display {
+  margin: 0;
+  font-family: var(--wt-font-display);
+  font-weight: 500;
+  font-size: clamp(44px, 7.2vw, 118px);
+  line-height: 0.98;
+  letter-spacing: -0.038em;
+  text-wrap: balance;
+}
+
+.wt-h2 {
+  margin: 0;
+  font-family: var(--wt-font-display);
+  font-weight: 500;
+  font-size: clamp(32px, 4.4vw, 68px);
+  line-height: 1.04;
+  letter-spacing: -0.032em;
+  text-wrap: balance;
+}
+
+.wt-h3 {
+  margin: 0;
+  font-family: var(--wt-font-display);
+  font-weight: 500;
+  font-size: clamp(23px, 2.2vw, 34px);
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+  text-wrap: balance;
+}
+
+.wt-lead {
+  margin: 0;
+  font-size: clamp(16px, 1.35vw, 21px);
+  line-height: 1.6;
+  color: var(--wt-ink-soft);
+  font-weight: 400;
+  max-width: var(--wt-narrow);
+}
+
+.wt-body {
+  margin: 0;
+  font-size: 15.5px;
+  line-height: 1.7;
+  color: var(--wt-ink-soft);
+  max-width: 46ch;
+}
+
+/* Text reveal: cada línea vive dentro de una máscara con overflow hidden.
+   El JS anima .wt-line > span desde translateY(105%). */
+.wt-line {
+  display: block;
+  overflow: hidden;
+  padding-bottom: 0.08em;
+  margin-bottom: -0.08em;
+}
+.wt-line > span {
+  display: block;
+  will-change: transform;
+}
+.wt-line--accent > span {
+  color: var(--wt-accent);
+}
+
+/* ---------- 4. HEADER ---------- */
+/* La utility bar que inyecta site.js rompe la transparencia sobre el hero
+   y duplica los teléfonos que ya viven en el footer. Fuera de la Home. */
+.home-redesign .utility-bar {
+  display: none;
+}
+
+.wt-header {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 90;
+  padding-block: 11px;
+  background: transparent;
+  border-bottom: 1px solid transparent;
+  /* El .topbar global aplica blur(20px); sobre el hero produce una banda
+     difusa que delata la caja del header. Aqui no lo queremos. */
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  box-shadow: none;
+  border-radius: 0;
+  /* styles.css fija grid-template-rows y padding en .topbar / .topbar-nav
+     (tambien dentro de media queries). Sin neutralizarlo, el header mide
+     124px aunque su contenido quepa en 52px. */
+  display: block;
+  grid-template-rows: none !important;
+  grid-template-columns: none !important;
+  transition:
+    background-color 0.5s var(--wt-ease),
+    padding 0.5s var(--wt-ease),
+    border-color 0.5s var(--wt-ease);
+}
+.wt-header-in {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: clamp(20px, 3vw, 48px);
+}
+.wt-header .brand {
+  display: block;
+  flex: none;
+}
+.wt-header .brand-logo {
+  display: block;
+  width: auto;
+  height: var(--wt-logo-header-h);
+  transition: height 0.5s var(--wt-ease);
+}
+/* El logo va suelto sobre el banner: el PNG que usamos ya tiene el fondo
+   transparente, asi que no aparece ningun recuadro claro. */
+.wt-header .brand {
+  position: relative;
+  padding: 0;
+  background: none;
+  isolation: isolate;
+  transition: padding 0.5s var(--wt-ease);
+}
+/* El logo queda suelto sobre el agua: una sombra muy suave lo separa del
+   fondo cuando pasan las luces. */
+.wt-header .brand-logo {
+  filter: drop-shadow(0 2px 10px rgba(2, 10, 20, 0.55));
+}
+/* Sobre el agua el logo a color pierde su mitad oscura y no se lee. En el
+   estado transparente se usa como lockup blanco y recupera el color
+   original en cuanto el header pasa a solido. */
+.wt-header:not(.is-scrolled) .brand-logo {
+  filter: brightness(0) invert(1)
+    drop-shadow(0 2px 10px rgba(2, 10, 20, 0.55));
+}
+.wt-header.is-scrolled .brand-logo {
+  filter: drop-shadow(0 1px 3px rgba(2, 10, 20, 0.12));
+}
+
+.wt-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: clamp(18px, 2.4vw, 38px);
+  min-width: 0;
+}
+.wt-nav > a,
+.wt-nav > .nav-item > a {
+  position: relative;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: -0.005em;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.96);
+  padding-block: 6px;
+  /* Sombra sutil: sostiene la nav sobre las imagenes claras del banner. */
+  text-shadow: 0 1px 10px rgba(4, 15, 23, 0.65);
+  transition: color 0.45s var(--wt-ease);
+}
+.wt-header.is-scrolled .wt-nav > a,
+.wt-header.is-scrolled .wt-nav > .nav-item > a {
+  text-shadow: none;
+}
+/* subrayado que crece en hover */
+.wt-nav > a::after,
+.wt-nav > .nav-item > a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.45s var(--wt-ease);
+}
+.wt-nav > a:hover::after,
+.wt-nav > .nav-item:hover > a::after,
+.wt-nav > .nav-item:focus-within > a::after {
+  transform: scaleX(1);
+}
+.wt-header .nav-home-link {
+  display: none; /* ya estamos en la Home */
+}
+
+.wt-header .wt-header-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #fff;
+  padding: 11px 20px;
+  min-height: 0;
+  background: rgba(6, 22, 33, 0.22);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  border: 1px solid rgba(255, 255, 255, 0.42);
+  background: transparent;
+  white-space: nowrap;
+  transition:
+    background-color 0.45s var(--wt-ease),
+    color 0.45s var(--wt-ease),
+    border-color 0.45s var(--wt-ease);
+}
+.wt-header .wt-header-cta:hover {
+  background: #fff;
+  color: var(--wt-ink);
+  border-color: #fff;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+.wt-header.is-scrolled .wt-header-cta {
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+/* --- estado tras hacer scroll --- */
+.wt-header.is-scrolled {
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: saturate(1.4) blur(18px);
+  -webkit-backdrop-filter: saturate(1.4) blur(18px);
+  border-bottom-color: var(--wt-line-soft);
+  padding-block: 9px;
+}
+.wt-header.is-scrolled .brand-logo {
+  height: calc(var(--wt-logo-header-h) - 10px);
+}
+.wt-header.is-scrolled .wt-nav > a,
+.wt-header.is-scrolled .wt-nav > .nav-item > a {
+  color: var(--wt-ink-soft);
+}
+.wt-header.is-scrolled .wt-nav > a:hover,
+.wt-header.is-scrolled .wt-nav > .nav-item:hover > a {
+  color: var(--wt-ink);
+}
+.wt-header.is-scrolled .wt-header-cta {
+  color: var(--wt-ink);
+  border-color: var(--wt-line);
+}
+.wt-header.is-scrolled .wt-header-cta:hover {
+  background: var(--wt-ink);
+  color: #fff;
+  border-color: var(--wt-ink);
+}
+.wt-header.is-scrolled .cart-entry {
+  color: var(--wt-ink);
+}
+
+/* site.js vacia el .topbar y lo reconstruye con .topbar-main > (brand,
+   .topbar-nav > nav, .topbar-main-actions). Convertimos .topbar-main en el
+   contenedor real del header: asi el grid no depende de reglas que site.js
+   destruye y podemos neutralizar el padding de .topbar-nav. */
+.wt-header .topbar-main {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: clamp(20px, 3vw, 48px);
+  width: min(100% - (var(--wt-pad-x) * 2), var(--wt-max));
+  max-width: none;
+  margin-inline: auto;
+  padding: 0;
+}
+.wt-header .topbar-nav {
+  display: block;
+  padding: 0;
+  border: 0;
+  min-width: 0;
+}
+.wt-header .topbar-main-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  justify-self: end;
+}
+
+/* El carrito que inyecta site.js.
+   Ojo: .cart-entry trae min-height propio y marcaba la altura del header. */
+.wt-header .cart-entry {
+  color: #fff;
+  width: 40px;
+  height: 40px;
+  min-height: 0;
+  background: rgba(6, 22, 33, 0.22);
+  filter: drop-shadow(0 1px 6px rgba(4, 15, 23, 0.5));
+  transition: color 0.45s var(--wt-ease), background-color 0.45s var(--wt-ease);
+}
+.wt-header.is-scrolled .cart-entry {
+  background: transparent;
+  filter: none;
+}
+.wt-header .cart-entry-icon svg {
+  fill: currentColor;
+}
+.wt-header.is-scrolled .cart-entry {
+  color: var(--wt-ink);
+}
+.wt-header.is-scrolled .cart-entry-badge {
+  background: var(--wt-accent);
+  color: #fff;
+}
+
+/* ---------- 5. HERO ---------- */
+.wt-hero {
+  position: relative;
+  isolation: isolate;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+  /* Paleta medida del video de referencia: #0a2f86 -> #01081f */
+  background:
+    radial-gradient(120% 85% at 50% 10%, #0a2f86 0%, #062163 34%, #03113c 62%, #01081f 100%);
+}
+
+/* Dona de agua, armada igual que la referencia: anillo recortado con
+   clip-path (circulo exterior de 0.5 y hueco de 0.257 de la caja) con el
+   agua en video adentro, escalada por altura y anclada a la izquierda. */
+.wt-hero-ring {
+  position: absolute;
+  top: 50%;
+  left: 25%;
+  /* Por encima de los velos: la dona se lee como una ventana de agua
+     luminosa, igual que en la referencia. */
+  z-index: -1;
+  width: min(38vw, 518px);
+  height: min(38vw, 518px);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+.wt-hero-ring-clip {
+  position: absolute;
+  width: 0;
+  height: 0;
+}
+.wt-hero-ring-media,
+.wt-hero-ring-bubbles {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  -webkit-clip-path: url(#wt-donut-clip);
+  clip-path: url(#wt-donut-clip);
+}
+.wt-hero-ring-video,
+.wt-hero-ring-bubbles-video {
+  position: absolute;
+  top: -1%;
+  left: 0;
+  height: 102%;
+  width: auto;
+  min-width: 102%;
+  object-fit: cover;
+}
+/* El agua del anillo se lee como una ventana al mismo mar del fondo. */
+.wt-hero-ring-video {
+  filter: brightness(1.3) saturate(1.1) contrast(1.06);
+}
+/* Burbujas reales subiendo dentro del anillo: como el clip tiene fondo
+   negro, en modo screen solo se suman las burbujas. */
+.wt-hero-ring-bubbles {
+  isolation: isolate;
+  mix-blend-mode: screen;
+}
+.wt-hero-ring-bubbles-video {
+  transform: scale(1.35);
+  filter: brightness(1.25) contrast(1.1);
+}
+
+/* Agua a pantalla completa detras de todo, como el video del banner de
+   AGS. El degradado azul del hero queda como respaldo mientras carga. */
+.wt-hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: -4;
+  overflow: hidden;
+  pointer-events: none;
+}
+.wt-hero-bg-video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* Un poco mas de color y de brillo: el agua no debe apagarse. */
+  filter: saturate(1.18) brightness(1.08);
+  animation: wt-hero-bg-drift 24s ease-in-out infinite;
+}
+@keyframes wt-hero-bg-drift {
+  0%,
+  100% {
+    transform: scale(1.06) translate3d(0, 0, 0);
+  }
+  50% {
+    transform: scale(1.13) translate3d(-1.6%, -1.2%, 0);
+  }
+}
+
+/* La malla queda como textura de luz sobre el video, no como protagonista. */
+.wt-hero-wave {
+  opacity: 0.45;
+}
+
+/* Canvas de la onda generativa. Sustituye a las imagenes del banner. */
+.wt-hero-wave {
+  position: absolute;
+  inset: 0;
+  z-index: -3;
+}
+/* El canvas siempre llena su contenedor: asi el JS puede fijar la
+   resolucion interna sin que el tamano en pantalla se vea afectado. */
+.wt-hero-wave > canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.wt-hero-media {
+  position: absolute;
+  inset: 0;
+  z-index: -3;
+  overflow: hidden;
+}
+/* Velo: el agua se lee limpia a la izquierda y el titular respira a la
+   derecha, donde la malla se apaga. */
+.wt-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background: linear-gradient(
+    100deg,
+    rgba(3, 12, 30, 0) 0%,
+    rgba(3, 12, 30, 0.03) 24%,
+    rgba(3, 12, 30, 0.1) 42%,
+    rgba(3, 12, 30, 0.2) 56%,
+    rgba(3, 12, 30, 0.3) 70%,
+    rgba(3, 12, 30, 0.4) 100%
+  );
+}
+
+.wt-hero-in {
+  position: relative;
+  width: min(100% - (var(--wt-pad-x) * 2), var(--wt-max));
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1fr);
+  align-content: center;
+  padding-block: clamp(108px, 17vh, 180px) clamp(28px, 5vh, 56px);
+}
+/* Todo el discurso entra por la columna derecha; la izquierda queda para
+   la dona. */
+.wt-hero-in > * {
+  grid-column: 2;
+}
+.wt-hero-in > .wt-hero-foot {
+  grid-column: 1 / -1;
+}
+/* Velo inferior continuo: antes era una franja con corte horizontal
+   visible sobre las imagenes claras. */
+.wt-hero::before {
+  content: "";
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 44%;
+  z-index: -2;
+  pointer-events: none;
+  background: linear-gradient(
+    0deg,
+    rgba(3, 12, 30, 0.44) 0%,
+    rgba(3, 12, 30, 0.14) 48%,
+    transparent 100%
+  );
+}
+.wt-hero .wt-kicker {
+  color: rgba(255, 255, 255, 0.72);
+}
+.wt-hero .wt-display {
+  color: #fff;
+  max-width: 13ch;
+  font-weight: 300;
+  font-size: clamp(38px, 4.9vw, 82px);
+  letter-spacing: -0.032em;
+}
+/* Contraste de peso, como en la referencia: una palabra en negrita dentro
+   de un titular ligero. */
+.wt-hero .wt-display strong {
+  font-weight: 700;
+}
+.wt-hero .wt-line--accent > span {
+  color: #a9d6ec;
+}
+
+.wt-hero-sub {
+  margin: clamp(26px, 4vh, 44px) 0 0;
+  font-size: clamp(15px, 1.3vw, 19px);
+  line-height: 1.62;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.78);
+  max-width: 44ch;
+}
+
+.wt-hero-actions {
+  display: flex;
+  align-items: center;
+  gap: clamp(20px, 2.6vw, 38px);
+  flex-wrap: wrap;
+  margin-top: clamp(30px, 4.4vh, 50px);
+}
+
+.wt-hero-foot {
+  position: relative;
+  width: 100%;
+  margin: clamp(40px, 7vh, 78px) auto 0;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.22);
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.62);
+}
+
+/* ---------- 6. BOTONES ---------- */
+.wt-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 13px;
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 19px 34px;
+  border: 1px solid transparent;
+  border-radius: 0;
+  background: #fff;
+  color: var(--wt-ink);
+  transition:
+    background-color 0.42s var(--wt-ease),
+    color 0.42s var(--wt-ease),
+    border-color 0.42s var(--wt-ease);
+}
+.wt-btn:hover {
+  background: transparent;
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.5);
+}
+.wt-btn--solid {
+  background: var(--wt-accent);
+  color: #fff;
+}
+.wt-btn--solid:hover {
+  background: var(--wt-ink);
+  color: #fff;
+  border-color: var(--wt-ink);
+}
+.wt-btn--outline {
+  background: transparent;
+  color: var(--wt-ink);
+  border-color: var(--wt-line);
+}
+.wt-btn--outline:hover {
+  background: var(--wt-ink);
+  color: #fff;
+  border-color: var(--wt-ink);
+}
+/* flecha que se desplaza en hover */
+.wt-btn .wt-arrow,
+.wt-link .wt-arrow {
+  display: inline-block;
+  transition: transform 0.42s var(--wt-ease);
+}
+.wt-btn:hover .wt-arrow,
+.wt-link:hover .wt-arrow {
+  transform: translateX(5px);
+}
+
+.wt-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #fff;
+  padding-bottom: 5px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.45);
+  transition: border-color 0.42s var(--wt-ease);
+}
+.wt-link:hover {
+  border-bottom-color: #fff;
+}
+.wt-link--ink {
+  color: var(--wt-ink);
+  border-bottom-color: var(--wt-line);
+}
+.wt-link--ink:hover {
+  border-bottom-color: var(--wt-ink);
+}
+
+.wt-actions {
+  display: flex;
+  align-items: center;
+  gap: clamp(18px, 2.4vw, 34px);
+  flex-wrap: wrap;
+}
+
+/* ---------- 7. BANDA DE ESPECIALIDADES ---------- */
+.wt-marquee {
+  overflow: hidden;
+  border-block: 1px solid var(--wt-line-soft);
+  background: var(--wt-paper);
+  padding-block: 26px;
+}
+.wt-marquee-track {
+  display: flex;
+  align-items: center;
+  gap: clamp(28px, 3.4vw, 56px);
+  width: max-content;
+  will-change: transform;
+  animation: wt-marquee 46s linear infinite;
+}
+.wt-marquee-item {
+  display: inline-flex;
+  align-items: center;
+  gap: clamp(28px, 3.4vw, 56px);
+  font-family: var(--wt-font-display);
+  font-weight: 500;
+  font-size: clamp(15px, 1.5vw, 22px);
+  letter-spacing: -0.015em;
+  color: var(--wt-ink-faint);
+  white-space: nowrap;
+}
+.wt-marquee-item::after {
+  content: "";
+  width: 5px;
+  height: 5px;
+  background: var(--wt-line);
+  border-radius: 50%;
+  flex: none;
+}
+.wt-marquee:hover .wt-marquee-track {
+  animation-play-state: paused;
+}
+@keyframes wt-marquee {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+/* ---------- 8. INTRODUCCIÓN EDITORIAL ---------- */
+.wt-intro {
+  background: var(--wt-paper);
+}
+.wt-intro-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  gap: clamp(32px, 6vw, 110px);
+  align-items: start;
+}
+.wt-intro-aside .wt-kicker {
+  margin-bottom: clamp(18px, 2.4vh, 28px);
+}
+.wt-intro-aside p {
+  margin: 0;
+  font-size: 14.5px;
+  line-height: 1.72;
+  color: var(--wt-ink-soft);
+  max-width: 34ch;
+}
+.wt-intro-lead {
+  margin: 0;
+  font-family: var(--wt-font-display);
+  font-weight: 400;
+  font-size: clamp(23px, 2.5vw, 40px);
+  line-height: 1.24;
+  letter-spacing: -0.024em;
+  color: var(--wt-ink);
+  text-wrap: pretty;
+}
+.wt-intro-lead strong {
+  font-weight: 500;
+  color: var(--wt-accent);
+}
+
+/* tres apoyos, sin tarjetas: solo reglas finas */
+.wt-intro-points {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(24px, 3vw, 52px);
+  margin-top: var(--wt-gap-m);
+  padding-top: clamp(28px, 3.4vh, 46px);
+  border-top: 1px solid var(--wt-line-soft);
+}
+.wt-point {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.wt-point-num {
+  font-family: var(--wt-font-display);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  color: var(--wt-ink-faint);
+}
+.wt-point h3 {
+  margin: 0;
+  font-family: var(--wt-font-display);
+  font-weight: 500;
+  font-size: clamp(18px, 1.5vw, 23px);
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+.wt-point p {
+  margin: 0;
+  font-size: 14.5px;
+  line-height: 1.68;
+  color: var(--wt-ink-soft);
+  max-width: 34ch;
+}
+
+/* ---------- 9. SECTORES ---------- */
+.wt-sectors {
+  background: var(--wt-paper-warm);
+}
+.wt-sectors-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: clamp(24px, 4vw, 64px);
+  margin-bottom: clamp(40px, 6vh, 76px);
+}
+.wt-sectors-head .wt-h2 {
+  max-width: 15ch;
+}
+.wt-sectors-head p {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.68;
+  color: var(--wt-ink-soft);
+  max-width: 34ch;
+}
+
+.wt-sectors-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(22px, 3vw, 52px) clamp(22px, 3vw, 44px);
+  align-items: start;
+}
+/* primera pieza a doble ancho: jerarquía, no rejilla uniforme */
+.wt-sector--lead {
+  grid-column: 1 / -1;
+}
+.wt-sector--lead .wt-sector-figure {
+  aspect-ratio: 16 / 9;
+}
+.wt-sector {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+.wt-sector-figure {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  aspect-ratio: 4 / 5;
+  background: var(--wt-paper-deep);
+}
+.wt-sector-figure img {
+  position: absolute;
+  inset: -4% 0;
+  width: 100%;
+  height: 108%;
+  object-fit: cover;
+  will-change: transform;
+  transition: transform 1.1s var(--wt-ease-out);
+}
+.wt-sector:hover .wt-sector-figure img {
+  transform: scale(1.045);
+}
+.wt-sector-index {
+  position: absolute;
+  top: clamp(16px, 1.6vw, 26px);
+  left: clamp(16px, 1.6vw, 26px);
+  z-index: 2;
+  font-family: var(--wt-font-display);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  color: #fff;
+  mix-blend-mode: difference;
+}
+.wt-sector-body {
+  padding-top: clamp(18px, 2vh, 28px);
+}
+.wt-sector-body .wt-kicker {
+  margin-bottom: 12px;
+}
+.wt-sector-body .wt-h3 {
+  margin-bottom: 12px;
+}
+.wt-sector-body p {
+  margin: 0 0 20px;
+  font-size: 14.5px;
+  line-height: 1.68;
+  color: var(--wt-ink-soft);
+  max-width: 40ch;
+}
+.wt-sector--lead .wt-sector-body {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(20px, 3vw, 52px);
+  align-items: end;
+}
+.wt-sector--lead .wt-sector-body p {
+  margin-bottom: 0;
+}
+.wt-sector--lead .wt-link {
+  justify-self: start;
+}
+
+/* ---------- 9.b LO QUE HACEMOS ---------- */
+.wt-work {
+  background: var(--wt-paper);
+}
+.wt-work-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  gap: clamp(32px, 5vw, 96px);
+  align-items: start;
+}
+.wt-work .wt-h2 {
+  max-width: 15ch;
+}
+.wt-work .wt-h2 strong {
+  font-weight: 500;
+  color: var(--wt-accent);
+}
+.wt-work-lead {
+  margin: clamp(22px, 3vh, 34px) 0 0;
+  font-size: clamp(15px, 1.25vw, 18px);
+  line-height: 1.7;
+  color: var(--wt-ink-soft);
+  max-width: 46ch;
+}
+.wt-work-list {
+  margin: clamp(34px, 4.6vh, 54px) 0 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--wt-line-soft);
+}
+.wt-work-item {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: clamp(16px, 2vw, 34px);
+  padding-block: clamp(18px, 2.4vh, 26px);
+  border-bottom: 1px solid var(--wt-line-soft);
+}
+.wt-work-num {
+  padding-top: 5px;
+  font-family: var(--wt-font-display);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  color: var(--wt-ink-faint);
+}
+.wt-work-item h3 {
+  margin: 0 0 8px;
+  font-family: var(--wt-font-display);
+  font-weight: 500;
+  font-size: clamp(17px, 1.5vw, 22px);
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+.wt-work-item p {
+  margin: 0;
+  font-size: 14.5px;
+  line-height: 1.68;
+  color: var(--wt-ink-soft);
+  max-width: 46ch;
+}
+.wt-work-figure {
+  margin: 0;
+}
+.wt-work-figure img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  background: var(--wt-paper-deep);
+}
+.wt-work-figure figcaption {
+  margin-top: 14px;
+  font-size: 12.5px;
+  line-height: 1.6;
+  color: var(--wt-ink-faint);
+  max-width: 42ch;
+}
+
+/* ---------- 9.c PROYECTOS ---------- */
+.wt-projects {
+  background: var(--wt-paper);
+}
+.wt-projects-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: clamp(24px, 4vw, 64px);
+  margin-bottom: clamp(40px, 6vh, 76px);
+}
+.wt-projects-head .wt-h2 {
+  max-width: 18ch;
+}
+.wt-projects-head p {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.68;
+  color: var(--wt-ink-soft);
+  max-width: 34ch;
+}
+.wt-projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(20px, 2.6vw, 40px);
+  align-items: start;
+}
+.wt-project {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+/* La primera pieza ocupa todo el ancho: jerarquía, no rejilla uniforme. */
+.wt-project--lead {
+  grid-column: 1 / -1;
+}
+.wt-project-figure {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  background: var(--wt-paper-deep);
+}
+.wt-project--lead .wt-project-figure {
+  aspect-ratio: 16 / 9;
+}
+.wt-project-figure img {
+  position: absolute;
+  inset: -4% 0;
+  width: 100%;
+  height: 108%;
+  object-fit: cover;
+  transition: transform 1.1s var(--wt-ease-out);
+}
+.wt-project:hover .wt-project-figure img {
+  transform: scale(1.04);
+}
+.wt-project-body {
+  display: block;
+  padding-top: clamp(16px, 2vh, 26px);
+}
+.wt-project-body .wt-kicker {
+  margin-bottom: 10px;
+}
+.wt-project-body .wt-h3 {
+  margin-bottom: 10px;
+}
+.wt-project-body p {
+  margin: 0;
+  font-size: 14.5px;
+  line-height: 1.68;
+  color: var(--wt-ink-soft);
+  max-width: 44ch;
+}
+.wt-project--lead .wt-h3 {
+  font-size: clamp(24px, 2.4vw, 36px);
+}
+
+/* ---------- 9.d CATÁLOGO ---------- */
+.wt-catalog {
+  background: var(--wt-paper-warm);
+}
+.wt-catalog-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: clamp(24px, 4vw, 64px);
+  margin-bottom: clamp(40px, 6vh, 76px);
+}
+.wt-catalog-head .wt-h2 {
+  max-width: 17ch;
+}
+.wt-catalog-head .wt-h2 strong {
+  font-weight: 500;
+  color: var(--wt-accent);
+}
+.wt-catalog-head p {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.68;
+  color: var(--wt-ink-soft);
+  max-width: 34ch;
+}
+.wt-catalog-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(22px, 2.8vw, 48px) clamp(20px, 2.4vw, 40px);
+  align-items: start;
+}
+.wt-cat {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+.wt-cat-figure {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  background: var(--wt-paper-deep);
+}
+.wt-cat-figure img {
+  position: absolute;
+  inset: -4% 0;
+  width: 100%;
+  height: 108%;
+  object-fit: cover;
+  transition: transform 1.1s var(--wt-ease-out);
+}
+.wt-cat:hover .wt-cat-figure img {
+  transform: scale(1.045);
+}
+.wt-cat-body {
+  display: block;
+  padding-top: clamp(16px, 1.8vh, 24px);
+}
+/* Indice editorial, igual que los apoyos de la intro: da la lectura de
+   "seis lineas" sin competir con el titular de cada tarjeta. */
+.wt-cat-num {
+  display: block;
+  margin-bottom: 10px;
+  font-family: var(--wt-font-display);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  color: var(--wt-ink-faint);
+}
+.wt-cat-body .wt-h3 {
+  margin-bottom: 8px;
+  font-size: clamp(19px, 1.7vw, 26px);
+}
+.wt-cat-body p {
+  margin: 0;
+  font-size: 14.5px;
+  line-height: 1.68;
+  color: var(--wt-ink-soft);
+  max-width: 38ch;
+}
+/* Cada tarjeta anuncia que es navegable, igual que las de sector. */
+.wt-cat-body .wt-link {
+  margin-top: clamp(14px, 1.8vh, 22px);
+}
+.wt-cat:hover .wt-link {
+  border-bottom-color: var(--wt-ink);
+}
+.wt-cat:hover .wt-link .wt-arrow {
+  transform: translateX(5px);
+}
+.wt-catalog-foot {
+  margin: clamp(40px, 6vh, 72px) 0 0;
+  padding-top: clamp(24px, 3vh, 36px);
+  border-top: 1px solid var(--wt-line-soft);
+}
+
+/* ---------- 9.e CONTACTO ---------- */
+.wt-contact {
+  background: var(--wt-accent);
+  color: #fff;
+}
+.wt-contact .wt-kicker {
+  color: rgba(255, 255, 255, 0.66);
+}
+.wt-contact .wt-h2 {
+  color: #fff;
+  max-width: 16ch;
+}
+/* Mismo contraste de peso que el hero: el enfasis va en negrita y el
+   resto del titular se mantiene ligero. */
+.wt-contact .wt-h2 strong {
+  font-weight: 700;
+  color: #a9d6ec;
+}
+.wt-contact-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  gap: clamp(40px, 6vw, 120px);
+  align-items: start;
+}
+.wt-contact-lead {
+  margin: clamp(24px, 3.4vh, 38px) 0 0;
+  font-size: clamp(15px, 1.3vw, 19px);
+  line-height: 1.68;
+  color: rgba(255, 255, 255, 0.76);
+  max-width: 46ch;
+}
+.wt-contact-actions {
+  display: flex;
+  align-items: center;
+  gap: clamp(20px, 2.6vw, 38px);
+  flex-wrap: wrap;
+  margin-top: clamp(30px, 4.4vh, 50px);
+}
+.wt-contact-data {
+  margin: 0;
+  display: grid;
+  gap: clamp(22px, 2.8vh, 34px);
+  padding-top: clamp(8px, 1.4vh, 18px);
+}
+.wt-contact-data dt {
+  margin-bottom: 8px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.55);
+}
+.wt-contact-data dd {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.68;
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 40ch;
+}
+.wt-contact-data a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  transition: border-color 0.42s var(--wt-ease);
+}
+.wt-contact-data a:hover {
+  border-bottom-color: #fff;
+}
+
+/* ---------- 10. ESTADO PREVIO A LA ANIMACIÓN ----------
+   La clase .wt-anim la añade un script mínimo en el <head>, y solo si el
+   usuario no pidió movimiento reducido. Así el texto ya está oculto en el
+   primer pintado (sin flash) y, si GSAP no cargara, un temporizador retira
+   la clase y todo el contenido queda visible. */
+.wt-anim .wt-section .wt-line > span {
+  transform: translate3d(0, 106%, 0);
+}
+.wt-anim .wt-section .wt-kicker,
+.wt-anim .wt-section [data-reveal],
+.wt-anim [data-sector] {
+  visibility: hidden;
+}
+
+/* ---------- 11. ACCESIBILIDAD ---------- */
+.home-redesign a:focus-visible,
+.home-redesign button:focus-visible {
+  outline: 2px solid var(--wt-accent);
+  outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-redesign .wt-marquee-track {
+    animation: none;
+  }
+  .home-redesign .wt-sector-figure img {
+    transition: none;
+  }
+  .home-redesign .wt-hero-bg-video {
+    animation: none;
+  }
+}
+
+/* ---------- 12. RESPONSIVE ---------- */
+@media (max-width: 1080px) {
+  /* Se mantienen las tres columnas: asi la nav desaparece sin que las
+     acciones se apilen debajo del logo. */
+  .wt-header .topbar-main {
+    grid-template-columns: auto 1fr auto;
+    gap: 16px;
+  }
+  .wt-nav,
+  .wt-header .topbar-nav {
+    display: none;
+  }
+  .wt-intro-grid {
+    grid-template-columns: 1fr;
+  }
+  .wt-work-grid {
+    grid-template-columns: 1fr;
+    gap: clamp(28px, 5vw, 48px);
+  }
+  .wt-work-figure img {
+    aspect-ratio: 4 / 3;
+  }
+  .wt-intro-points {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .wt-catalog-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .wt-point {
+    padding-block: 22px;
+    border-top: 1px solid var(--wt-line-soft);
+  }
+  .wt-point:first-child {
+    border-top: 0;
+    padding-top: 0;
+  }
+}
+
+@media (max-width: 1180px) {
+  .wt-hero-ring {
+    left: 24%;
+    width: min(42vw, 460px);
+    height: min(42vw, 460px);
+  }
+  .wt-hero .wt-display {
+    max-width: 12ch;
+    font-size: clamp(36px, 4.8vw, 62px);
+  }
+}
+
+/* La dona y el titular ya no caben lado a lado: la dona pasa a ser un
+   elemento ambiental detras del texto. */
+@media (max-width: 900px) {
+  .wt-hero-in {
+    grid-template-columns: 1fr;
+    padding-block: clamp(96px, 16vh, 150px) clamp(26px, 5vh, 50px);
+  }
+  .wt-hero-in > * {
+    grid-column: 1;
+  }
+  .wt-hero-ring {
+    top: 34%;
+    left: 50%;
+    /* En este ancho la dona queda detras del titular: vuelve bajo los velos
+       para no comerle contraste al texto. */
+    z-index: -2;
+    width: min(78vw, 420px);
+    height: min(78vw, 420px);
+    opacity: 0.5;
+  }
+  .wt-hero .wt-display {
+    max-width: 15ch;
+  }
+}
+
+@media (max-width: 860px) {
+  .wt-projects-head {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 22px;
+  }
+  .wt-projects-grid {
+    grid-template-columns: 1fr;
+  }
+  .wt-catalog-head {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 22px;
+  }
+  .wt-contact-grid {
+    grid-template-columns: 1fr;
+    gap: clamp(34px, 6vw, 56px);
+  }
+  .wt-contact .wt-h2 {
+    max-width: 20ch;
+  }
+  .wt-sectors-head {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 22px;
+  }
+  .wt-sectors-grid {
+    grid-template-columns: 1fr;
+  }
+  .wt-sector--lead .wt-sector-body {
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+  .wt-sector--lead .wt-sector-body p {
+    margin-bottom: 20px;
+  }
+  .wt-sector-figure,
+  .wt-sector--lead .wt-sector-figure {
+    aspect-ratio: 3 / 2;
+  }
+}
+
 @media (max-width: 640px) {
-  .home-redesign .utility-bar-inner { padding: 9px 20px; }
-  .home-redesign .utility-link { display: none; }
-  .home-redesign .topbar-main { padding: 14px 20px; gap: 12px; }
-  .home-redesign .brand-logo { width: 130px; }
-  .home-redesign .topbar-main-actions { gap: 8px; }
-  .home-redesign .topbar .button-ghost { padding: 10px; min-height: 40px; font-size: 11px; }
-  .home-redesign .nav { gap: 12px; padding-inline: 0; font-size: 12px; }
-  .home-redesign .topbar-nav { padding: 16px 0 4px; }
-  .home-redesign .dropdown-menu { min-width: 190px; max-width: calc(100vw - 24px); }
-  .wt-container { width: calc(100% - 40px); }
-  .wt-hero { min-height: 680px; }
-  .wt-hero-content { padding-block: 65px 125px; }
-  .wt-hero h1 { font-size: clamp(48px, 12vw, 70px); }
-  .wt-hero .wt-kicker { max-width: 260px; line-height: 1.7; }
-  .wt-hero-description { font-size: 16px; }
-  .wt-hero-bottom { gap: 20px; font-size: 10px; }
-  .wt-band { padding-block: 60px; }
-  .wt-heading { align-items: start; flex-direction: column; gap: 22px; margin-bottom: 30px; }
-  .wt-solutions, .wt-products, .wt-support-grid { grid-template-columns: 1fr; }
-  .wt-solution-photo { height: 260px; }
-  .wt-solution h3 { min-height: 0; }
-  .wt-proof-grid { gap: 16px; }
-  .wt-proof-grid strong { font-size: 14px; }
-  .wt-proof-grid div span { font-size: 8px; letter-spacing: 0; }
-  .wt-proof-grid div { padding-right: 8px; }
-  .wt-form { padding: 22px; }
-  .wt-form .form-grid { grid-template-columns: 1fr; }
-  .home-redesign .site-footer { padding: 32px 20px; }
+  .home-redesign {
+    --wt-header-h: 72px;
+  }
+  .wt-header .brand {
+    padding: 0;
+  }
+  .wt-header .brand-logo {
+    height: 34px;
+  }
+  .wt-header.is-scrolled .brand-logo {
+    height: 29px;
+  }
+  .wt-hero {
+    min-height: 92svh;
+  }
+  /* En movil el hero esta lleno de contenido: el anillo pasa a ser un
+     elemento ambiental, mas grande y atenuado, detras del titular. */
+  .wt-hero-ring {
+    top: 29%;
+    left: 50%;
+    width: min(94vw, 380px);
+    height: min(94vw, 380px);
+    opacity: 0.34;
+  }
+  .wt-hero .wt-display {
+    max-width: none;
+    font-size: clamp(34px, 10.4vw, 52px);
+  }
+  .wt-hero-actions {
+    gap: 18px;
+  }
+  .wt-btn {
+    padding: 17px 26px;
+  }
+  .wt-hero-foot {
+    font-size: 10px;
+    letter-spacing: 0.1em;
+  }
+  .wt-catalog-grid {
+    grid-template-columns: 1fr;
+  }
+  .wt-intro-lead {
+    font-size: 22px;
+  }
 }
-@media (prefers-reduced-motion: reduce) { .wt-hero-content { animation: none; } }
+
+/* ---------- 12. ELEMENTOS GLOBALES (heredados) ---------- */
+/* El boton de WhatsApp usa el pill global (styles.css): verde WhatsApp,
+   redondeado y con sombra suave. La Home ya no lo pinta como bloque
+   cuadrado oscuro. */
