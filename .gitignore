@@ -3,3 +3,7 @@
 .**/.DS_Store
 ._*
 Thumbs.db
+
+# Artefactos de staging (se regeneran con tools/build-staging.sh)
+/staging/
+/water-tech-staging.zip
