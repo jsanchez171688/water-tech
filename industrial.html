@@ -3,16 +3,252 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="favicon.ico" sizes="any" />
+    <link rel="apple-touch-icon" href="favicon-512.png" />
     <title>Industrial | Water Tech</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="pages.css" />
+    <!-- Estado previo a los reveals: solo se añade si no se pidió movimiento
+         reducido. Si el JS no arrancara, un temporizador retira la clase. -->
+    <script>
+      (function () {
+        var d = document.documentElement;
+        if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+        d.classList.add("reveal-anim");
+        window.__revealMotionReady = false;
+        window.setTimeout(function () {
+          if (!window.__revealMotionReady) d.classList.remove("reveal-anim");
+        }, 2000);
+      })();
+    </script>
   </head>
-  <body class="inner-page"><div class="site-shell"><header class="topbar"><a class="brand" href="index.html" aria-label="Water Tech inicio"><img src="logo-watertech.png" alt="Water Tech" class="brand-logo" /></a><nav class="nav"><div class="nav-item"><a href="soluciones.html">Soluciones</a><div class="dropdown-menu"><a href="industrial.html">Industrial</a><a href="comercial.html">Comercial</a><a href="residencial.html">Residencial</a></div></div><div class="nav-item"><a href="categorias.html">Categorías</a><div class="dropdown-menu dropdown-menu-wide"><a href="equipos-industriales.html">Equipos industriales</a>
+  <body class="inner-page">
+    <div class="site-shell">
+      <header class="topbar"><a class="brand" href="index.html" aria-label="Water Tech inicio"><img src="assets/home-v2/logo-watertech.png" alt="Water Tech" class="brand-logo" /></a><nav class="nav"><div class="nav-item"><a href="soluciones.html">Soluciones</a><div class="dropdown-menu"><a href="industrial.html">Industrial</a><a href="comercial.html">Comercial</a><a href="residencial.html">Residencial</a></div></div><div class="nav-item"><a href="categorias.html">Categorías</a><div class="dropdown-menu dropdown-menu-wide"><a href="equipos-industriales.html">Equipos industriales</a>
               <a href="equipos-comerciales.html">Equipos comerciales</a>
               <a href="repuestos-soporte.html">Repuestos y soporte</a>
               <a href="membranas-ro-uf.html">Membranas RO y UF</a>
               <a href="uv-ozono.html">UV y ozono</a>
-              <a href="cargas-filtrantes.html">Cargas filtrantes</a></div></div><div class="nav-item"><a href="ventajas.html">Ventajas</a><div class="dropdown-menu"><a href="ventajas.html">Por qué elegirnos</a><a href="contacto.html">Solicitar asesoría</a></div></div><div class="nav-item"><a href="contacto.html">Contacto</a><div class="dropdown-menu"><a href="contacto.html">Sucursales</a><a href="mailto:info@watertech.com.ec">Correo</a><a href="tel:+593968467023">Llamar ahora</a></div></div></nav><a class="button button-ghost" href="contacto.html">Cotizar</a></header><main class="page-main"><section class="page-hero"><div class="page-panel"><div class="breadcrumbs"><a href="index.html">Inicio</a><span>/</span><a href="soluciones.html">Soluciones</a><span>/</span><span>Industrial</span></div><p class="eyebrow">Línea industrial</p><h1 class="page-title">Ingeniería de agua para procesos de alta exigencia.</h1><p class="page-intro">Soluciones para plantas, líneas productivas y operaciones técnicas que requieren control, estabilidad, capacidad de respuesta y acompañamiento especializado.</p><div class="page-actions"><a class="button button-primary" href="contacto.html">Hablar con un asesor</a><a class="button button-secondary" href="equipos-industriales.html">Ver equipos industriales</a></div><div class="page-panel-band"><article><strong>Mayor capacidad</strong><span>Sistemas pensados para procesos con demanda técnica y caudal constante.</span></article><article><strong>Escalabilidad real</strong><span>Configuraciones que pueden crecer junto con la operación.</span></article><article><strong>Control técnico</strong><span>Evaluación, puesta en marcha y respaldo operativo especializado.</span></article></div></div><aside class="page-side-card"><img src="assets/solutions/solution-industrial.png" alt="Planta industrial Water Tech para tratamiento de agua" class="side-visual" /><h2 class="side-title">Ideal para industria</h2><ul class="side-list side-list-rich"><li><span class="side-list-icon" aria-hidden="true"><svg viewBox="0 0 24 24" role="presentation" focusable="false"><path d="M3 20h18v1.8H3V20Zm2-2.6h3.4V9.5H5v7.9Zm5.3 0h3.4V4h-3.4v13.4Zm5.3 0H19v-5.2h-3.4v5.2Z"/></svg></span><div><strong>Procesos exigentes</strong><span>Plantas y sistemas preparados para trabajo continuo y alto desempeño.</span></div></li><li><span class="side-list-icon" aria-hidden="true"><svg viewBox="0 0 24 24" role="presentation" focusable="false"><path d="M20 7h-3.2a5 5 0 0 0-9.6 0H4a1 1 0 0 0 0 2h1.6a6.5 6.5 0 0 0 0 6H4a1 1 0 0 0 0 2h3.2a5 5 0 0 0 9.6 0H20a1 1 0 0 0 0-2h-1.6a6.5 6.5 0 0 0 0-6H20a1 1 0 0 0 0-2Zm-8 10a3 3 0 1 1 0-6 3 3 0 0 1 0 6Z"/></svg></span><div><strong>Dimensionamiento técnico</strong><span>Evaluamos caudal, calidad de agua y objetivo del proceso antes de proponer.</span></div></li><li><span class="side-list-icon" aria-hidden="true"><svg viewBox="0 0 24 24" role="presentation" focusable="false"><path d="m21 7.5-4.2-.6L14.9 3 11 6.9l-4.8 4.8 3.3 3.3-4.2 4.2 1.4 1.4 4.2-4.2 3.3 3.3 4.8-4.8L23 11.1l-3.9-3.6Zm-7.1 9.3-6.2-6.2 4.8-4.8 6.2 6.2-4.8 4.8Z"/></svg></span><div><strong>Soporte especializado</strong><span>Instalación, ajuste, mantenimiento y seguimiento para continuidad operativa.</span></div></li></ul></aside></section><section class="content-grid"><article class="info-card info-card-feature"><span class="info-card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" role="presentation" focusable="false"><path d="M12 3a8 8 0 1 1 0 16 8 8 0 0 1 0-16Zm0 3.2a1 1 0 0 0-1 1V12c0 .3.1.5.3.7l3 3a1 1 0 1 0 1.4-1.4L13 11.6V7.2a1 1 0 0 0-1-1Z"/></svg></span><h3>Perfil de cliente</h3><p>Empresas que necesitan control de calidad de agua, caudal estable y continuidad en sus procesos.</p></article><article class="info-card info-card-feature"><span class="info-card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" role="presentation" focusable="false"><path d="M5 6a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v11.5a1.5 1.5 0 0 1-2.6 1L13 15h-6a2 2 0 0 1-2-2V6Z"/></svg></span><h3>Mensaje técnico</h3><p>Capacidad, proceso, eficiencia y respaldo operativo como parte de una solución seria y escalable.</p></article><article class="info-card info-card-feature"><span class="info-card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" role="presentation" focusable="false"><path d="M12 2 4 6v6c0 5 3.4 9.7 8 11 4.6-1.3 8-6 8-11V6l-8-4Zm-1 14-3-3 1.4-1.4 1.6 1.6 4.6-4.6L17 10l-6 6Z"/></svg></span><h3>Asesoría ideal</h3><p>Te orientamos según proceso, capacidad requerida, calidad de agua y condiciones reales de operación.</p></article></section></main></div><script src="site.js"></script></body>
+              <a href="cargas-filtrantes.html">Cargas filtrantes</a></div></div><div class="nav-item"><a href="ventajas.html">Ventajas</a><div class="dropdown-menu"><a href="ventajas.html">Por qué elegirnos</a><a href="contacto.html">Solicitar asesoría</a></div></div><div class="nav-item"><a href="contacto.html">Contacto</a><div class="dropdown-menu"><a href="contacto.html">Sucursales</a><a href="mailto:info@watertech.com.ec">Correo</a><a href="tel:+593968467023">Llamar ahora</a></div></div></nav><a class="button button-ghost" href="contacto.html">Cotizar</a></header>
+
+      <main class="page-main">
+        <!-- ============ 1 · HERO ============ -->
+        <section class="ui-hero" aria-labelledby="ui-hero-title">
+          <div class="ui-split">
+            <div class="ui-split-copy">
+              <nav class="breadcrumbs" aria-label="Ruta de navegación">
+                <a href="index.html">Inicio</a><span>/</span><a href="soluciones.html">Soluciones</a><span>/</span><span>Industrial</span>
+              </nav>
+              <p class="eyebrow">Línea industrial</p>
+              <h1 class="ui-display" id="ui-hero-title">Ingeniería de agua para procesos de alta exigencia.</h1>
+              <p class="ui-lead">Soluciones para plantas, líneas productivas y operaciones técnicas que requieren control, estabilidad, capacidad de respuesta y acompañamiento especializado.</p>
+              <div class="ui-actions">
+                <a class="button button-primary" href="contacto.html">Hablar con un asesor</a>
+                <a class="button button-secondary" href="equipos-industriales.html">Ver equipos industriales</a>
+              </div>
+            </div>
+            <figure class="ui-media ui-media--5x4" data-reveal>
+              <img
+                src="assets/fotos/industria-tanques.jpg"
+                alt="Tanques filtrantes y bastidor de ósmosis inversa en una planta industrial"
+                width="965"
+                height="723"
+                decoding="async"
+              />
+            </figure>
+          </div>
+
+          <ul class="ui-facts">
+            <li class="ui-fact" data-reveal>
+              <span class="ui-fact-num">01</span>
+              <strong class="ui-fact-title">Mayor capacidad</strong>
+              <span class="ui-fact-text">Sistemas pensados para procesos con demanda técnica y caudal constante.</span>
+            </li>
+            <li class="ui-fact" data-reveal>
+              <span class="ui-fact-num">02</span>
+              <strong class="ui-fact-title">Escalabilidad real</strong>
+              <span class="ui-fact-text">Configuraciones que pueden crecer junto con la operación.</span>
+            </li>
+            <li class="ui-fact" data-reveal>
+              <span class="ui-fact-num">03</span>
+              <strong class="ui-fact-title">Control técnico</strong>
+              <span class="ui-fact-text">Evaluación, puesta en marcha y respaldo operativo especializado.</span>
+            </li>
+          </ul>
+        </section>
+
+        <!-- ============ 2 · ENFOQUE ============ -->
+        <section class="ui-band ui-band--airy" aria-label="Enfoque técnico">
+          <div class="ui-band-inner" data-reveal>
+            <p class="ui-kicker">Enfoque técnico</p>
+            <p class="ui-statement">Capacidad, proceso, eficiencia y <span class="ui-accent">respaldo operativo</span> como parte de una solución seria y escalable.</p>
+          </div>
+        </section>
+
+        <!-- ============ 3 · IDEAL PARA INDUSTRIA ============ -->
+        <section class="ui-section" aria-labelledby="ui-ideal-title">
+          <div class="ui-split ui-split--top">
+            <div class="ui-split-copy">
+              <header class="ui-head" data-reveal>
+                <p class="eyebrow">Alcance técnico</p>
+                <h2 class="ui-h2" id="ui-ideal-title">Ideal para industria</h2>
+              </header>
+              <ol class="ui-list">
+                <li class="ui-list-item" data-reveal>
+                  <span class="ui-list-num">01</span>
+                  <div>
+                    <h3 class="ui-list-title">Procesos exigentes</h3>
+                    <p class="ui-list-text">Plantas y sistemas preparados para trabajo continuo y alto desempeño.</p>
+                  </div>
+                </li>
+                <li class="ui-list-item" data-reveal>
+                  <span class="ui-list-num">02</span>
+                  <div>
+                    <h3 class="ui-list-title">Dimensionamiento técnico</h3>
+                    <p class="ui-list-text">Evaluamos caudal, calidad de agua y objetivo del proceso antes de proponer.</p>
+                  </div>
+                </li>
+                <li class="ui-list-item" data-reveal>
+                  <span class="ui-list-num">03</span>
+                  <div>
+                    <h3 class="ui-list-title">Soporte especializado</h3>
+                    <p class="ui-list-text">Instalación, ajuste, mantenimiento y seguimiento para continuidad operativa.</p>
+                  </div>
+                </li>
+              </ol>
+            </div>
+            <figure class="ui-media ui-media--4x3" data-reveal>
+              <img
+                src="assets/fotos/industria-filtracion.jpg"
+                alt="Sistema de filtración Water Tech montado sobre bastidor con panel de control"
+                width="1600"
+                height="1200"
+                loading="lazy"
+                decoding="async"
+              />
+            </figure>
+          </div>
+        </section>
+
+        <!-- ============ 4 · PERFIL DE CLIENTE ============ -->
+        <section class="ui-band" aria-labelledby="ui-profile-title">
+          <div class="ui-split ui-split--media">
+            <figure class="ui-media ui-media--4x3" data-reveal>
+              <img
+                src="assets/fotos/industria-planta.jpg"
+                alt="Operador revisando el panel de control de una línea de tratamiento de agua"
+                width="1600"
+                height="1200"
+                loading="lazy"
+                decoding="async"
+              />
+            </figure>
+            <div class="ui-split-copy" data-reveal>
+              <p class="ui-kicker">Pensado para</p>
+              <h2 class="ui-h2" id="ui-profile-title">Empresas que necesitan control, caudal estable y continuidad.</h2>
+              <p class="ui-lead ui-lead--sm">Empresas que necesitan control de calidad de agua, caudal estable y continuidad en sus procesos.</p>
+              <a class="ui-link" href="equipos-industriales.html">Ver equipos industriales <span aria-hidden="true">→</span></a>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ 5 · RESPALDO ============ -->
+        <section class="ui-section" aria-label="Respaldo de marca">
+          <p class="ui-kicker" data-reveal>Respaldo de marca</p>
+          <ul class="ui-facts ui-facts--4">
+            <li class="ui-fact" data-reveal>
+              <strong class="ui-fact-title">Asesoría responsable</strong>
+              <span class="ui-fact-text">Diagnóstico técnico antes de recomendar un equipo.</span>
+            </li>
+            <li class="ui-fact" data-reveal>
+              <strong class="ui-fact-title">Importadores directos</strong>
+              <span class="ui-fact-text">Mejor control del portafolio, respaldo y continuidad.</span>
+            </li>
+            <li class="ui-fact" data-reveal>
+              <strong class="ui-fact-title">Más de 10 años de experiencia</strong>
+              <span class="ui-fact-text">Trayectoria real en hogar, comercio e industria.</span>
+            </li>
+            <li class="ui-fact" data-reveal>
+              <strong class="ui-fact-title">Cobertura nacional</strong>
+              <span class="ui-fact-text">Atención cercana, envíos seguros y soporte postventa.</span>
+            </li>
+          </ul>
+        </section>
+
+        <!-- ============ 6 · EQUIPOS Y COMPONENTES ============ -->
+        <section class="ui-catalog" aria-labelledby="ui-equip-title">
+          <div class="ui-catalog-inner">
+            <header class="ui-catalog-head" data-reveal>
+              <div>
+                <p class="ui-kicker">Catálogo</p>
+                <h2 class="ui-h2 ui-h2--sm" id="ui-equip-title">Equipos y componentes relacionados</h2>
+              </div>
+              <a class="ui-link" href="categorias.html">Ver todas las categorías <span aria-hidden="true">→</span></a>
+            </header>
+
+            <div class="ui-card-grid">
+              <a class="ui-card" href="equipos-industriales.html" data-reveal>
+                <span class="ui-card-media">
+                  <img src="assets/fotos/industria-equipos.jpg" alt="Sala de tratamiento con equipos de filtración y desinfección en planta" width="1600" height="1200" loading="lazy" decoding="async" />
+                </span>
+                <span class="ui-card-body">
+                  <span class="ui-card-title">Equipos industriales</span>
+                  <span class="ui-card-text">Sistemas de alto flujo y configuraciones para procesos complejos.</span>
+                  <span class="ui-card-cta">Abrir página <span aria-hidden="true">→</span></span>
+                </span>
+              </a>
+              <a class="ui-card" href="membranas-ro-uf.html" data-reveal>
+                <span class="ui-card-media">
+                  <img src="assets/fotos/membranas-01.jpg" alt="Membrana de ósmosis inversa" width="1600" height="1200" loading="lazy" decoding="async" />
+                </span>
+                <span class="ui-card-body">
+                  <span class="ui-card-title">Membranas RO y UF</span>
+                  <span class="ui-card-text">Procesos de separación, rendimiento y calidad de agua resultante.</span>
+                  <span class="ui-card-cta">Abrir página <span aria-hidden="true">→</span></span>
+                </span>
+              </a>
+              <a class="ui-card" href="uv-ozono.html" data-reveal>
+                <span class="ui-card-media">
+                  <img src="assets/fotos/uv-ozono-instalacion.jpg" alt="Esterilizador ultravioleta y generador de ozono instalados" width="1600" height="1200" loading="lazy" decoding="async" />
+                </span>
+                <span class="ui-card-body">
+                  <span class="ui-card-title">UV y ozono</span>
+                  <span class="ui-card-text">Desinfección avanzada para elevar seguridad microbiológica.</span>
+                  <span class="ui-card-cta">Abrir página <span aria-hidden="true">→</span></span>
+                </span>
+              </a>
+              <a class="ui-card" href="cargas-filtrantes.html" data-reveal>
+                <span class="ui-card-media">
+                  <img src="assets/fotos/cargas-medios.jpg" alt="Saco de carbón activado para cargas filtrantes" width="1600" height="1200" loading="lazy" decoding="async" />
+                </span>
+                <span class="ui-card-body">
+                  <span class="ui-card-title">Cargas filtrantes</span>
+                  <span class="ui-card-text">Aplicaciones, beneficios y tipo de medios disponibles.</span>
+                  <span class="ui-card-cta">Abrir página <span aria-hidden="true">→</span></span>
+                </span>
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ 7 · CTA ============ -->
+        <section class="ui-cta" aria-labelledby="ui-cta-title">
+          <div class="ui-cta-inner">
+            <div class="ui-cta-copy" data-reveal>
+              <p class="ui-kicker">Asesoría ideal</p>
+              <h2 class="ui-cta-title" id="ui-cta-title">Te orientamos según proceso, capacidad requerida, calidad de agua y condiciones reales de operación.</h2>
+            </div>
+            <div class="ui-cta-actions" data-reveal>
+              <a class="button button-primary" href="contacto.html">Hablar con un asesor <span aria-hidden="true">→</span></a>
+              <a class="button button-secondary" href="tel:+593968467023">Llamar ahora</a>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+    <script src="site.js"></script>
+  </body>
 </html>

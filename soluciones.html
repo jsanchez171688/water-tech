@@ -3,100 +3,133 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="favicon.ico" sizes="any" />
+    <link rel="apple-touch-icon" href="favicon-512.png" />
     <title>Soluciones | Water Tech</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Outfit:wght@600;700;800&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="pages.css" />
+    <script>
+      (function () {
+        var d = document.documentElement;
+        if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+        d.classList.add("reveal-anim");
+        window.__revealMotionReady = false;
+        window.setTimeout(function () {
+          if (!window.__revealMotionReady) d.classList.remove("reveal-anim");
+        }, 2000);
+      })();
+    </script>
   </head>
   <body class="inner-page">
     <div class="site-shell">
-      <header class="topbar">
-        <a class="brand" href="index.html" aria-label="Water Tech inicio">
-          <img src="logo-watertech.png" alt="Water Tech" class="brand-logo" />
-        </a>
-        <nav class="nav">
-          <div class="nav-item">
-            <a href="soluciones.html">Soluciones</a>
-            <div class="dropdown-menu">
-              <a href="industrial.html">Industrial</a>
-              <a href="comercial.html">Comercial</a>
-              <a href="residencial.html">Residencial</a>
-            </div>
-          </div>
-          <div class="nav-item">
-            <a href="categorias.html">Categorías</a>
-            <div class="dropdown-menu dropdown-menu-wide">
-              <a href="equipos-industriales.html">Equipos industriales</a>
+      <header class="topbar"><a class="brand" href="index.html" aria-label="Water Tech inicio"><img src="assets/home-v2/logo-watertech.png" alt="Water Tech" class="brand-logo" /></a><nav class="nav"><div class="nav-item"><a href="soluciones.html">Soluciones</a><div class="dropdown-menu"><a href="industrial.html">Industrial</a><a href="comercial.html">Comercial</a><a href="residencial.html">Residencial</a></div></div><div class="nav-item"><a href="categorias.html">Categorías</a><div class="dropdown-menu dropdown-menu-wide"><a href="equipos-industriales.html">Equipos industriales</a>
               <a href="equipos-comerciales.html">Equipos comerciales</a>
               <a href="repuestos-soporte.html">Repuestos y soporte</a>
               <a href="membranas-ro-uf.html">Membranas RO y UF</a>
               <a href="uv-ozono.html">UV y ozono</a>
-              <a href="cargas-filtrantes.html">Cargas filtrantes</a>
-            </div>
-          </div>
-          <div class="nav-item">
-            <a href="ventajas.html">Ventajas</a>
-            <div class="dropdown-menu">
-              <a href="ventajas.html">Por qué elegirnos</a>
-              <a href="contacto.html">Solicitar asesoría</a>
-            </div>
-          </div>
-          <div class="nav-item">
-            <a href="contacto.html">Contacto</a>
-            <div class="dropdown-menu">
-              <a href="contacto.html">Sucursales</a>
-              <a href="mailto:info@watertech.com.ec">Correo</a>
-              <a href="tel:+593968467023">Llamar ahora</a>
-            </div>
-          </div>
-        </nav>
-        <a class="button button-ghost" href="contacto.html">Cotizar</a>
-      </header>
+              <a href="cargas-filtrantes.html">Cargas filtrantes</a></div></div><div class="nav-item"><a href="ventajas.html">Ventajas</a><div class="dropdown-menu"><a href="ventajas.html">Por qué elegirnos</a><a href="contacto.html">Solicitar asesoría</a></div></div><div class="nav-item"><a href="contacto.html">Contacto</a><div class="dropdown-menu"><a href="contacto.html">Sucursales</a><a href="mailto:info@watertech.com.ec">Correo</a><a href="tel:+593968467023">Llamar ahora</a></div></div></nav><a class="button button-ghost" href="contacto.html">Cotizar</a></header>
+
       <main class="page-main">
-        <section class="page-hero">
-          <div class="page-panel">
-            <div class="breadcrumbs"><a href="index.html">Inicio</a><span>/</span><span>Soluciones</span></div>
-            <p class="eyebrow">Soluciones Water Tech</p>
-            <h1 class="page-title">Tres líneas para necesidades distintas, una misma calidad de marca.</h1>
-            <p class="page-intro">
-              Water Tech puede presentar sus soluciones separando claramente el lenguaje residencial,
-              comercial e industrial. Eso ayuda a que el cliente llegue más rápido a la propuesta que necesita.
-            </p>
-            <div class="page-actions">
-              <a class="button button-primary" href="residencial.html">Ver residencial</a>
-              <a class="button button-secondary" href="industrial.html">Ver industrial</a>
+        <!-- ============ 1 · HERO ============ -->
+        <section class="ui-hero" aria-labelledby="ui-sol-title">
+          <div class="ui-split">
+            <div class="ui-split-copy">
+              <nav class="breadcrumbs" aria-label="Ruta de navegación">
+                <a href="index.html">Inicio</a><span>/</span><span>Soluciones</span>
+              </nav>
+              <p class="eyebrow">Soluciones Water Tech</p>
+              <h1 class="ui-display" id="ui-sol-title">Tres líneas para necesidades distintas, una misma calidad de marca.</h1>
+              <p class="ui-lead">Water Tech puede presentar sus soluciones separando claramente el lenguaje residencial, comercial e industrial. Eso ayuda a que el cliente llegue más rápido a la propuesta que necesita.</p>
+              <div class="ui-actions">
+                <a class="button button-primary" href="contacto.html">Solicitar asesoría <span aria-hidden="true">→</span></a>
+                <a class="button button-secondary" href="categorias.html">Ver categorías</a>
+              </div>
+            </div>
+            <figure class="ui-media ui-media--5x4" data-reveal>
+              <img
+                src="assets/fotos/industria-planta.jpg"
+                alt="Operador revisando el panel de control de una línea de tratamiento de agua"
+                width="1600"
+                height="1200"
+                decoding="async"
+              />
+            </figure>
+          </div>
+          <ul class="ui-facts">
+            <li class="ui-fact" data-reveal>
+              <strong class="ui-fact-title">Residencial</strong>
+              <span class="ui-fact-text">Purificación y bienestar en el hogar.</span>
+            </li>
+            <li class="ui-fact" data-reveal>
+              <strong class="ui-fact-title">Comercial</strong>
+              <span class="ui-fact-text">Continuidad para negocios y servicio al cliente.</span>
+            </li>
+            <li class="ui-fact" data-reveal>
+              <strong class="ui-fact-title">Industrial</strong>
+              <span class="ui-fact-text">Ingeniería, control y escalabilidad operativa.</span>
+            </li>
+          </ul>
+        </section>
+
+        <!-- ============ 2 · LAS TRES LÍNEAS ============ -->
+        <section class="ui-catalog" aria-labelledby="ui-lineas-title">
+          <div class="ui-catalog-inner">
+            <header class="ui-catalog-head" data-reveal>
+              <div>
+                <p class="ui-kicker">Líneas</p>
+                <h2 class="ui-h2 ui-h2--sm" id="ui-lineas-title">Elige por dónde empezar</h2>
+              </div>
+            </header>
+            <div class="ui-card-grid ui-card-grid--3">
+              <a class="ui-card ui-card--bare" href="residencial.html" data-reveal>
+                <span class="ui-card-media">
+                  <img src="assets/solutions/solution-residencial.png" alt="Sistema de ósmosis inversa instalado bajo el lavadero de una cocina de casa" width="1800" height="1200" loading="lazy" decoding="async" />
+                </span>
+                <span class="ui-card-body">
+                  <span class="ui-card-title">Residencial</span>
+                  <span class="ui-card-text">Purificadores, filtros y soluciones compactas para familias que priorizan salud y comodidad.</span>
+                  <span class="ui-card-cta">Abrir página <span aria-hidden="true">→</span></span>
+                </span>
+              </a>
+              <a class="ui-card ui-card--bare" href="comercial.html" data-reveal>
+                <span class="ui-card-media">
+                  <img src="assets/solutions/solution-comercial.png" alt="Filtración instalada bajo el lavadero de una cocina profesional" width="1200" height="1800" loading="lazy" decoding="async" />
+                </span>
+                <span class="ui-card-body">
+                  <span class="ui-card-title">Comercial</span>
+                  <span class="ui-card-text">Equipos para restaurantes, oficinas, consultorios y puntos de consumo con alto flujo diario.</span>
+                  <span class="ui-card-cta">Abrir página <span aria-hidden="true">→</span></span>
+                </span>
+              </a>
+              <a class="ui-card ui-card--bare" href="industrial.html" data-reveal>
+                <span class="ui-card-media">
+                  <img src="assets/fotos/industria-tanques.jpg" alt="Tanques filtrantes y bastidor de ósmosis inversa en una planta industrial" width="965" height="723" loading="lazy" decoding="async" />
+                </span>
+                <span class="ui-card-body">
+                  <span class="ui-card-title">Industrial</span>
+                  <span class="ui-card-text">Sistemas para procesos productivos, tratamiento especializado y soporte técnico continuo.</span>
+                  <span class="ui-card-cta">Abrir página <span aria-hidden="true">→</span></span>
+                </span>
+              </a>
             </div>
           </div>
-          <aside class="page-side-card">
-            <img src="logo-watertech.png" alt="Water Tech" class="side-logo" />
-            <h2 class="side-title">Cómo se organiza esta sección</h2>
-            <ul class="side-list">
-              <li><strong>Residencial:</strong> purificación y bienestar en el hogar.</li>
-              <li><strong>Comercial:</strong> continuidad para negocios y servicio al cliente.</li>
-              <li><strong>Industrial:</strong> ingeniería, control y escalabilidad operativa.</li>
-            </ul>
-          </aside>
         </section>
-        <section class="content-grid">
-          <a class="info-card card-link" href="residencial.html">
-            <h3>Residencial</h3>
-            <p>Purificadores, filtros y soluciones compactas para familias que priorizan salud y comodidad.</p>
-            <span class="card-cta">Abrir página</span>
-          </a>
-          <a class="info-card card-link" href="comercial.html">
-            <h3>Comercial</h3>
-            <p>Equipos para restaurantes, oficinas, consultorios y puntos de consumo con alto flujo diario.</p>
-            <span class="card-cta">Abrir página</span>
-          </a>
-          <a class="info-card card-link" href="industrial.html">
-            <h3>Industrial</h3>
-            <p>Sistemas para procesos productivos, tratamiento especializado y soporte técnico continuo.</p>
-            <span class="card-cta">Abrir página</span>
-          </a>
+
+        <!-- ============ 3 · CTA ============ -->
+        <section class="ui-cta" aria-labelledby="ui-cta-title">
+          <div class="ui-cta-inner">
+            <div class="ui-cta-copy" data-reveal>
+              <p class="ui-kicker">Soluciones</p>
+              <h2 class="ui-cta-title" id="ui-cta-title">Tres líneas para necesidades distintas, una misma calidad de marca.</h2>
+            </div>
+            <div class="ui-cta-actions" data-reveal>
+              <a class="button button-primary" href="contacto.html">Solicitar asesoría <span aria-hidden="true">→</span></a>
+              <a class="button button-secondary" href="categorias.html">Ver categorías</a>
+            </div>
+          </div>
         </section>
       </main>
     </div>

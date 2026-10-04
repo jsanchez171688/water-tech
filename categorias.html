@@ -3,138 +3,181 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="favicon.ico" sizes="any" />
+    <link rel="apple-touch-icon" href="favicon-512.png" />
     <title>Categorías | Water Tech</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Outfit:wght@600;700;800&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="pages.css" />
+    <script>
+      (function () {
+        var d = document.documentElement;
+        if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+        d.classList.add("reveal-anim");
+        window.__revealMotionReady = false;
+        window.setTimeout(function () {
+          if (!window.__revealMotionReady) d.classList.remove("reveal-anim");
+        }, 2000);
+      })();
+    </script>
   </head>
   <body class="inner-page">
     <div class="site-shell">
-      <header class="topbar">
-        <a class="brand" href="index.html" aria-label="Water Tech inicio">
-          <img src="logo-watertech.png" alt="Water Tech" class="brand-logo" />
-        </a>
-        <nav class="nav">
-          <div class="nav-item">
-            <a href="soluciones.html">Soluciones</a>
-            <div class="dropdown-menu">
-              <a href="industrial.html">Industrial</a>
-              <a href="comercial.html">Comercial</a>
-              <a href="residencial.html">Residencial</a>
-            </div>
-          </div>
-          <div class="nav-item">
-            <a href="categorias.html">Categorías</a>
-            <div class="dropdown-menu dropdown-menu-wide">
-              <a href="equipos-industriales.html">Equipos industriales</a>
+      <header class="topbar"><a class="brand" href="index.html" aria-label="Water Tech inicio"><img src="assets/home-v2/logo-watertech.png" alt="Water Tech" class="brand-logo" /></a><nav class="nav"><div class="nav-item"><a href="soluciones.html">Soluciones</a><div class="dropdown-menu"><a href="industrial.html">Industrial</a><a href="comercial.html">Comercial</a><a href="residencial.html">Residencial</a></div></div><div class="nav-item"><a href="categorias.html">Categorías</a><div class="dropdown-menu dropdown-menu-wide"><a href="equipos-industriales.html">Equipos industriales</a>
               <a href="equipos-comerciales.html">Equipos comerciales</a>
               <a href="repuestos-soporte.html">Repuestos y soporte</a>
               <a href="membranas-ro-uf.html">Membranas RO y UF</a>
               <a href="uv-ozono.html">UV y ozono</a>
-              <a href="cargas-filtrantes.html">Cargas filtrantes</a>
-            </div>
-          </div>
-          <div class="nav-item">
-            <a href="ventajas.html">Ventajas</a>
-            <div class="dropdown-menu">
-              <a href="ventajas.html">Por qué elegirnos</a>
-              <a href="contacto.html">Solicitar asesoría</a>
-            </div>
-          </div>
-          <div class="nav-item">
-            <a href="contacto.html">Contacto</a>
-            <div class="dropdown-menu">
-              <a href="contacto.html">Sucursales</a>
-              <a href="mailto:info@watertech.com.ec">Correo</a>
-              <a href="tel:+593968467023">Llamar ahora</a>
-            </div>
-          </div>
-        </nav>
-        <a class="button button-ghost" href="contacto.html">Cotizar</a>
-      </header>
+              <a href="cargas-filtrantes.html">Cargas filtrantes</a></div></div><div class="nav-item"><a href="ventajas.html">Ventajas</a><div class="dropdown-menu"><a href="ventajas.html">Por qué elegirnos</a><a href="contacto.html">Solicitar asesoría</a></div></div><div class="nav-item"><a href="contacto.html">Contacto</a><div class="dropdown-menu"><a href="contacto.html">Sucursales</a><a href="mailto:info@watertech.com.ec">Correo</a><a href="tel:+593968467023">Llamar ahora</a></div></div></nav><a class="button button-ghost" href="contacto.html">Cotizar</a></header>
+
       <main class="page-main">
-        <section class="page-hero">
-          <div class="page-panel">
-            <div class="breadcrumbs"><a href="index.html">Inicio</a><span>/</span><span>Categorías</span></div>
-            <p class="eyebrow">Portafolio organizado</p>
-            <h1 class="page-title">Categorías claras para encontrar la solución correcta.</h1>
-            <p class="page-intro">
-              Organizamos el portafolio para que cada cliente identifique rápido si necesita equipos, soporte o
-              componentes específicos según su operación, consumo y nivel técnico.
-            </p>
-            <div class="page-actions">
-              <a class="button button-primary" href="contacto.html">Solicitar asesoría</a>
+        <!-- ============ 1 · HERO (dos columnas de texto) ============ -->
+        <section class="ui-hero" aria-labelledby="ui-cat-title">
+          <div class="ui-split ui-split--top">
+            <div class="ui-split-copy">
+              <nav class="breadcrumbs" aria-label="Ruta de navegación">
+                <a href="index.html">Inicio</a><span>/</span><span>Categorías</span>
+              </nav>
+              <p class="eyebrow">Categorías</p>
+              <h1 class="ui-display" id="ui-cat-title">Categorías claras para encontrar la solución correcta.</h1>
+              <p class="ui-lead">Organizamos el portafolio para que cada cliente identifique rápido si necesita equipos, soporte o componentes específicos según su operación, consumo y nivel técnico.</p>
+              <div class="ui-actions">
+                <a class="button button-primary" href="contacto.html">Solicitar asesoría <span aria-hidden="true">→</span></a>
+                <a class="button button-secondary" href="soluciones.html">Ver soluciones</a>
+              </div>
+            </div>
+            <div data-reveal>
+              <h2 class="ui-h2 ui-h2--sm">Cómo se organiza</h2>
+              <ul class="ui-list ui-list--plain">
+                <li class="ui-list-item">
+                  <div>
+                    <h3 class="ui-list-title">Equipos principales</h3>
+                    <p class="ui-list-text">Primero las categorías de mayor impacto industrial y comercial.</p>
+                  </div>
+                </li>
+                <li class="ui-list-item">
+                  <div>
+                    <h3 class="ui-list-title">Soporte y continuidad</h3>
+                    <p class="ui-list-text">Luego postventa, repuestos y respaldo técnico para sostener rendimiento.</p>
+                  </div>
+                </li>
+                <li class="ui-list-item">
+                  <div>
+                    <h3 class="ui-list-title">Componentes técnicos</h3>
+                    <p class="ui-list-text">Membranas, UV, ozono y medios filtrantes para necesidades más específicas.</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ 2 · LAS SEIS CATEGORÍAS ============ -->
+        <section class="ui-catalog" aria-labelledby="ui-portafolio-title">
+          <div class="ui-catalog-inner">
+            <header class="ui-catalog-head" data-reveal>
+              <div>
+                <p class="ui-kicker">Catálogo</p>
+                <h2 class="ui-h2 ui-h2--sm" id="ui-portafolio-title">Portafolio organizado</h2>
+              </div>
+            </header>
+            <div class="ui-card-grid ui-card-grid--3">
+              <a class="ui-card" href="equipos-industriales.html" data-reveal>
+                <span class="ui-card-media ui-card-media--16x9">
+                  <img src="assets/fotos/industria-filtracion.jpg" alt="Tren de filtración industrial sobre estructura" width="1600" height="1200" loading="lazy" decoding="async" />
+                </span>
+                <span class="ui-card-body">
+                  <span class="ui-card-title">Equipos industriales</span>
+                  <span class="ui-card-text">Sistemas de alto flujo y configuraciones para procesos complejos.</span>
+                  <span class="ui-card-cta">Abrir página <span aria-hidden="true">→</span></span>
+                </span>
+              </a>
+              <a class="ui-card" href="equipos-comerciales.html" data-reveal>
+                <span class="ui-card-media ui-card-media--16x9">
+                  <img src="assets/fotos/comercial-restaurante.jpg" alt="Filtración instalada bajo el lavadero de un restaurante" width="1600" height="1200" loading="lazy" decoding="async" />
+                </span>
+                <span class="ui-card-body">
+                  <span class="ui-card-title">Equipos comerciales</span>
+                  <span class="ui-card-text">Soluciones listas para negocios con necesidad de continuidad.</span>
+                  <span class="ui-card-cta">Abrir página <span aria-hidden="true">→</span></span>
+                </span>
+              </a>
+              <a class="ui-card" href="repuestos-soporte.html" data-reveal>
+                <span class="ui-card-media ui-card-media--16x9">
+                  <img src="assets/fotos/repuestos-equipo.jpg" alt="Equipo de ósmosis inversa de tres etapas" width="1600" height="1200" loading="lazy" decoding="async" />
+                </span>
+                <span class="ui-card-body">
+                  <span class="ui-card-title">Repuestos y soporte</span>
+                  <span class="ui-card-text">Mantenimiento, consumibles y postventa para sostener rendimiento.</span>
+                  <span class="ui-card-cta">Abrir página <span aria-hidden="true">→</span></span>
+                </span>
+              </a>
+              <a class="ui-card" href="membranas-ro-uf.html" data-reveal>
+                <span class="ui-card-media ui-card-media--16x9">
+                  <img src="assets/fotos/membranas-01.jpg" alt="Membrana de ósmosis inversa" width="1600" height="1200" loading="lazy" decoding="async" />
+                </span>
+                <span class="ui-card-body">
+                  <span class="ui-card-title">Membranas RO y UF</span>
+                  <span class="ui-card-text">Procesos de separación, rendimiento y calidad de agua resultante.</span>
+                  <span class="ui-card-cta">Abrir página <span aria-hidden="true">→</span></span>
+                </span>
+              </a>
+              <a class="ui-card" href="uv-ozono.html" data-reveal>
+                <span class="ui-card-media ui-card-media--16x9">
+                  <img src="assets/fotos/uv-ozono-instalacion.jpg" alt="Esterilizador ultravioleta y generador de ozono instalados" width="1600" height="1200" loading="lazy" decoding="async" />
+                </span>
+                <span class="ui-card-body">
+                  <span class="ui-card-title">Sistemas UV y ozono</span>
+                  <span class="ui-card-text">Desinfección avanzada para elevar seguridad microbiológica.</span>
+                  <span class="ui-card-cta">Abrir página <span aria-hidden="true">→</span></span>
+                </span>
+              </a>
+              <a class="ui-card" href="cargas-filtrantes.html" data-reveal>
+                <span class="ui-card-media ui-card-media--16x9">
+                  <img src="assets/fotos/cargas-medios.jpg" alt="Saco de carbón activado para cargas filtrantes" width="1600" height="1200" loading="lazy" decoding="async" />
+                </span>
+                <span class="ui-card-body">
+                  <span class="ui-card-title">Cargas filtrantes</span>
+                  <span class="ui-card-text">Aplicaciones, beneficios y tipo de medios disponibles.</span>
+                  <span class="ui-card-cta">Abrir página <span aria-hidden="true">→</span></span>
+                </span>
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ 3 · POR QUÉ ESTA ORGANIZACIÓN ============ -->
+        <section class="ui-section" aria-label="Ventajas de esta organización">
+          <ul class="ui-facts">
+            <li class="ui-fact" data-reveal>
+              <strong class="ui-fact-title">Ruta más clara</strong>
+              <span class="ui-fact-text">Cada categoría ayuda a filtrar mejor la necesidad del cliente.</span>
+            </li>
+            <li class="ui-fact" data-reveal>
+              <strong class="ui-fact-title">Enfoque comercial</strong>
+              <span class="ui-fact-text">Industrial primero, luego comercial y después componentes clave.</span>
+            </li>
+            <li class="ui-fact" data-reveal>
+              <strong class="ui-fact-title">Decisión más rápida</strong>
+              <span class="ui-fact-text">Menos confusión y mejor camino hacia una cotización útil.</span>
+            </li>
+          </ul>
+        </section>
+
+        <!-- ============ 4 · CTA ============ -->
+        <section class="ui-cta" aria-labelledby="ui-cta-title">
+          <div class="ui-cta-inner">
+            <div class="ui-cta-copy" data-reveal>
+              <p class="ui-kicker">Portafolio</p>
+              <h2 class="ui-cta-title" id="ui-cta-title">Categorías claras para encontrar la solución correcta.</h2>
+            </div>
+            <div class="ui-cta-actions" data-reveal>
+              <a class="button button-primary" href="contacto.html">Solicitar asesoría <span aria-hidden="true">→</span></a>
               <a class="button button-secondary" href="soluciones.html">Ver soluciones</a>
             </div>
-            <div class="page-panel-band">
-              <article><strong>Ruta más clara</strong><span>Cada categoría ayuda a filtrar mejor la necesidad del cliente.</span></article>
-              <article><strong>Enfoque comercial</strong><span>Industrial primero, luego comercial y después componentes clave.</span></article>
-              <article><strong>Decisión más rápida</strong><span>Menos confusión y mejor camino hacia una cotización útil.</span></article>
-            </div>
           </div>
-          <aside class="page-side-card">
-            <img src="assets/categories/category-industrial.jpg" alt="Portafolio de categorías Water Tech" class="side-visual" />
-            <h2 class="side-title">Cómo se organiza</h2>
-            <ul class="side-list side-list-rich">
-              <li><span class="side-list-icon" aria-hidden="true"><svg viewBox="0 0 24 24" role="presentation" focusable="false"><path d="M3 20h18v1.8H3V20Zm2-2.6h3.4V9.5H5v7.9Zm5.3 0h3.4V4h-3.4v13.4Zm5.3 0H19v-5.2h-3.4v5.2Z"/></svg></span><div><strong>Equipos principales</strong><span>Primero las categorías de mayor impacto industrial y comercial.</span></div></li>
-              <li><span class="side-list-icon" aria-hidden="true"><svg viewBox="0 0 24 24" role="presentation" focusable="false"><path d="m21 7.5-4.2-.6L14.9 3 11 6.9l-4.8 4.8 3.3 3.3-4.2 4.2 1.4 1.4 4.2-4.2 3.3 3.3 4.8-4.8L23 11.1l-3.9-3.6Zm-7.1 9.3-6.2-6.2 4.8-4.8 6.2 6.2-4.8 4.8Z"/></svg></span><div><strong>Soporte y continuidad</strong><span>Luego postventa, repuestos y respaldo técnico para sostener rendimiento.</span></div></li>
-              <li><span class="side-list-icon" aria-hidden="true"><svg viewBox="0 0 24 24" role="presentation" focusable="false"><path d="M12 2c3.1 4 6 7.3 6 11a6 6 0 1 1-12 0c0-3.7 2.9-7 6-11Zm0 14.2a3.2 3.2 0 0 0 3.2-3.2c0-.5-.1-.9-.3-1.3-.7 1-1.8 1.7-3 1.7-1.2 0-2.3-.7-3-1.7-.2.4-.3.8-.3 1.3a3.2 3.2 0 0 0 3.2 3.2Z"/></svg></span><div><strong>Componentes técnicos</strong><span>Membranas, UV, ozono y medios filtrantes para necesidades más específicas.</span></div></li>
-            </ul>
-          </aside>
-        </section>
-        <section class="category-grid">
-          <a class="category-card card-link" href="equipos-industriales.html">
-            <div class="category-card-media">
-              <img src="assets/categories/category-industrial.jpg" alt="Equipos industriales Water Tech" />
-            </div>
-            <h3>Equipos industriales</h3>
-            <p>Sistemas de alto flujo y configuraciones para procesos complejos.</p>
-            <span class="card-cta">Abrir página</span>
-          </a>
-          <a class="category-card card-link" href="equipos-comerciales.html">
-            <div class="category-card-media">
-              <img src="assets/categories/category-comercial.png" alt="Equipos comerciales Water Tech" />
-            </div>
-            <h3>Equipos comerciales</h3>
-            <p>Soluciones listas para negocios con necesidad de continuidad.</p>
-            <span class="card-cta">Abrir página</span>
-          </a>
-          <a class="category-card card-link" href="repuestos-soporte.html">
-            <div class="category-card-media">
-              <img src="assets/categories/category-soporte.png" alt="Repuestos y soporte Water Tech" />
-            </div>
-            <h3>Repuestos y soporte</h3>
-            <p>Mantenimiento, consumibles y postventa para sostener rendimiento.</p>
-            <span class="card-cta">Abrir página</span>
-          </a>
-          <a class="category-card card-link" href="membranas-ro-uf.html">
-            <div class="category-card-media">
-              <img src="assets/categories/category-membranas.jpeg" alt="Membranas RO y UF Water Tech" />
-            </div>
-            <h3>Membranas RO y UF</h3>
-            <p>Procesos de separación, rendimiento y calidad de agua resultante.</p>
-            <span class="card-cta">Abrir página</span>
-          </a>
-          <a class="category-card card-link" href="uv-ozono.html">
-            <div class="category-card-media">
-              <img src="assets/categories/category-uv.png" alt="Sistemas UV y ozono Water Tech" />
-            </div>
-            <h3>Sistemas UV y ozono</h3>
-            <p>Desinfección avanzada para elevar seguridad microbiológica.</p>
-            <span class="card-cta">Abrir página</span>
-          </a>
-          <a class="category-card card-link" href="cargas-filtrantes.html">
-            <div class="category-card-media">
-              <img src="assets/categories/category-cargas.jpg" alt="Cargas filtrantes Water Tech" />
-            </div>
-            <h3>Cargas filtrantes</h3>
-            <p>Aplicaciones, beneficios y tipo de medios disponibles.</p>
-            <span class="card-cta">Abrir página</span>
-          </a>
         </section>
       </main>
     </div>

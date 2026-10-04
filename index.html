@@ -3,6 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="favicon.ico" sizes="any" />
+    <link rel="apple-touch-icon" href="favicon-512.png" />
     <title>Water Tech | Soluciones en Tratamiento de Agua</title>
     <meta
       name="description"
@@ -11,176 +13,733 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Outfit:wght@600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Outfit:wght@300;400;500;600&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="pages.css" />
     <link rel="stylesheet" href="home.css" />
+    <!-- Marca el estado previo a la animación antes del primer pintado, para
+         que el text reveal no provoque un flash. Si no hay JS, si el usuario
+         pidió movimiento reducido o si GSAP no cargara, se retira sola. -->
+    <script>
+      (function () {
+        var d = document.documentElement;
+        if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+        if (window.matchMedia("(hover: none)").matches) return;
+        d.classList.add("wt-anim");
+        window.__wtMotionReady = false;
+        window.setTimeout(function () {
+          if (!window.__wtMotionReady) d.classList.remove("wt-anim");
+        }, 2000);
+      })();
+    </script>
   </head>
   <body class="home-redesign">
     <div class="site-shell">
-      <header class="topbar">
-        <a class="brand" href="#inicio" aria-label="Water Tech inicio">
-          <img src="logo-watertech.png" alt="Water Tech" class="brand-logo" />
-        </a>
-        <nav class="nav">
-          <div class="nav-item">
-            <a href="soluciones.html">Soluciones</a>
-            <div class="dropdown-menu">
-              <a href="industrial.html">Industrial</a>
-              <a href="comercial.html">Comercial</a>
-              <a href="residencial.html">Residencial</a>
+      <header class="topbar wt-header">
+          <a class="brand" href="index.html" aria-label="Water Tech inicio">
+            <img src="assets/home-v2/logo-watertech.png" alt="Water Tech" class="brand-logo" />
+          </a>
+          <nav class="nav wt-nav" aria-label="Navegación principal">
+            <div class="nav-item">
+              <a href="soluciones.html">Soluciones</a>
+              <div class="dropdown-menu">
+                <a href="industrial.html">Industrial</a>
+                <a href="comercial.html">Comercial</a>
+                <a href="residencial.html">Residencial</a>
+              </div>
             </div>
-          </div>
-          <div class="nav-item">
-            <a href="categorias.html">Categorías</a>
-            <div class="dropdown-menu dropdown-menu-wide">
-              <a href="equipos-industriales.html">Equipos industriales</a>
-              <a href="equipos-comerciales.html">Equipos comerciales</a>
-              <a href="repuestos-soporte.html">Repuestos y soporte</a>
-              <a href="membranas-ro-uf.html">Membranas RO y UF</a>
-              <a href="uv-ozono.html">UV y ozono</a>
-              <a href="cargas-filtrantes.html">Cargas filtrantes</a>
+            <div class="nav-item">
+              <a href="categorias.html">Categorías</a>
+              <div class="dropdown-menu dropdown-menu-wide">
+                <a href="equipos-industriales.html">Equipos industriales</a>
+                <a href="equipos-comerciales.html">Equipos comerciales</a>
+                <a href="repuestos-soporte.html">Repuestos y soporte</a>
+                <a href="membranas-ro-uf.html">Membranas RO y UF</a>
+                <a href="uv-ozono.html">UV y ozono</a>
+                <a href="cargas-filtrantes.html">Cargas filtrantes</a>
+              </div>
             </div>
-          </div>
-          <div class="nav-item">
-            <a href="ventajas.html">Ventajas</a>
-            <div class="dropdown-menu">
-              <a href="ventajas.html">Por qué elegirnos</a>
-              <a href="contacto.html">Solicitar asesoría</a>
+            <div class="nav-item">
+              <a href="ventajas.html">Ventajas</a>
+              <div class="dropdown-menu">
+                <a href="ventajas.html">Por qué elegirnos</a>
+                <a href="contacto.html">Solicitar asesoría</a>
+              </div>
             </div>
-          </div>
-          <div class="nav-item">
-            <a href="contacto.html">Contacto</a>
-            <div class="dropdown-menu">
-              <a href="contacto.html">Sucursales</a>
-              <a href="mailto:info@watertech.com.ec">Correo</a>
-              <a href="tel:+593968467023">Llamar ahora</a>
+            <div class="nav-item">
+              <a href="contacto.html">Contacto</a>
+              <div class="dropdown-menu">
+                <a href="contacto.html">Sucursales</a>
+                <a href="mailto:info@watertech.com.ec">Correo</a>
+                <a href="tel:+593968467023">Llamar ahora</a>
+              </div>
             </div>
-          </div>
-        </nav>
-        <a class="button button-ghost" href="contacto.html">Cotizar</a>
+          </nav>
+          <a class="button button-ghost wt-header-cta" href="contacto.html">
+            Cotizar <span class="wt-arrow" aria-hidden="true">→</span>
+          </a>
       </header>
 
       <main id="inicio">
+        <!-- ============ HERO ============ -->
         <section class="wt-hero" aria-labelledby="hero-title">
-          <img class="wt-hero-photo" src="assets/categories/category-industrial.jpg" alt="Instalación de tratamiento de agua Water Tech" fetchpriority="high" />
-          <div class="wt-container wt-hero-content">
-            <p class="wt-kicker">Water Tech / Ingeniería en tratamiento de agua</p>
-            <h1 id="hero-title">El agua que<br />tu industria<br /><em>necesita.</em></h1>
-            <p class="wt-hero-description">Soluciones de tratamiento de agua.<br />Respaldo técnico de principio a fin.</p>
-            <div class="wt-actions">
-              <a class="button button-primary" href="#contacto">Solicitar cotización <span aria-hidden="true">↗</span></a>
-              <a class="wt-text-link" href="categorias.html">Explorar catálogo <span aria-hidden="true">→</span></a>
-            </div>
-          </div>
-          <div class="wt-hero-bottom wt-container"><span>Industria. Comercio. Hogar.</span><a href="#soluciones">Conoce nuestras soluciones ↓</a></div>
-        </section>
-        <section class="wt-proof" aria-label="Respaldo Water Tech">
-          <div class="wt-container wt-proof-grid">
-            <div><span>01 / Ingeniería</span><strong>Selección técnica</strong></div>
-            <div><span>02 / Equipamiento</span><strong>Soluciones integradas</strong></div>
-            <div><span>03 / Acompañamiento</span><strong>Soporte y repuestos</strong></div>
-            <a href="ventajas.html">Conoce Water Tech <span aria-hidden="true">↗</span></a>
-          </div>
-        </section>
-        <section class="wt-band" id="soluciones">
-          <div class="wt-container">
-            <div class="wt-heading"><div><p class="wt-kicker">Soluciones por sector</p><h2>Una solución para<br />cada exigencia.</h2></div><p>Desde tu operación industrial<br />hasta el agua de tu hogar.</p></div>
-            <div class="wt-solutions">
-              <a class="wt-solution" href="industrial.html">
-                <div class="wt-solution-photo"><img src="assets/solutions/solution-industrial.png" alt="Solución industrial Water Tech" loading="lazy" /><span class="wt-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21V9l6 3V7l6 3V3h5v18H3Z"/><path d="M7 16v2m5-2v2m5-2v2"/></svg></span></div>
-                <div class="wt-solution-copy"><span class="wt-kicker">01 / Industrial</span><h3>Agua a la altura de tu operación.</h3><p>Plantas, procesos y tratamiento a medida.</p><span class="wt-card-link">Ver soluciones <span aria-hidden="true">↗</span></span></div>
-              </a>
-              <a class="wt-solution" href="comercial.html">
-                <div class="wt-solution-photo"><img src="assets/solutions/solution-comercial.png" alt="Solución comercial Water Tech" loading="lazy" /><span class="wt-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10h16v11H4zM3 10l2-7h14l2 7M9 21v-7h6v7"/></svg></span></div>
-                <div class="wt-solution-copy"><span class="wt-kicker">02 / Comercial</span><h3>Confianza para tu negocio.</h3><p>Equipos para servicios y consumo continuo.</p><span class="wt-card-link">Ver soluciones <span aria-hidden="true">↗</span></span></div>
-              </a>
-              <a class="wt-solution" href="residencial.html">
-                <div class="wt-solution-photo"><img src="assets/solutions/solution-residencial.png" alt="Solución residencial Water Tech" loading="lazy" /><span class="wt-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 10 9-7 9 7M5 9v12h14V9M9 21v-7h6v7"/></svg></span></div>
-                <div class="wt-solution-copy"><span class="wt-kicker">03 / Residencial</span><h3>Bienestar que empieza en casa.</h3><p>Purificación práctica para todos los días.</p><span class="wt-card-link">Ver soluciones <span aria-hidden="true">↗</span></span></div>
-              </a></div>
-          </div>
-        </section>
-        <section class="wt-band wt-catalog" id="categorias">
-          <div class="wt-container">
-            <div class="wt-heading"><div><p class="wt-kicker">Nuestro portafolio</p><h2>Tecnología para<br />cada etapa del agua.</h2></div><a class="wt-text-link" href="categorias.html">Ver todas las categorías ↗</a></div>
-            <div class="wt-products"><a class="wt-product" href="equipos-industriales.html"><img src="assets/categories/category-industrial.jpg" alt="Equipos industriales Water Tech" loading="lazy" /><div><span class="wt-product-number">01</span><h3>Equipos industriales</h3><span aria-hidden="true">↗</span></div></a><a class="wt-product" href="equipos-comerciales.html"><img src="assets/categories/category-comercial.png" alt="Equipos comerciales Water Tech" loading="lazy" /><div><span class="wt-product-number">02</span><h3>Equipos comerciales</h3><span aria-hidden="true">↗</span></div></a><a class="wt-product" href="repuestos-soporte.html"><img src="assets/categories/category-soporte.png" alt="Repuestos y soporte Water Tech" loading="lazy" /><div><span class="wt-product-number">03</span><h3>Repuestos y soporte</h3><span aria-hidden="true">↗</span></div></a><a class="wt-product" href="membranas-ro-uf.html"><img src="assets/categories/category-membranas.jpeg" alt="Membranas RO y UF Water Tech" loading="lazy" /><div><span class="wt-product-number">04</span><h3>Membranas RO y UF</h3><span aria-hidden="true">↗</span></div></a><a class="wt-product" href="uv-ozono.html"><img src="assets/categories/category-uv.png" alt="UV y ozono Water Tech" loading="lazy" /><div><span class="wt-product-number">05</span><h3>UV y ozono</h3><span aria-hidden="true">↗</span></div></a><a class="wt-product" href="cargas-filtrantes.html"><img src="assets/categories/category-cargas.jpg" alt="Cargas filtrantes Water Tech" loading="lazy" /><div><span class="wt-product-number">06</span><h3>Cargas filtrantes</h3><span aria-hidden="true">↗</span></div></a></div>
-          </div>
-        </section>
-        <section class="wt-band wt-support" id="ventajas">
-          <div class="wt-container wt-support-grid">
-            <div class="wt-support-photo"><img src="assets/home/home-hero-general.png" alt="Tratamiento industrial de agua y acompañamiento comercial" loading="lazy" /></div>
-            <div><p class="wt-kicker">El respaldo hace la diferencia</p><h2>No solo equipos.<br />Un equipo contigo.</h2><p>Te acompañamos en la selección, instalación y mantenimiento de tu sistema.</p>
-              <ul class="wt-support-list"><li><span>01</span> Asesoría para tu aplicación</li><li><span>02</span> Equipos y componentes</li><li><span>03</span> Mantenimiento y postventa</li></ul>
-              <a class="button button-primary" href="contacto.html">Hablar con un asesor ↗</a>
-            </div>
-          </div>
-        </section>
-        <section class="wt-band wt-contact" id="contacto">
-          <div class="wt-container">
-            <div class="wt-heading"><div><p class="wt-kicker">Hablemos de tu proyecto</p><h2>Tu próxima solución<br />empieza aquí.</h2></div><a class="wt-text-link" href="https://wa.me/593968467023" target="_blank" rel="noopener noreferrer">Escríbenos por WhatsApp ↗</a></div>
-            <div class="wt-form">            <form
-              id="contact-form"
-              class="contact-form"
-              data-contact-form
-              data-endpoint="https://script.google.com/macros/s/AKfycbyByOQZg2dQwa7C_HRyq-Osilry9Mx1g-S6SOXl65sD4JmxaDAMNF_U2qS5h12kEIUa/exec"
+          <div class="wt-hero-bg" aria-hidden="true">
+            <video
+              class="wt-hero-bg-video"
+              autoplay
+              muted
+              loop
+              playsinline
+              preload="auto"
+              poster="assets/video/hero-agua-fondo-poster.jpg"
             >
-              <div class="form-grid">
-                <label class="form-field">
-                  <span>Nombre completo</span>
-                  <input type="text" name="nombre" placeholder="Tu nombre" required />
-                </label>
-                <label class="form-field">
-                  <span>Empresa o negocio</span>
-                  <input type="text" name="empresa" placeholder="Nombre de tu empresa" />
-                </label>
-                <label class="form-field">
-                  <span>Correo electrónico</span>
-                  <input type="email" name="correo" placeholder="nombre@empresa.com" required />
-                </label>
-                <label class="form-field">
-                  <span>Teléfono</span>
-                  <input type="tel" name="telefono" placeholder="+593..." required />
-                </label>
-                <label class="form-field">
-                  <span>Ciudad</span>
-                  <input type="text" name="ciudad" placeholder="Quito, Santo Domingo..." />
-                </label>
-                <label class="form-field">
-                  <span>Interés principal</span>
-                  <select name="interes" required>
-                    <option value="">Selecciona una opción</option>
-                    <option value="Industrial">Industrial</option>
-                    <option value="Comercial">Comercial</option>
-                    <option value="Residencial">Residencial</option>
-                    <option value="Repuestos y soporte">Repuestos y soporte</option>
-                  </select>
-                </label>
-                <label class="form-field form-field-full">
-                  <span>Mensaje</span>
-                  <textarea
-                    name="mensaje"
-                    rows="3"
-                    placeholder="Cuéntanos qué equipo o solución necesitas."
-                    required
-                  ></textarea>
-                </label>
-              </div>
-              <div class="form-actions">
-                <button class="button button-primary" type="submit" id="contact-form-submit">
-                  Enviar solicitud
-                </button>
-                <p class="form-helper">
-                  Usaremos tus datos para atender tu solicitud y contactarte sobre tu proyecto.
+              <source src="assets/video/hero-agua-fondo.mp4" type="video/mp4" />
+            </video>
+          </div>
+          <div class="wt-hero-wave" aria-hidden="true">
+            <canvas id="wt-wave"></canvas>
+          </div>
+          <div class="wt-hero-ring" aria-hidden="true">
+            <svg class="wt-hero-ring-clip" aria-hidden="true" focusable="false">
+              <defs>
+                <clipPath id="wt-donut-clip" clipPathUnits="objectBoundingBox">
+                  <path
+                    clip-rule="evenodd"
+                    d="M0.5,0 A0.5,0.5 0 1 1 0.5,1 A0.5,0.5 0 1 1 0.5,0 Z M0.5,0.243 A0.257,0.257 0 1 1 0.5,0.757 A0.257,0.257 0 1 1 0.5,0.243 Z"
+                  />
+                </clipPath>
+              </defs>
+            </svg>
+            <div class="wt-hero-ring-media">
+              <video
+                class="wt-hero-ring-video"
+                autoplay
+                muted
+                loop
+                playsinline
+                preload="auto"
+                poster="assets/video/hero-agua-dona-poster.jpg"
+              >
+                <source src="assets/video/hero-agua-dona.mp4" type="video/mp4" />
+              </video>
+            </div>
+            <div class="wt-hero-ring-bubbles">
+              <video
+                class="wt-hero-ring-bubbles-video"
+                autoplay
+                muted
+                loop
+                playsinline
+                preload="auto"
+              >
+                <source src="assets/video/hero-agua-burbujas.mp4" type="video/mp4" />
+              </video>
+            </div>
+          </div>
+          <div class="wt-hero-in">
+            <p class="wt-kicker" data-hero-fade>
+              Water Tech · Ingeniería en tratamiento de agua
+            </p>
+            <h1 class="wt-display" id="hero-title">
+              <span class="wt-line"><span>El agua que</span></span>
+              <span class="wt-line"><span>tu <strong>industria</strong></span></span>
+              <span class="wt-line wt-line--accent"><span>necesita.</span></span>
+            </h1>
+            <p class="wt-hero-sub" data-hero-fade>
+              Soluciones de tratamiento de agua para industria, comercio y hogar.
+              Respaldo técnico de principio a fin.
+            </p>
+            <div class="wt-hero-actions" data-hero-fade>
+              <a class="wt-btn" href="contacto.html">
+                Solicitar cotización <span class="wt-arrow" aria-hidden="true">→</span>
+              </a>
+              <a class="wt-link" href="categorias.html">
+                Explorar catálogo <span class="wt-arrow" aria-hidden="true">→</span>
+              </a>
+            </div>
+            <div class="wt-hero-foot" data-hero-fade>
+              <span>Industria · Comercio · Hogar</span>
+              <span>Ecuador</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ BANDA DE ESPECIALIDADES ============ -->
+        <div class="wt-marquee" aria-hidden="true">
+          <div class="wt-marquee-track">
+            <span class="wt-marquee-item">Ósmosis inversa</span>
+            <span class="wt-marquee-item">Ultrafiltración</span>
+            <span class="wt-marquee-item">Desinfección UV</span>
+            <span class="wt-marquee-item">Generación de ozono</span>
+            <span class="wt-marquee-item">Cargas filtrantes</span>
+            <span class="wt-marquee-item">Plantas de tratamiento</span>
+            <span class="wt-marquee-item">Ósmosis inversa</span>
+            <span class="wt-marquee-item">Ultrafiltración</span>
+            <span class="wt-marquee-item">Desinfección UV</span>
+            <span class="wt-marquee-item">Generación de ozono</span>
+            <span class="wt-marquee-item">Cargas filtrantes</span>
+            <span class="wt-marquee-item">Plantas de tratamiento</span>
+          </div>
+        </div>
+
+        <!-- ============ INTRODUCCIÓN EDITORIAL ============ -->
+        <section class="wt-section wt-intro" aria-labelledby="intro-title">
+          <div class="wt-container">
+            <div class="wt-intro-grid">
+              <div class="wt-intro-aside">
+                <p class="wt-kicker" data-reveal>Quiénes somos</p>
+                <p data-reveal>
+                  Importadores directos y fabricantes de soluciones de tratamiento
+                  de agua. Selección técnica, equipamiento y acompañamiento.
                 </p>
               </div>
-              <p class="form-status" id="contact-form-status" aria-live="polite"></p>
-            </form></div>
+              <div>
+                <h2 class="wt-intro-lead" id="intro-title">
+                  <span class="wt-line"><span>Diseñamos,</span></span>
+                  <span class="wt-line"><span>instalamos y</span></span>
+                  <span class="wt-line"><span><strong>mantenemos</strong> el</span></span>
+                  <span class="wt-line"><span>agua de tu operación.</span></span>
+                </h2>
+              </div>
+            </div>
+
+            <div class="wt-intro-points">
+              <article class="wt-point" data-reveal>
+                <span class="wt-point-num">01</span>
+                <h3>Selección técnica</h3>
+                <p>
+                  Analizamos tu fuente de agua y tu proceso para dimensionar el
+                  equipo correcto, sin sobredimensionar.
+                </p>
+              </article>
+              <article class="wt-point" data-reveal>
+                <span class="wt-point-num">02</span>
+                <h3>Equipamiento integrado</h3>
+                <p>
+                  Filtración, membranas, desinfección y cargas filtrantes en un
+                  solo sistema, con repuestos disponibles.
+                </p>
+              </article>
+              <article class="wt-point" data-reveal>
+                <span class="wt-point-num">03</span>
+                <h3>Soporte y postventa</h3>
+                <p>
+                  Instalación, mantenimiento y acompañamiento continuo en todo el
+                  Ecuador.
+                </p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ SECTORES ============ -->
+        <section class="wt-section wt-sectors" id="soluciones" aria-labelledby="sectores-title">
+          <div class="wt-container">
+            <div class="wt-sectors-head">
+              <div>
+                <p class="wt-kicker" data-reveal>Soluciones por sector</p>
+                <h2 class="wt-h2" id="sectores-title">
+                  <span class="wt-line"><span>Una solución</span></span>
+                  <span class="wt-line"><span>para cada exigencia.</span></span>
+                </h2>
+              </div>
+              <p data-reveal>
+                Desde una planta de proceso continuo hasta el agua de tu cocina.
+                Misma ingeniería, distinta escala.
+              </p>
+            </div>
+
+            <div class="wt-sectors-grid">
+              <a class="wt-sector wt-sector--lead" href="industrial.html" data-sector>
+                <span class="wt-sector-figure">
+                  <img
+                    src="assets/industrial/planta-industrial.jpg"
+                    alt="Sistema de tratamiento de agua instalado en planta industrial"
+                    width="1400"
+                    height="933"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <span class="wt-sector-index">01 / Industrial</span>
+                </span>
+                <span class="wt-sector-body">
+                  <div>
+                    <span class="wt-kicker">Industrial</span>
+                    <h3 class="wt-h3">Agua a la altura de tu operación.</h3>
+                  </div>
+                  <div>
+                    <p>
+                      Plantas de tratamiento, procesos continuos y sistemas a
+                      medida para caudales exigentes.
+                    </p>
+                    <span class="wt-link wt-link--ink">
+                      Ver soluciones <span class="wt-arrow" aria-hidden="true">→</span>
+                    </span>
+                  </div>
+                </span>
+              </a>
+
+              <a class="wt-sector" href="comercial.html" data-sector>
+                <span class="wt-sector-figure">
+                  <img
+                    src="assets/home-v2/sector-comercial.jpg"
+                    alt="Sistema de filtración instalado en la cocina de un restaurante"
+                    width="1000"
+                    height="1500"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <span class="wt-sector-index">02 / Comercial</span>
+                </span>
+                <div class="wt-sector-body">
+                  <span class="wt-kicker">Comercial</span>
+                  <h3 class="wt-h3">Confianza para tu negocio.</h3>
+                  <p>
+                    Equipos para restaurantes, alimentos, laboratorios y servicios
+                    con consumo continuo.
+                  </p>
+                  <span class="wt-link wt-link--ink">
+                    Ver soluciones <span class="wt-arrow" aria-hidden="true">→</span>
+                  </span>
+                </div>
+              </a>
+
+              <a class="wt-sector" href="residencial.html" data-sector>
+                <span class="wt-sector-figure">
+                  <img
+                    src="assets/home-v2/sector-residencial.jpg"
+                    alt="Sistema de ósmosis inversa instalado bajo el lavabo de una cocina"
+                    width="1500"
+                    height="1000"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <span class="wt-sector-index">03 / Residencial</span>
+                </span>
+                <div class="wt-sector-body">
+                  <span class="wt-kicker">Residencial</span>
+                  <h3 class="wt-h3">Bienestar que empieza en casa.</h3>
+                  <p>
+                    Purificación práctica para el consumo diario, con instalación
+                    y mantenimiento incluidos.
+                  </p>
+                  <span class="wt-link wt-link--ink">
+                    Ver soluciones <span class="wt-arrow" aria-hidden="true">→</span>
+                  </span>
+                </div>
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <!-- Ancla de continuidad: la Fase 2 construye aquí las secciones
+             de tecnología, proyectos, catálogo y contacto. -->
+        <!-- ============ LO QUE HACEMOS ============ -->
+        <section class="wt-section wt-work" aria-labelledby="work-title">
+          <div class="wt-container">
+            <div class="wt-work-grid">
+              <div>
+                <p class="wt-kicker" data-reveal>Lo que hacemos</p>
+                <h2 class="wt-h2" id="work-title">
+                  <span class="wt-line"><span>Del análisis del agua</span></span>
+                  <span class="wt-line"><span>al equipo</span></span>
+                  <span class="wt-line"><span><strong>funcionando</strong>.</span></span>
+                </h2>
+                <p class="wt-work-lead" data-reveal>
+                  Analizamos tu fuente, dimensionamos el sistema y nos hacemos
+                  cargo del montaje, la puesta en marcha y el mantenimiento.
+                </p>
+
+                <ol class="wt-work-list">
+                  <li class="wt-work-item" data-reveal>
+                    <span class="wt-work-num">01</span>
+                    <div>
+                      <h3>Análisis y dimensionamiento</h3>
+                      <p>
+                        Estudiamos tu fuente de agua y tu proceso para definir
+                        caudal, calidad y tecnología, sin sobredimensionar.
+                      </p>
+                    </div>
+                  </li>
+                  <li class="wt-work-item" data-reveal>
+                    <span class="wt-work-num">02</span>
+                    <div>
+                      <h3>Diseño y equipamiento</h3>
+                      <p>
+                        Filtración, membranas, desinfección y cargas filtrantes
+                        integradas en un solo sistema, con repuestos disponibles.
+                      </p>
+                    </div>
+                  </li>
+                  <li class="wt-work-item" data-reveal>
+                    <span class="wt-work-num">03</span>
+                    <div>
+                      <h3>Montaje y puesta en marcha</h3>
+                      <p>
+                        Instalamos, calibramos y dejamos el equipo operando, con
+                        tu personal capacitado para la operación diaria.
+                      </p>
+                    </div>
+                  </li>
+                  <li class="wt-work-item" data-reveal>
+                    <span class="wt-work-num">04</span>
+                    <div>
+                      <h3>Mantenimiento y repuestos</h3>
+                      <p>
+                        Cambio de cargas, membranas y consumibles, con soporte
+                        técnico y stock local en todo el Ecuador.
+                      </p>
+                    </div>
+                  </li>
+                </ol>
+              </div>
+
+              <figure class="wt-work-figure" data-reveal>
+                <img
+                  src="assets/home-fuerte/proceso-cargas-filtrantes.jpg"
+                  alt="Corte de un tanque filtrante con sus capas de grava, antracita y carbón activado"
+                  width="900"
+                  height="1200"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <figcaption>
+                  Cargas filtrantes en capas: grava, antracita y carbón activado
+                  dentro del tanque.
+                </figcaption>
+              </figure>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ PROYECTOS ============ -->
+        <section class="wt-section wt-projects" aria-labelledby="projects-title">
+          <div class="wt-container">
+            <div class="wt-projects-head">
+              <div>
+                <p class="wt-kicker" data-reveal>Proyectos</p>
+                <h2 class="wt-h2" id="projects-title">
+                  <span class="wt-line"><span>Plantas e instalaciones</span></span>
+                  <span class="wt-line"><span>en operación.</span></span>
+                </h2>
+              </div>
+              <p data-reveal>
+                Desde una planta embotelladora completa hasta el sistema de
+                filtración de un local. Todos montados y mantenidos por
+                nuestro equipo.
+              </p>
+            </div>
+
+            <div class="wt-projects-grid">
+              <a class="wt-project wt-project--lead" href="industrial.html" data-project>
+                <span class="wt-project-figure">
+                  <img
+                    src="assets/home-fuerte/proyecto-embotelladora.jpg"
+                    alt="Planta embotelladora en operación, con línea de llenado, ósmosis inversa y desinfección"
+                    width="1500"
+                    height="1000"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </span>
+                <span class="wt-project-body">
+                  <span class="wt-kicker">Industrial</span>
+                  <h3 class="wt-h3">Planta embotelladora completa</h3>
+                  <p>
+                    Tratamiento, desinfección y área de llenado integrados en
+                    una sola instalación.
+                  </p>
+                </span>
+              </a>
+
+              <a class="wt-project" href="industrial.html" data-project>
+                <span class="wt-project-figure">
+                  <img
+                    src="assets/home-fuerte/proyecto-filtracion.jpg"
+                    alt="Tanques de filtración en paralelo: turbidez, green sand, carbón activado y ablandador"
+                    width="1200"
+                    height="914"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </span>
+                <span class="wt-project-body">
+                  <span class="wt-kicker">Industrial</span>
+                  <h3 class="wt-h3">Filtración y acondicionamiento</h3>
+                  <p>
+                    Turbidez, green sand, carbón activado y ablandador
+                    trabajando en paralelo.
+                  </p>
+                </span>
+              </a>
+
+              <a class="wt-project" href="comercial.html" data-project>
+                <span class="wt-project-figure">
+                  <img
+                    src="assets/home-fuerte/proyecto-instalacion.jpg"
+                    alt="Instalación con esterilizador ultravioleta, generador de ozono, bomba y tanque de agua tratada"
+                    width="1600"
+                    height="720"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </span>
+                <span class="wt-project-body">
+                  <span class="wt-kicker">Comercial</span>
+                  <h3 class="wt-h3">Desinfección y almacenamiento</h3>
+                  <p>
+                    Esterilización ultravioleta, generación de ozono y tanque
+                    de agua tratada.
+                  </p>
+                </span>
+              </a>
+
+              <a class="wt-project" href="comercial.html" data-project>
+                <span class="wt-project-figure">
+                  <img
+                    src="assets/home-fuerte/proyecto-llenado.jpg"
+                    alt="Área de enjuague y llenado de garrafones con mesa de acero inoxidable"
+                    width="1200"
+                    height="984"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </span>
+                <span class="wt-project-body">
+                  <span class="wt-kicker">Comercial</span>
+                  <h3 class="wt-h3">Área de enjuague y llenado</h3>
+                  <p>
+                    Mesa de llenado con enjuague y filtro pulidor para
+                    garrafones y botellones.
+                  </p>
+                </span>
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ CATÁLOGO ============ -->
+        <section class="wt-section wt-catalog" id="catalogo" aria-labelledby="catalog-title">
+          <div class="wt-container">
+            <div class="wt-catalog-head">
+              <div>
+                <p class="wt-kicker" data-reveal>Catálogo</p>
+                <h2 class="wt-h2" id="catalog-title">
+                  <span class="wt-line"><span>Equipos e insumos</span></span>
+                  <span class="wt-line"><span>para cada etapa del</span></span>
+                  <span class="wt-line"><span><strong>tratamiento</strong>.</span></span>
+                </h2>
+              </div>
+              <p data-reveal>
+                Seis líneas de producto que van desde la carga filtrante hasta
+                la planta completa, con stock local y repuestos a mano.
+              </p>
+            </div>
+
+            <div class="wt-catalog-grid">
+              <a class="wt-cat" href="equipos-industriales.html" data-reveal>
+                <span class="wt-cat-figure">
+                  <img
+                    src="assets/fotos/industria-equipos.jpg"
+                    alt="Sala de tratamiento con equipos de filtración y desinfección en planta"
+                    width="1600"
+                    height="1200"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </span>
+                <div class="wt-cat-body">
+                  <span class="wt-cat-num">01</span>
+                  <h3 class="wt-h3">Equipos industriales</h3>
+                  <p>Alto caudal y configuración a medida para procesos continuos.</p>
+                  <span class="wt-link wt-link--ink">
+                    Ver categoría <span class="wt-arrow" aria-hidden="true">→</span>
+                  </span>
+                </div>
+              </a>
+
+              <a class="wt-cat" href="equipos-comerciales.html" data-reveal>
+                <span class="wt-cat-figure">
+                  <img
+                    src="assets/categories/category-comercial.png"
+                    alt="Equipo de filtración instalado en la cocina de un negocio"
+                    width="1024"
+                    height="1536"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </span>
+                <div class="wt-cat-body">
+                  <span class="wt-cat-num">02</span>
+                  <h3 class="wt-h3">Equipos comerciales</h3>
+                  <p>Purificación para restaurantes, alimentos, laboratorios y servicios.</p>
+                  <span class="wt-link wt-link--ink">
+                    Ver categoría <span class="wt-arrow" aria-hidden="true">→</span>
+                  </span>
+                </div>
+              </a>
+
+              <a class="wt-cat" href="membranas-ro-uf.html" data-reveal>
+                <span class="wt-cat-figure">
+                  <img
+                    src="assets/categories/category-membranas.jpeg"
+                    alt="Membranas de ósmosis inversa y ultrafiltración"
+                    width="1536"
+                    height="1024"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </span>
+                <div class="wt-cat-body">
+                  <span class="wt-cat-num">03</span>
+                  <h3 class="wt-h3">Membranas RO y UF</h3>
+                  <p>Ósmosis inversa y ultrafiltración con repuestos disponibles.</p>
+                  <span class="wt-link wt-link--ink">
+                    Ver categoría <span class="wt-arrow" aria-hidden="true">→</span>
+                  </span>
+                </div>
+              </a>
+
+              <a class="wt-cat" href="uv-ozono.html" data-reveal>
+                <span class="wt-cat-figure">
+                  <img
+                    src="assets/categories/category-uv.png"
+                    alt="Equipos de desinfección ultravioleta y generación de ozono"
+                    width="1672"
+                    height="941"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </span>
+                <div class="wt-cat-body">
+                  <span class="wt-cat-num">04</span>
+                  <h3 class="wt-h3">UV y ozono</h3>
+                  <p>Desinfección ultravioleta y generación de ozono, sin químicos.</p>
+                  <span class="wt-link wt-link--ink">
+                    Ver categoría <span class="wt-arrow" aria-hidden="true">→</span>
+                  </span>
+                </div>
+              </a>
+
+              <a class="wt-cat" href="cargas-filtrantes.html" data-reveal>
+                <span class="wt-cat-figure">
+                  <img
+                    src="assets/categories/category-cargas.jpg"
+                    alt="Grava, antracita y carbón activado para tanques filtrantes"
+                    width="1536"
+                    height="1024"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </span>
+                <div class="wt-cat-body">
+                  <span class="wt-cat-num">05</span>
+                  <h3 class="wt-h3">Cargas filtrantes</h3>
+                  <p>Grava, antracita, carbón activado y resinas para tus tanques.</p>
+                  <span class="wt-link wt-link--ink">
+                    Ver categoría <span class="wt-arrow" aria-hidden="true">→</span>
+                  </span>
+                </div>
+              </a>
+
+              <a class="wt-cat" href="repuestos-soporte.html" data-reveal>
+                <span class="wt-cat-figure">
+                  <img
+                    src="assets/categories/category-soporte.png"
+                    alt="Repuestos y servicio técnico para equipos de tratamiento de agua"
+                    width="1024"
+                    height="1536"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </span>
+                <div class="wt-cat-body">
+                  <span class="wt-cat-num">06</span>
+                  <h3 class="wt-h3">Repuestos y soporte</h3>
+                  <p>Consumibles, accesorios y servicio técnico para tu equipo.</p>
+                  <span class="wt-link wt-link--ink">
+                    Ver categoría <span class="wt-arrow" aria-hidden="true">→</span>
+                  </span>
+                </div>
+              </a>
+            </div>
+
+            <p class="wt-catalog-foot" data-reveal>
+              <a class="wt-link wt-link--ink" href="categorias.html">
+                Ver el catálogo completo <span class="wt-arrow" aria-hidden="true">→</span>
+              </a>
+            </p>
+          </div>
+        </section>
+
+        <!-- ============ CONTACTO ============ -->
+        <section class="wt-section wt-contact" id="contacto" aria-labelledby="contacto-title">
+          <div class="wt-container">
+            <div class="wt-contact-grid">
+              <div class="wt-contact-main">
+                <p class="wt-kicker" data-reveal>Contacto</p>
+                <h2 class="wt-h2" id="contacto-title">
+                  <span class="wt-line"><span>Cuéntanos qué</span></span>
+                  <span class="wt-line"><span>necesita tu <strong>agua</strong>.</span></span>
+                </h2>
+                <p class="wt-contact-lead" data-reveal>
+                  Revisamos tu caso, dimensionamos el equipo y te enviamos una
+                  propuesta con alternativas, tiempos y respaldo técnico.
+                </p>
+                <div class="wt-contact-actions" data-reveal>
+                  <a class="wt-btn" href="contacto.html">
+                    Solicitar cotización <span class="wt-arrow" aria-hidden="true">→</span>
+                  </a>
+                  <a
+                    class="wt-link"
+                    href="https://wa.me/593968467023"
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    Escribir por WhatsApp <span class="wt-arrow" aria-hidden="true">→</span>
+                  </a>
+                </div>
+              </div>
+
+              <dl class="wt-contact-data" data-reveal>
+                <div>
+                  <dt>Teléfonos</dt>
+                  <dd>
+                    <a href="tel:+593968467023">0968467023</a> ·
+                    <a href="tel:+593987780011">0987780011</a><br />
+                    <a href="tel:+593964118838">0964118838</a> ·
+                    <a href="tel:+593968821837">0968821837</a>
+                  </dd>
+                </div>
+                <div>
+                  <dt>Convencional</dt>
+                  <dd><a href="tel:+59322750203">022750203</a></dd>
+                </div>
+                <div>
+                  <dt>Correo</dt>
+                  <dd><a href="mailto:info@watertech.com.ec">info@watertech.com.ec</a></dd>
+                </div>
+                <div>
+                  <dt>Oficina</dt>
+                  <dd>
+                    Av. de los Tsáchilas 706 y Río Balao, junto al Edificio El
+                    Gigante, Santo Domingo, Ecuador.
+                  </dd>
+                </div>
+              </dl>
+            </div>
           </div>
         </section>
       </main>
     </div>
-    <script src="site.js"></script>
+
+    <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/lenis@1.3.11/dist/lenis.min.js"></script>
+    <script defer src="home-wave.js"></script>
+    <script defer src="home-motion.js"></script>
+    <script defer src="site.js"></script>
   </body>
 </html>
